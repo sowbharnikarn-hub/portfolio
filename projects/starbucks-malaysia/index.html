@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Starbucks Malaysia — Customer Perceived Value &amp; Proposition | Sowbharnika RN</title>
+<meta name="description" content="A study of Starbucks' internal and external Customer Perceived Value in Malaysia, benchmarked against Costa Coffee, with a revised value proposition built from a Value Proposition Canvas." />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Starbucks Malaysia — Customer Perceived Value &amp; Proposition | Sowbharnika RN" />
+<meta property="og:description" content="Benchmarking Starbucks against Costa Coffee in Malaysia through the lens of Customer Perceived Value — and proposing what comes next." />
+<meta property="og:url" content="https://sowbharnikarn-hub.github.io/portfolio/projects/starbucks-malaysia/" />
+<meta property="og:image" content="https://sowbharnikarn-hub.github.io/portfolio/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:ital,wght@0,200;0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+<style>
+/* ═══════════════════════════════════════════════════════════
+   STARBUCKS MALAYSIA · Customer Perceived Value study
+   Same world as the journey.
+   Signature: a CPV radar (Starbucks vs Costa Coffee) and a
+   click-through Value Proposition Canvas (Osterwalder).
+   ═══════════════════════════════════════════════════════════ */
+:root{
+  --ink:#050914; --deep:#0b1230; --violet:#241a4f;
+  --emerald:#43e6b0; --cyan:#7ce7ff; --gold:#e8c47f;
+  --mist:#eef3ff; --dim:#9aa7c9;
+  --glass:rgba(20,28,60,.42); --glass-edge:rgba(140,190,255,.16);
+  --font-display:'Marcellus',serif; --font-body:'Jost',sans-serif;
+  --font-mono:'JetBrains Mono',monospace; --font-serif:'Lora',serif;
+  --ease-soft:cubic-bezier(.22,.9,.3,1);
+  --sbux:#43e6b0; --costa:#ff9e7d;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--mist);font-family:var(--font-body);font-weight:300;
+  line-height:1.65;letter-spacing:.02em;overflow-x:hidden}
+::selection{background:rgba(124,231,255,.22)}
+img,svg,canvas{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--emerald);outline-offset:3px;border-radius:4px}
+
+#sky{position:fixed;inset:0;z-index:0}
+.aurora{position:fixed;inset:-10% -20%;z-index:1;pointer-events:none;filter:blur(46px);opacity:.5;mix-blend-mode:screen}
+.aurora span{position:absolute;width:70%;height:38%;border-radius:50%}
+.aurora .a1{top:2%;left:6%;background:linear-gradient(100deg,transparent,rgba(67,230,176,.5),transparent);animation:drift 26s ease-in-out infinite alternate}
+.aurora .a2{top:12%;left:30%;background:linear-gradient(80deg,transparent,rgba(124,231,255,.4),transparent);animation:drift 34s ease-in-out infinite alternate-reverse}
+.aurora .a3{top:-4%;left:18%;background:linear-gradient(120deg,transparent,rgba(120,80,220,.45),transparent);animation:drift 42s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate3d(-4%,0,0) rotate(-4deg)}to{transform:translate3d(5%,3%,0) rotate(5deg) scaleX(1.15)}}
+.mist{position:fixed;left:0;right:0;bottom:0;height:32vh;z-index:2;pointer-events:none;
+  background:linear-gradient(to top,rgba(10,16,40,.88),transparent)}
+
+.bar-track{position:fixed;top:0;left:0;right:0;height:2px;z-index:60;background:rgba(255,255,255,.06)}
+#bar{height:100%;width:0;background:linear-gradient(90deg,var(--emerald),var(--cyan),var(--gold));box-shadow:0 0 12px rgba(124,231,255,.7)}
+.back{position:fixed;top:18px;left:20px;z-index:60;display:inline-flex;align-items:center;gap:.6em;
+  padding:.55em 1.15em;text-decoration:none;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--cyan);background:var(--glass);border:1px solid rgba(124,231,255,.3);border-radius:99px;
+  backdrop-filter:blur(10px);transition:.4s var(--ease-soft)}
+.back:hover,.back:focus-visible{color:var(--mist);border-color:var(--emerald);box-shadow:0 0 18px rgba(67,230,176,.35)}
+
+main{position:relative;z-index:10}
+.wrap{max-width:980px;margin:0 auto;padding-inline:7vw}
+.wrap-wide{max-width:1180px;margin:0 auto;padding-inline:7vw}
+section{padding-block:10vh}
+.eyebrow{font-size:.7rem;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);margin-bottom:1.3rem}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;letter-spacing:.04em}
+h2{font-size:clamp(1.55rem,3vw,2.3rem);line-height:1.25}
+h3{font-size:1.05rem}
+.lede{color:var(--dim);max-width:70ch;margin-top:1.3rem}
+.glass{background:var(--glass);border:1px solid var(--glass-edge);border-radius:18px;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 18px 50px rgba(3,6,18,.5)}
+
+/* ── AI-drafted disclosure banner ── */
+.disclosure{max-width:980px;margin:0 auto;padding:0 7vw;margin-top:12vh}
+.disclosure-box{padding:1.3rem 1.5rem;border-left:2px solid var(--gold);display:flex;gap:1rem;align-items:flex-start}
+.disclosure-box .ic{font-family:var(--font-display);font-size:1.1rem;color:var(--gold);flex-shrink:0}
+.disclosure-box p{font-size:.84rem;color:var(--dim);line-height:1.75}
+.disclosure-box strong{color:var(--mist)}
+
+/* ── hero ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;text-align:center;padding-block:12vh}
+.hero h1{font-size:clamp(1.7rem,4.6vw,3.2rem);line-height:1.2;margin:.5rem 0;
+  background:linear-gradient(115deg,var(--mist) 20%,var(--cyan) 52%,var(--emerald) 80%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.hero h1{color:var(--mist)}}
+.hero .alt{font-family:var(--font-display);font-size:clamp(.85rem,1.8vw,1.05rem);color:var(--mist);opacity:.85;
+  letter-spacing:.16em;text-transform:uppercase;max-width:46ch;margin:0 auto}
+.hero .lede{margin:1.6rem auto 0}
+.facts{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:2.4rem}
+.facts li{display:flex;flex-direction:column;align-items:center;gap:.1rem;padding:.7em 1.3em;
+  border:1px solid var(--glass-edge);border-radius:14px;background:var(--glass);backdrop-filter:blur(10px)}
+.facts b{font-family:var(--font-display);font-size:.9rem;color:var(--mist);font-weight:400}
+.facts span{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--dim)}
+.toc{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:.55rem;margin-top:3vh;max-width:640px}
+.toc a{display:inline-block;padding:.5em 1.05em;text-decoration:none;font-size:.63rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--dim);border:1px solid var(--glass-edge);border-radius:99px;
+  background:var(--glass);transition:.35s var(--ease-soft)}
+.toc a:hover,.toc a:focus-visible{color:var(--mist);border-color:var(--emerald)}
+.hint{margin-top:4vh;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
+
+/* ── prose ── */
+.prose{font-family:var(--font-serif);font-size:.98rem;line-height:1.85;color:#dbe3f5}
+.prose p{margin-top:1.2rem}
+.prose p:first-child{margin-top:0}
+.prose strong{color:var(--mist);font-weight:600}
+.prose em{color:var(--cyan);font-style:italic}
+
+/* ── divider ── */
+.divider{display:flex;align-items:center;gap:1.2rem;max-width:980px;margin:0 auto;padding:0 7vw}
+.divider .line{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--glass-edge),transparent)}
+.divider span{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--dim)}
+
+/* ── brand pair ── */
+.pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.3rem;margin-top:3.5vh}
+.pair-card{padding:1.7rem 1.7rem;border-top:2px solid var(--c)}
+.pair-card .founded{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.14em;color:var(--c);margin-bottom:.3rem}
+.pair-card h3{color:var(--mist);font-size:1.15rem}
+.pair-card p{color:var(--dim);font-size:.86rem;margin-top:.8rem;line-height:1.75}
+
+/* ── framework note ── */
+.framework{padding:2rem 2.1rem;margin-top:3.5vh}
+.framework .eq{font-family:var(--font-mono);font-size:1rem;color:var(--gold);text-align:center;margin:1.2rem 0;
+  letter-spacing:.04em}
+.framework p{color:var(--dim);font-size:.9rem;line-height:1.8}
+
+/* ── CPV columns (internal/external) ── */
+.cpv-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.4rem;margin-top:3.5vh}
+.cpv-col{padding:1.7rem 1.7rem}
+.cpv-col .k{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:1rem}
+.cpv-item{padding:.9rem 0;border-top:1px solid rgba(140,190,255,.08)}
+.cpv-item:first-of-type{border-top:none;padding-top:0}
+.cpv-item b{display:block;font-family:var(--font-display);font-size:.92rem;color:var(--mist);margin-bottom:.3rem}
+.cpv-item p{font-size:.85rem;color:var(--dim);line-height:1.7}
+
+/* ── SIGNATURE 1 · CPV radar ── */
+.radar-wrap{margin-top:4.5vh;display:grid;grid-template-columns:minmax(280px,420px) 1fr;gap:2rem;align-items:center}
+.radar-svg{width:100%;max-width:420px;margin:0 auto}
+.radar-legend{display:flex;gap:1.6rem;justify-content:center;margin-top:1rem}
+.radar-legend span{display:flex;align-items:center;gap:.5em;font-size:.72rem;letter-spacing:.08em;color:var(--dim)}
+.radar-legend i{width:11px;height:11px;border-radius:3px}
+.radar-notes{display:flex;flex-direction:column;gap:.7rem}
+.radar-note{padding:1rem 1.3rem;font-size:.85rem;color:var(--dim);line-height:1.7;border-left:2px solid var(--glass-edge)}
+.radar-note b{color:var(--mist);font-weight:400;font-family:var(--font-display)}
+.illustrative{font-size:.72rem;color:var(--dim);font-style:italic;margin-top:1rem}
+
+/* ── SIGNATURE 2 · Value Proposition Canvas ── */
+.canvas-wrap{margin-top:4.5vh;display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
+.vpc-side{display:flex;flex-direction:column;gap:.8rem}
+.vpc-title{text-align:center;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-bottom:.3rem}
+.vpc-ring{position:relative;width:100%;max-width:280px;aspect-ratio:1;margin:0 auto}
+.vpc-seg{position:absolute;inset:0;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:transform .3s var(--ease-soft)}
+.vpc-seg[data-part="jobs"]{clip-path:polygon(50% 50%,100% 0,100% 100%);background:radial-gradient(circle at 75% 50%,rgba(67,230,176,.28),transparent 70%)}
+.vpc-seg[data-part="pains"]{clip-path:polygon(50% 50%,100% 0,0 0,0 40%);background:radial-gradient(circle at 30% 20%,rgba(255,158,125,.28),transparent 70%)}
+.vpc-seg[data-part="gains"]{clip-path:polygon(50% 50%,0 40%,0 100%,100% 100%);background:radial-gradient(circle at 30% 75%,rgba(124,231,255,.28),transparent 70%)}
+.vpc-seg span{font-family:var(--font-display);font-size:.85rem;color:var(--mist);pointer-events:none}
+.vpc-seg.active{transform:scale(1.04)}
+.vpc-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:36%;aspect-ratio:1;
+  border-radius:50%;background:var(--ink);border:1px solid var(--glass-edge);display:flex;align-items:center;
+  justify-content:center;text-align:center;padding:8%;pointer-events:none;z-index:2}
+.vpc-core span{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.06em;color:var(--dim)}
+.vpc-sq{position:relative;width:100%;max-width:280px;aspect-ratio:1;margin:0 auto;border-radius:16px;overflow:hidden;
+  display:grid;grid-template-rows:1fr 1fr}
+.vpc-half{padding:1rem;cursor:pointer;transition:.3s}
+.vpc-half.top{background:radial-gradient(circle at 50% 20%,rgba(232,196,127,.22),transparent 75%)}
+.vpc-half.bot{display:grid;grid-template-columns:1fr 1fr}
+.vpc-quad{padding:.4rem;display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer}
+.vpc-quad.pr{background:radial-gradient(circle at 30% 70%,rgba(67,230,176,.22),transparent 75%)}
+.vpc-quad.gc{background:radial-gradient(circle at 70% 70%,rgba(124,231,255,.22),transparent 75%)}
+.vpc-quad span,.vpc-half.top span{font-family:var(--font-display);font-size:.8rem;color:var(--mist)}
+.vpc-detail{margin-top:1rem;min-height:110px}
+.vpc-detail-body{display:none;padding:1.2rem 1.4rem}
+.vpc-detail-body.show{display:block}
+.vpc-detail-body h3{font-size:.92rem;margin-bottom:.6rem}
+.vpc-detail-body ul{padding-left:1.1rem;color:var(--dim);font-size:.85rem;line-height:1.8}
+
+/* ── gap analysis ── */
+.gaps{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.3rem;margin-top:3.5vh}
+.gap-col{padding:1.6rem 1.7rem}
+.gap-col.match{border-left:2px solid var(--emerald)}
+.gap-col.need{border-left:2px solid var(--gold)}
+.gap-col .k{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:.9rem;display:block}
+.gap-col.match .k{color:var(--emerald)} .gap-col.need .k{color:var(--gold)}
+.gap-col ul{padding-left:1.1rem;color:var(--dim);font-size:.86rem;line-height:1.85}
+
+/* ── revised proposition ── */
+.revised{font-family:var(--font-serif);font-style:italic;font-size:1.08rem;line-height:1.85;color:var(--mist);
+  padding:2.2rem 2.2rem;margin-top:3.5vh;border-left:2px solid var(--emerald)}
+
+/* ── 7Ps recommendations ── */
+.sevenp{display:flex;flex-direction:column;gap:.7rem;margin-top:3.5vh}
+.p-row{display:flex;gap:1.1rem;align-items:flex-start;padding:1.15rem 1.4rem}
+.p-letter{width:34px;height:34px;flex-shrink:0;border-radius:50%;display:grid;place-content:center;
+  font-family:var(--font-display);color:var(--ink);background:var(--cyan);font-size:.85rem}
+.p-body b{display:block;font-size:.9rem;color:var(--mist);margin-bottom:.25rem}
+.p-body p{font-size:.85rem;color:var(--dim);line-height:1.7}
+
+/* ── footer ── */
+footer{padding-block:10vh 12vh;text-align:center}
+.doorways{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:3vh}
+.doorways a{display:inline-block;padding:.65em 1.5em;text-decoration:none;font-size:.7rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--mist);background:rgba(67,230,176,.10);
+  border:1px solid rgba(67,230,176,.35);border-radius:4px 20px 4px 20px;transition:.4s var(--ease-soft)}
+.doorways a:hover,.doorways a:focus-visible{background:rgba(67,230,176,.22);border-color:var(--emerald);
+  box-shadow:0 0 20px rgba(67,230,176,.45);transform:translateY(-4px)}
+footer small{display:block;color:var(--dim);font-size:.75rem;letter-spacing:.12em}
+
+@media (max-width:820px){
+  .radar-wrap,.canvas-wrap{grid-template-columns:1fr}
+  .back{top:12px;left:12px;font-size:.62rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<canvas id="sky" aria-hidden="true"></canvas>
+<div class="aurora" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+<div class="mist" aria-hidden="true"></div>
+
+<div class="bar-track" aria-hidden="true"><div id="bar"></div></div>
+<a class="back" href="https://sowbharnikarn-hub.github.io/portfolio/">← Back to the journey</a>
+
+<main>
+
+  <!-- ───────── HERO ───────── -->
+  <header class="hero wrap">
+    <p class="eyebrow">Paper Presented · Market Value &amp; Propositions</p>
+    <h1>Starbucks Malaysia — Customer Perceived Value &amp; Proposition</h1>
+    <p class="alt">Benchmarked against Costa Coffee · Value Proposition Canvas</p>
+    <p class="lede">Based on Starbucks' existing internal and external Customer Perceived Value (CPV), an empirical study is made against its leading Malaysian rival, Costa Coffee. Identifying the match and the gaps, a revised value proposition is developed for the current marketing environment.</p>
+    <ul class="facts">
+      <li><b>Starbucks</b><span>Company studied</span></li>
+      <li><b>Costa Coffee</b><span>Benchmarked against</span></li>
+      <li><b>Malaysia</b><span>Market segment</span></li>
+      <li><b>CPV Framework</b><span>Zeithaml · Kotler</span></li>
+    </ul>
+    <ul class="toc">
+      <li><a href="#background">Background</a></li>
+      <li><a href="#framework">CPV Framework</a></li>
+      <li><a href="#internal">Internal / External CPV</a></li>
+      <li><a href="#benchmark">Benchmark</a></li>
+      <li><a href="#canvas">Value Canvas</a></li>
+      <li><a href="#proposition">New Proposition</a></li>
+    </ul>
+    <p class="hint">Scroll to read the study</p>
+  </header>
+
+  <!-- ───────── AI DISCLOSURE ───────── -->
+  <div class="disclosure">
+    <div class="disclosure-box glass">
+      <span class="ic">◆</span>
+      <p><strong>A note on this page:</strong> unlike the other papers in this portfolio, no original manuscript existed for this study beyond its abstract. The full analysis below — company background, CPV breakdown, benchmarking, Value Proposition Canvas and revised proposition — was drafted using established, named marketing frameworks (Zeithaml's Perceived Value model, Kotler's Total Customer Value, Osterwalder's Value Proposition Canvas) and well-known public facts about both brands. Comparative figures in the benchmark section are <strong>illustrative positioning for the framework, not disclosed company data</strong>, and the piece should be treated as a draft for review rather than a submitted, sourced academic paper.</p>
+    </div>
+  </div>
+
+  <!-- ───────── INTRODUCTION ───────── -->
+  <section class="wrap">
+    <p class="eyebrow">Introduction</p>
+    <h2>Why Customer Perceived Value, and why Malaysia</h2>
+    <div class="prose">
+      <p>Starbucks has long competed on more than coffee — its value proposition rests on the experience surrounding the cup. But an experience-led premium is only as strong as the customer's perception of it, and that perception shifts by market. This study examines Starbucks' existing internal and external Customer Perceived Value (CPV) specifically within Malaysia, then tests that value empirically against its leading local rival, Costa Coffee. Where the current proposition matches customer needs, and where it doesn't, a revised value proposition is proposed in favour of the present Malaysian marketing environment.</p>
+    </div>
+  </section>
+
+  <!-- ───────── BACKGROUND ───────── -->
+  <section class="wrap" id="background">
+    <p class="eyebrow">Company Background</p>
+    <h2>Two chains, founded the same year, competing an ocean away</h2>
+    <div class="prose">
+      <p>Starbucks and Costa Coffee were both founded in 1971 — Starbucks in Seattle, Costa Coffee in London — yet they arrived at very different global identities. Starbucks scaled into the world's most recognisable "third place" coffeehouse brand; Costa Coffee grew as a UK high-street mainstay before being acquired by The Coca-Cola Company in 2019, giving it fresh international distribution muscle. In Malaysia, both now compete directly for the same urban, brand-conscious coffee drinker.</p>
+    </div>
+    <div class="pair">
+      <article class="pair-card glass" style="--c:var(--sbux)">
+        <span class="founded">Founded 1971 · Seattle</span>
+        <h3>Starbucks Malaysia</h3>
+        <p>Operating in Malaysia since 1998 under a master franchise, Starbucks positions itself at the premium end of the market — full "third place" store experience, Halal certification serving Malaysia's majority-Muslim consumer base, and a mature digital rewards ecosystem layered on top of the core coffeehouse format.</p>
+      </article>
+      <article class="pair-card glass" style="--c:var(--costa)">
+        <span class="founded">Founded 1971 · London</span>
+        <h3>Costa Coffee Malaysia</h3>
+        <p>Expanding in Malaysia through franchise partners and accelerated by Coca-Cola's global backing, Costa positions closer to accessible-premium — a slightly lower price tier, a footprint that leans into malls, petrol stations and quick-service formats, and a more transactional, less destination-led store experience.</p>
+      </article>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"><span class="line"></span><span>The Framework</span><span class="line"></span></div>
+
+  <!-- ───────── CPV FRAMEWORK ───────── -->
+  <section class="wrap" id="framework">
+    <p class="eyebrow">Theoretical Basis</p>
+    <h2>What "Customer Perceived Value" actually means</h2>
+    <div class="prose">
+      <p>Zeithaml (1988) defines perceived value as the consumer's overall assessment of a product's utility, based on perceptions of what is received against what is given. Kotler and Keller extend this into a practical model: <strong>Total Customer Value</strong> — product, service, personnel and image value — set against <strong>Total Customer Cost</strong> — monetary price, time, energy and psychological cost. Woodruff (1997) adds that perceived value is really about how well a product's attributes help the customer achieve their goals in the situation they're actually in — not the situation the brand imagines.</p>
+    </div>
+    <div class="framework glass">
+      <p style="color:var(--dim);font-size:.82rem;text-align:center;letter-spacing:.08em;text-transform:uppercase">Kotler's Total Customer Value Model</p>
+      <p class="eq">Total Customer Value − Total Customer Cost = Customer Perceived Value</p>
+      <p>Applied to Starbucks Malaysia, this study splits CPV into two working lenses: <strong>Internal CPV</strong> — value drivers fully within Starbucks' control (product, ambience, personnel, brand) — and <strong>External CPV</strong> — value shaped by the market context the customer experiences it in (price positioning, accessibility, digital ecosystem, cultural fit).</p>
+    </div>
+  </section>
+
+  <!-- ───────── INTERNAL / EXTERNAL CPV ───────── -->
+  <section class="wrap" id="internal">
+    <p class="eyebrow">Applying the Framework</p>
+    <h2>Internal vs. External CPV — Starbucks Malaysia</h2>
+    <div class="cpv-cols">
+      <div class="cpv-col glass">
+        <span class="k">Internal CPV</span>
+        <div class="cpv-item"><b>Product Value</b><p>Globally consistent quality standard, supplemented by regionally adapted beverages and seasonal local-flavour specials.</p></div>
+        <div class="cpv-item"><b>Service &amp; Environment Value</b><p>The "third place" concept — store design, comfortable seating, free Wi-Fi and ambient music — positions outlets as a social or work space, not just a coffee counter.</p></div>
+        <div class="cpv-item"><b>Personnel Value</b><p>Globally standardised barista training builds consistent, personalised service — including the small ritual of calling out a customer's name.</p></div>
+        <div class="cpv-item"><b>Image Value</b><p>Premium global brand prestige and a consistent visual identity carry aspirational, social-status value for the Malaysian urban consumer.</p></div>
+      </div>
+      <div class="cpv-col glass">
+        <span class="k">External CPV</span>
+        <div class="cpv-item"><b>Price Positioning</b><p>Priced at a premium tier relative to local Malaysian cafés and QSR chains, targeting an aspirational urban middle-to-upper income segment.</p></div>
+        <div class="cpv-item"><b>Accessibility</b><p>Store network concentrated in urban malls, business districts and airports, with growing drive-thru format expansion.</p></div>
+        <div class="cpv-item"><b>Digital Ecosystem</b><p>Starbucks Rewards — mobile order &amp; pay, the Starbucks Card, and gamified Stars — layers convenience and habit-forming loyalty on top of the physical experience.</p></div>
+        <div class="cpv-item"><b>Cultural &amp; Social Fit</b><p>Halal certification is a critical trust signal for Malaysia's majority-Muslim consumer base; Instagram-friendly store design and seasonal cup campaigns drive social sharing among younger consumers.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"><span class="line"></span><span>Empirical Benchmark</span><span class="line"></span></div>
+
+  <!-- ───────── RADAR BENCHMARK ───────── -->
+  <section class="wrap" id="benchmark">
+    <p class="eyebrow">Empirical Study</p>
+    <h2>Starbucks vs. Costa Coffee — six CPV dimensions</h2>
+    <p class="lede">Six dimensions drawn from the Internal/External CPV breakdown above, positioned comparatively. Click a note to see the reasoning behind each gap.</p>
+    <div class="radar-wrap">
+      <div>
+        <svg class="radar-svg" viewBox="0 0 300 300" id="radarSvg"></svg>
+        <div class="radar-legend">
+          <span><i style="background:var(--sbux)"></i>Starbucks</span>
+          <span><i style="background:var(--costa)"></i>Costa Coffee</span>
+        </div>
+        <p class="illustrative">Illustrative comparative positioning for this study — not disclosed company data.</p>
+      </div>
+      <div class="radar-notes" id="radarNotes"></div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"><span class="line"></span><span>Value Proposition Canvas</span><span class="line"></span></div>
+
+  <!-- ───────── VALUE PROPOSITION CANVAS ───────── -->
+  <section class="wrap" id="canvas">
+    <p class="eyebrow">Osterwalder's Value Proposition Canvas</p>
+    <h2>Does the value map actually fit the customer profile?</h2>
+    <p class="lede">Left: the Malaysian urban coffee customer's Jobs, Pains and Gains. Right: Starbucks' Products, Pain Relievers and Gain Creators. Click any segment to read it.</p>
+    <div class="canvas-wrap">
+      <div class="vpc-side">
+        <p class="vpc-title">Customer Profile</p>
+        <div class="vpc-ring">
+          <div class="vpc-seg" data-part="jobs"><span>Jobs</span></div>
+          <div class="vpc-seg" data-part="pains"><span>Pains</span></div>
+          <div class="vpc-seg" data-part="gains"><span>Gains</span></div>
+          <div class="vpc-core"><span>Malaysian urban coffee customer</span></div>
+        </div>
+      </div>
+      <div class="vpc-side">
+        <p class="vpc-title">Value Map</p>
+        <div class="vpc-sq">
+          <div class="vpc-half top" data-part="products"><span>Products &amp; Services</span></div>
+          <div class="vpc-half bot">
+            <div class="vpc-quad pr" data-part="relievers"><span>Pain Relievers</span></div>
+            <div class="vpc-quad gc" data-part="creators"><span>Gain Creators</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="vpc-detail glass" id="vpcDetail"></div>
+  </section>
+
+  <div class="divider" aria-hidden="true"><span class="line"></span><span>Findings</span><span class="line"></span></div>
+
+  <!-- ───────── GAP ANALYSIS ───────── -->
+  <section class="wrap">
+    <p class="eyebrow">Gap Analysis</p>
+    <h2>Where the proposition matches — and where it doesn't</h2>
+    <div class="gaps">
+      <div class="gap-col match glass">
+        <span class="k">Matches</span>
+        <ul>
+          <li>The digital loyalty ecosystem strongly relieves the "convenience" pain and creates habitual gain through gamified Stars.</li>
+          <li>The "third place" ambience directly answers the customer job of finding a comfortable place to work, study or meet.</li>
+          <li>Halal certification removes a religious-dietary barrier that would otherwise exclude a majority of the market outright.</li>
+        </ul>
+      </div>
+      <div class="gap-col need glass">
+        <span class="k">Needs / Gaps</span>
+        <ul>
+          <li>Price sensitivity among younger, budget-conscious Malaysian consumers is only partially addressed by the current tiering.</li>
+          <li>Smaller urban outlets face seating and Wi-Fi capacity strain during peak hours, undermining the "third place" promise precisely when it's most in demand.</li>
+          <li>Menu localisation still trails competitors who lean further into hyper-local flavour profiles beyond seasonal specials.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── REVISED PROPOSITION ───────── -->
+  <section class="wrap" id="proposition">
+    <p class="eyebrow">Proposed Revised Value Proposition</p>
+    <h2>What the value proposition should say next</h2>
+    <blockquote class="revised glass">"To deliver Malaysia's most trusted premium coffee experience — pairing globally consistent quality and Halal-assured service with locally inspired flavours, flexible price tiers, and a seamless digital ecosystem that lets every customer choose their own place, pace and price to belong."</blockquote>
+
+    <p class="eyebrow" style="margin-top:5vh">Marketing Recommendations</p>
+    <h2>Turning the proposition into the marketing mix</h2>
+    <div class="sevenp" id="sevenp"></div>
+  </section>
+
+  <!-- ───────── CONCLUSION ───────── -->
+  <section class="wrap">
+    <p class="eyebrow">Conclusion</p>
+    <div class="prose">
+      <p>Starbucks' internal CPV in Malaysia is strong where it has always been strong — product consistency, ambience and brand prestige — and its external CPV has matured meaningfully through Halal certification and a genuinely useful digital rewards ecosystem. The gap is not in what Starbucks does well, but in who it currently under-serves: price-sensitive younger consumers and peak-hour customers whose "third place" experience is crowded out by its own popularity. A revised value proposition built around flexible price tiers, deeper localisation and continued digital convenience closes that gap without diluting the premium positioning that differentiates Starbucks from Costa Coffee in the first place.</p>
+    </div>
+  </section>
+
+  <footer class="wrap-wide">
+    <ul class="doorways">
+      <li><a href="https://sowbharnikarn.wixsite.com/portfolio/projects" target="_blank" rel="noopener">More projects</a></li>
+      <li><a href="https://www.linkedin.com/in/sowbharnika-rn-901b42bb/" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+    <small>Sowbharnika RN · Project &amp; Programme Manager · Thank you for visiting my profile</small>
+  </footer>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+(() => {
+  "use strict";
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ── 1 · the sky ── */
+  const sky = document.getElementById("sky"), sc = sky.getContext("2d");
+  const DPR = Math.min(devicePixelRatio || 1, 2);
+  let W, H, stars = [], flies = [];
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  function seed() {
+    sky.width = (W = innerWidth) * DPR; sky.height = (H = innerHeight) * DPR;
+    sc.setTransform(DPR, 0, 0, DPR, 0, 0);
+    stars = Array.from({ length: Math.round(W * H / 5200) }, () => ({
+      x: rnd(0, W), y: rnd(0, H), r: rnd(.4, 1.5), a: rnd(.25, .95), tw: rnd(0, 6.28), sp: rnd(.4, 1.6) }));
+    flies = Array.from({ length: 18 }, () => ({
+      x: rnd(0, W), y: rnd(0, H), r: rnd(1.2, 2.6), s: rnd(0, 6.28), vy: rnd(-.12, -.03), vx: rnd(-.12, .12) }));
+  }
+  function paint(t) {
+    sc.clearRect(0, 0, W, H);
+    for (const s of stars) {
+      const a = s.a * (reduced ? 1 : .55 + .45 * Math.sin(t * .0012 * s.sp + s.tw));
+      sc.beginPath(); sc.fillStyle = `rgba(214,232,255,${a})`; sc.arc(s.x, s.y, s.r, 0, 6.29); sc.fill();
+    }
+    for (const f of flies) {
+      if (!reduced) {
+        f.x += f.vx + Math.sin(t * .0008 + f.s) * .22; f.y += f.vy;
+        if (f.y < -10) { f.y = H + 10; f.x = rnd(0, W); }
+        if (f.x < -10) f.x = W + 10; if (f.x > W + 10) f.x = -10;
+      }
+      const g = sc.createRadialGradient(f.x, f.y, 0, f.x, f.y, f.r * 6);
+      const p = reduced ? .8 : .45 + .55 * Math.sin(t * .0016 + f.s);
+      g.addColorStop(0, `rgba(67,230,176,${.85 * p})`); g.addColorStop(1, "rgba(67,230,176,0)");
+      sc.fillStyle = g; sc.beginPath(); sc.arc(f.x, f.y, f.r * 6, 0, 6.29); sc.fill();
+    }
+    if (!reduced) requestAnimationFrame(paint);
+  }
+  seed(); addEventListener("resize", () => { seed(); ScrollTrigger.refresh(); });
+  reduced ? paint(0) : requestAnimationFrame(paint);
+
+  const bar = document.getElementById("bar");
+  ScrollTrigger.create({ trigger: document.body, start: "top top", end: "bottom bottom",
+    onUpdate: (s) => { bar.style.width = s.progress * 100 + "%"; } });
+
+  /* ── 2 · CPV radar (signature 1) ── */
+  const DIMS = [
+    { k: "Price Positioning", sbux: 85, costa: 60,
+      n: "<b>Price Positioning.</b> Starbucks sits at a deliberately higher price tier — the cost of the premium, consistent experience. Costa positions closer to accessible-premium, trading some prestige for a lower barrier to entry." },
+    { k: "Store Accessibility", sbux: 78, costa: 70,
+      n: "<b>Store Accessibility.</b> Starbucks' footprint leans into destination locations — malls, business districts, airports. Costa's presence in petrol stations and quick-service formats can mean more convenient, if less experiential, access." },
+    { k: "Digital Loyalty", sbux: 90, costa: 55,
+      n: "<b>Digital Loyalty Experience.</b> Starbucks Rewards is a mature, habit-forming ecosystem. Costa's digital loyalty presence in Malaysia is comparatively early-stage, a clear opportunity gap for the rival to close." },
+    { k: "Menu Localisation", sbux: 75, costa: 68,
+      n: "<b>Product Range &amp; Localisation.</b> Both chains run seasonal local specials; Starbucks' broader menu breadth gives it an edge, though neither chain leans as far into hyper-local flavour as some independent Malaysian cafés." },
+    { k: "\u201cThird Place\u201d Ambience", sbux: 92, costa: 72,
+      n: "<b>Ambience / \u201cThird Place\u201d Experience.</b> This is Starbucks' core differentiator — store design built for lingering, not just transacting. Costa's format tends to read as more transactional by comparison." },
+    { k: "Brand Prestige", sbux: 90, costa: 65,
+      n: "<b>Brand Prestige.</b> Starbucks carries stronger aspirational, social-status value in the Malaysian market — though Costa's Coca-Cola backing is steadily building its own brand credibility." },
+  ];
+  const svgNS = "http://www.w3.org/2000/svg";
+  const radar = document.getElementById("radarSvg");
+  const CX = 150, CY = 150, RMAX = 105, N = DIMS.length;
+  function pt(i, val) {
+    const ang = -Math.PI / 2 + (i * 2 * Math.PI) / N;
+    const r = (val / 100) * RMAX;
+    return [CX + Math.cos(ang) * r, CY + Math.sin(ang) * r];
+  }
+  // grid rings
+  [0.25, 0.5, 0.75, 1].forEach((f) => {
+    const pts = DIMS.map((_, i) => pt(i, f * 100).join(",")).join(" ");
+    const poly = document.createElementNS(svgNS, "polygon");
+    poly.setAttribute("points", pts); poly.setAttribute("fill", "none");
+    poly.setAttribute("stroke", "rgba(140,190,255,.10)");
+    radar.appendChild(poly);
+  });
+  // axis lines + labels
+  DIMS.forEach((d, i) => {
+    const [x, y] = pt(i, 100);
+    const line = document.createElementNS(svgNS, "line");
+    line.setAttribute("x1", CX); line.setAttribute("y1", CY); line.setAttribute("x2", x); line.setAttribute("y2", y);
+    line.setAttribute("stroke", "rgba(140,190,255,.10)");
+    radar.appendChild(line);
+    const [lx, ly] = pt(i, 122);
+    const text = document.createElementNS(svgNS, "text");
+    text.setAttribute("x", lx); text.setAttribute("y", ly);
+    text.setAttribute("text-anchor", lx < CX - 10 ? "end" : lx > CX + 10 ? "start" : "middle");
+    text.setAttribute("font-family", "JetBrains Mono"); text.setAttribute("font-size", "8.5");
+    text.setAttribute("fill", "#9aa7c9");
+    text.textContent = d.k.length > 16 ? d.k.slice(0, 15) + "…" : d.k;
+    radar.appendChild(text);
+  });
+  function drawSeries(key, color) {
+    const poly = document.createElementNS(svgNS, "polygon");
+    const pts = DIMS.map((d, i) => pt(i, d[key]).join(",")).join(" ");
+    poly.setAttribute("points", pts);
+    poly.setAttribute("fill", color + "26"); poly.setAttribute("stroke", color); poly.setAttribute("stroke-width", "1.6");
+    if (!reduced) { poly.style.opacity = 0; poly.style.transform = "scale(.85)"; poly.style.transformOrigin = "150px 150px"; }
+    radar.appendChild(poly);
+    DIMS.forEach((d, i) => {
+      const [x, y] = pt(i, d[key]);
+      const c = document.createElementNS(svgNS, "circle");
+      c.setAttribute("cx", x); c.setAttribute("cy", y); c.setAttribute("r", 3); c.setAttribute("fill", color);
+      radar.appendChild(c);
+    });
+    return poly;
+  }
+  const pCosta = drawSeries("costa", "#ff9e7d");
+  const pSbux = drawSeries("sbux", "#43e6b0");
+  if (!reduced) {
+    gsap.to([pCosta, pSbux], { opacity: 1, scale: 1, duration: 1.1, ease: "power2.out", stagger: .15,
+      scrollTrigger: { trigger: "#benchmark", start: "top 75%" } });
+  }
+  document.getElementById("radarNotes").innerHTML = DIMS.map((d, i) => `
+    <div class="radar-note glass" data-i="${i}">${d.n}</div>`).join("");
+
+  /* ── 3 · Value Proposition Canvas (signature 2) ── */
+  const VPC = {
+    jobs: { h: "Customer Jobs", items: [
+      "Find a comfortable place to work, study or meet without pressure to leave quickly.",
+      "Get a quick, reliably good coffee on the way to somewhere else.",
+      "Signal lifestyle and social status through where they choose to be seen.",
+      "Find Halal-assured food and beverage options without needing to double-check.",
+    ]},
+    pains: { h: "Customer Pains", items: [
+      "Premium pricing is a real barrier for younger, budget-conscious consumers.",
+      "Outlets get crowded during peak hours, with limited seating and patchy Wi-Fi.",
+      "Menu range can feel more global-standard than hyper-local.",
+      "Mobile order queues can bottleneck at the pickup counter during rush periods.",
+    ]},
+    gains: { h: "Customer Gains", items: [
+      "Consistent global quality, wherever the outlet.",
+      "Recognisable brand prestige carried into everyday life.",
+      "Convenient mobile ordering that fits around a packed schedule.",
+      "A comfortable, welcoming space to linger, without a hard time limit.",
+    ]},
+    products: { h: "Products &amp; Services", items: [
+      "Global-standard coffee menu, extended with seasonal local-flavour specials.",
+      "Full dine-in \u201cthird place\u201d store format alongside newer drive-thru formats.",
+      "Halal-certified food and beverage range.",
+      "Starbucks Rewards app — mobile order &amp; pay, Starbucks Card, gamified Stars.",
+    ]},
+    relievers: { h: "Pain Relievers", items: [
+      "Mobile order &amp; pay reduces queue wait for time-pressed customers.",
+      "Tiered menu sizes and price points cushion cost sensitivity without diluting the core line.",
+      "Expanding drive-thru formats ease peak-hour crowding at destination stores.",
+      "Halal certification removes a religious-dietary barrier outright.",
+    ]},
+    creators: { h: "Gain Creators", items: [
+      "Loyalty gamification (Stars) rewards frequency and builds habitual return visits.",
+      "Seasonal and local special menus create novelty and social shareability.",
+      "Globally consistent barista training ensures service reliability wherever the store.",
+      "Premium store design reinforces the status and aspiration value customers are seeking.",
+    ]},
+  };
+  const vpcDetail = document.getElementById("vpcDetail");
+  function showVPC(key) {
+    document.querySelectorAll("[data-part]").forEach((el) => el.classList.toggle("active", el.dataset.part === key));
+    const d = VPC[key];
+    vpcDetail.innerHTML = `<div class="vpc-detail-body show"><h3>${d.h}</h3><ul>${d.items.map((i) => `<li>${i}</li>`).join("")}</ul></div>`;
+  }
+  document.querySelectorAll(".vpc-seg, .vpc-half, .vpc-quad").forEach((el) => {
+    el.addEventListener("click", () => showVPC(el.dataset.part));
+  });
+  showVPC("jobs");
+
+  /* ── 4 · 7Ps recommendations ── */
+  const SEVENP = [
+    { p: "Product", t: "Expand a permanently localised menu tier — not just seasonal specials — with lower entry price points alongside the premium core range." },
+    { p: "Price", t: "Introduce a value-tier beverage size or format to capture the price-sensitive segment without diluting the premium positioning." },
+    { p: "Place", t: "Accelerate drive-thru and grab-and-go kiosk formats in suburban growth areas beyond the Klang Valley." },
+    { p: "Promotion", t: "Deepen social-driven campaigns — Instagram-able seasonal releases tied directly into loyalty gamification." },
+    { p: "People", t: "Continue premium barista training as the core differentiator against Costa's more transactional service model." },
+    { p: "Process", t: "Expand mobile order/pay and dedicated pickup lanes to reduce peak-hour bottlenecks at high-traffic stores." },
+    { p: "Physical Evidence", t: "Protect the \u201cthird place\u201d store design as the clearest differentiator versus Costa's more functional format." },
+  ];
+  document.getElementById("sevenp").innerHTML = SEVENP.map((r) => `
+    <div class="p-row glass"><span class="p-letter">${r.p[0]}</span><div class="p-body"><b>${r.p}</b><p>${r.t}</p></div></div>`).join("");
+
+  /* ── 5 · reveals ── */
+  if (!reduced) {
+    gsap.from(".hero > *", { y: 28, opacity: 0, stagger: .1, duration: 1, ease: "power3.out", delay: .2 });
+    gsap.utils.toArray("section > .eyebrow, section > h2, section > .lede, .prose, .pair-card, .framework, .cpv-col, .radar-note, .canvas-wrap, .gap-col, .revised, .p-row")
+      .forEach((el) => gsap.from(el, {
+        y: 22, opacity: 0, duration: .8, ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 93%" } }));
+    gsap.from(".disclosure-box", { y: 18, opacity: 0, duration: .8, ease: "power3.out" });
+  }
+
+  addEventListener("load", () => ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>
