@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Upskill &amp; Productivity Accelerator — Employee Training Programme | Sowbharnika RN</title>
+<meta name="description" content="A 12-week AI upskilling programme for 240 engineering staff — four specialisation tracks, eight AI platforms, and the metrics that prove it worked. Programme framework by Sowbharnika RN." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="AI Upskill &amp; Productivity Accelerator | Sowbharnika RN" />
+<meta property="og:description" content="240 employees · 12 weeks · 4 specialisation tracks · 8 AI platforms. An employee training programme built to raise productivity, and measured like one." />
+<meta property="og:url" content="https://sowbharnikarn-hub.github.io/portfolio/projects/ai-upskill-accelerator/" />
+<meta property="og:image" content="https://sowbharnikarn-hub.github.io/portfolio/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:ital,wght@0,200;0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+/* ═══════════════════════════════════════════════════════════
+   AI UPSKILL & PRODUCTIVITY ACCELERATOR · project page
+   Same world as the journey.
+   Signature: four readiness rings that draw as you arrive.
+   ═══════════════════════════════════════════════════════════ */
+:root{
+  --ink:#050914; --deep:#0b1230; --violet:#241a4f;
+  --emerald:#43e6b0; --cyan:#7ce7ff; --gold:#e8c47f;
+  --mist:#eef3ff; --dim:#9aa7c9;
+  --glass:rgba(20,28,60,.42); --glass-edge:rgba(140,190,255,.16);
+  --font-display:'Marcellus',serif; --font-body:'Jost',sans-serif; --font-mono:'JetBrains Mono',monospace;
+  --ease-soft:cubic-bezier(.22,.9,.3,1);
+  /* track hues, mapped from the dashboard's own palette into the journey's */
+  --t1:#b69cff; --t2:#43e6b0; --t3:#e8c47f; --t4:#ff9e7d;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--mist);font-family:var(--font-body);font-weight:300;
+  line-height:1.65;letter-spacing:.02em;overflow-x:hidden}
+::selection{background:rgba(124,231,255,.22)}
+img,svg,canvas{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--emerald);outline-offset:3px;border-radius:4px}
+
+/* ── fixed sky ── */
+#sky{position:fixed;inset:0;z-index:0}
+.aurora{position:fixed;inset:-10% -20%;z-index:1;pointer-events:none;filter:blur(46px);opacity:.5;mix-blend-mode:screen}
+.aurora span{position:absolute;width:70%;height:38%;border-radius:50%}
+.aurora .a1{top:2%;left:6%;background:linear-gradient(100deg,transparent,rgba(67,230,176,.5),transparent);animation:drift 26s ease-in-out infinite alternate}
+.aurora .a2{top:12%;left:30%;background:linear-gradient(80deg,transparent,rgba(124,231,255,.4),transparent);animation:drift 34s ease-in-out infinite alternate-reverse}
+.aurora .a3{top:-4%;left:18%;background:linear-gradient(120deg,transparent,rgba(120,80,220,.45),transparent);animation:drift 42s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate3d(-4%,0,0) rotate(-4deg)}to{transform:translate3d(5%,3%,0) rotate(5deg) scaleX(1.15)}}
+.mist{position:fixed;left:0;right:0;bottom:0;height:32vh;z-index:2;pointer-events:none;
+  background:linear-gradient(to top,rgba(10,16,40,.88),transparent)}
+
+/* ── HUD ── */
+.bar-track{position:fixed;top:0;left:0;right:0;height:2px;z-index:60;background:rgba(255,255,255,.06)}
+#bar{height:100%;width:0;background:linear-gradient(90deg,var(--emerald),var(--cyan),var(--gold));box-shadow:0 0 12px rgba(124,231,255,.7)}
+.back{position:fixed;top:18px;left:20px;z-index:60;display:inline-flex;align-items:center;gap:.6em;
+  padding:.55em 1.15em;text-decoration:none;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--cyan);background:var(--glass);border:1px solid rgba(124,231,255,.3);border-radius:99px;
+  backdrop-filter:blur(10px);transition:.4s var(--ease-soft)}
+.back:hover,.back:focus-visible{color:var(--mist);border-color:var(--emerald);box-shadow:0 0 18px rgba(67,230,176,.35)}
+
+/* ── layout ── */
+main{position:relative;z-index:10}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:7vw}
+section{padding-block:11vh}
+.eyebrow{font-size:.72rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;letter-spacing:.04em}
+h2{font-size:clamp(1.7rem,3.6vw,2.7rem);line-height:1.2}
+h3{font-size:1.1rem}
+.lede{color:var(--dim);max-width:64ch;margin-top:1.4rem}
+.glass{background:var(--glass);border:1px solid var(--glass-edge);border-radius:18px;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 18px 50px rgba(3,6,18,.5)}
+
+/* ── hero ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;text-align:center;padding-block:14vh}
+.hero h1{font-size:clamp(1.9rem,6vw,4.2rem);line-height:1.06;letter-spacing:.07em;margin:.5rem 0;
+  background:linear-gradient(115deg,var(--mist) 20%,var(--cyan) 52%,var(--emerald) 80%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.hero h1{color:var(--mist)}}
+.hero .alt{font-family:var(--font-display);font-size:clamp(.9rem,2vw,1.2rem);color:var(--mist);opacity:.85;
+  letter-spacing:.2em;text-transform:uppercase}
+.hero .lede{margin:1.6rem auto 0}
+.facts{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:2.4rem}
+.facts li{display:flex;flex-direction:column;align-items:center;gap:.1rem;padding:.7em 1.3em;
+  border:1px solid var(--glass-edge);border-radius:14px;background:var(--glass);backdrop-filter:blur(10px)}
+.facts b{font-family:var(--font-display);font-size:.95rem;color:var(--mist);font-weight:400}
+.facts span{font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--dim)}
+.hint{margin-top:4vh;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
+
+/* ── case cards ── */
+.cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-top:4vh}
+.case{padding:1.9rem 1.7rem}
+.case .tag{display:block;font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--emerald);margin-bottom:.8rem}
+.case p{color:var(--dim);font-size:.94rem}
+
+/* ── part heading ── */
+.part-head{display:flex;align-items:baseline;gap:1.1rem;flex-wrap:wrap;margin-bottom:.5rem}
+.part-no{font-family:var(--font-display);font-size:.9rem;letter-spacing:.3em;color:var(--gold)}
+
+/* ── programme header strip ── */
+.prog-head{display:flex;flex-wrap:wrap;gap:1rem 2.4rem;align-items:center;padding:1.4rem 1.8rem;margin-top:4vh}
+.prog-head .org{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan)}
+.prog-head .sep{flex:1}
+.prog-head ul{list-style:none;display:flex;flex-wrap:wrap;gap:.6rem 1.6rem}
+.prog-head li{font-size:.74rem;color:var(--dim)}
+.prog-head li b{color:var(--mist);font-weight:400}
+
+/* ── KPI strip ── */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1.2rem;margin-top:1.4rem}
+.kpi{padding:1.5rem 1.5rem}
+.kpi .k-label{font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--dim)}
+.kpi .k-val{font-family:var(--font-display);font-size:1.9rem;margin:.35rem 0 .1rem;color:var(--gold);
+  text-shadow:0 0 24px rgba(232,196,127,.28)}
+.kpi .k-note{font-size:.72rem;color:var(--dim)}
+
+/* ── tabs ── */
+.tabs{display:flex;gap:.3rem;margin:4.5vh 0 3vh;border-bottom:1px solid var(--glass-edge);flex-wrap:wrap}
+.tab{background:none;border:none;cursor:pointer;font-family:var(--font-body);padding:.8em 1.3em;
+  font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);
+  border-bottom:2px solid transparent;margin-bottom:-1px;transition:.3s var(--ease-soft)}
+.tab:hover{color:var(--mist)}
+.tab[aria-selected="true"]{color:var(--mist);border-bottom-color:var(--emerald)}
+
+/* ── SIGNATURE · tracks with readiness rings ── */
+.tracks{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.6rem}
+.track{padding:1.9rem 1.8rem;border-left:2px solid var(--c);display:flex;flex-direction:column;gap:1rem}
+.track-top{display:flex;align-items:flex-start;gap:1.2rem}
+.track-id{flex:1;min-width:0}
+.track-id h3{color:var(--c);font-size:1.12rem;line-height:1.3}
+.track-id em{font-style:normal;display:block;margin-top:.3rem;font-size:.68rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--dim)}
+.ring{width:76px;height:76px;flex-shrink:0;position:relative}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:5;stroke-linecap:round}
+.ring .bg{stroke:rgba(140,190,255,.12)}
+.ring .fg{stroke:var(--c);filter:drop-shadow(0 0 6px var(--c))}
+.ring b{position:absolute;inset:0;display:grid;place-content:center;font-family:var(--font-mono);
+  font-size:.76rem;font-weight:500;color:var(--mist)}
+.ring-cap{display:block;text-align:center;font-size:.52rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--dim);margin-top:.35rem}
+.track p{color:var(--dim);font-size:.92rem}
+.track .tools{font-family:var(--font-mono);font-size:.68rem;color:var(--cyan);
+  border-top:1px solid rgba(140,190,255,.1);padding-top:.9rem;margin-top:auto}
+
+/* ── 12-week schedule rail ── */
+.rail{position:relative;padding-left:2.4rem}
+.rail::before{content:"";position:absolute;left:9px;top:.6rem;bottom:.6rem;width:1px;
+  background:linear-gradient(to bottom,var(--emerald),var(--cyan),var(--gold))}
+.stage{position:relative;padding:0 0 2.6rem}
+.stage:last-child{padding-bottom:0}
+.stage::before{content:"";position:absolute;left:-2.4rem;top:.45rem;width:19px;height:19px;border-radius:50%;
+  background:var(--ink);border:2px solid var(--c);box-shadow:0 0 14px var(--c)}
+.stage .wk{font-family:var(--font-mono);font-size:.64rem;letter-spacing:.14em;color:var(--c)}
+.stage h3{margin:.25rem 0 .1rem}
+.stage .kind{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.stage p{color:var(--dim);font-size:.92rem;margin-top:.7rem;max-width:70ch}
+
+/* ── tools table ── */
+.tbl-scroll{overflow-x:auto}
+table{width:100%;min-width:620px;border-collapse:collapse}
+th,td{text-align:left;padding:.95rem 1.1rem;border-bottom:1px solid rgba(140,190,255,.09);font-size:.88rem}
+th{font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--dim);font-weight:400}
+td:first-child{font-family:var(--font-display);color:var(--mist)}
+td .use{color:var(--dim)}
+.pill{display:inline-block;font-family:var(--font-mono);font-size:.6rem;letter-spacing:.06em;
+  padding:.25em .6em;border-radius:99px;margin:.1rem .2rem .1rem 0;
+  border:1px solid rgba(124,231,255,.28);color:var(--cyan)}
+
+/* ── metrics ── */
+.metrics{display:flex;flex-direction:column;gap:1.1rem}
+.metric{display:flex;gap:1.6rem;align-items:flex-start;padding:1.6rem 1.7rem}
+.metric .target{font-family:var(--font-display);font-size:1.6rem;color:var(--c);min-width:5.5rem;
+  text-shadow:0 0 20px var(--c)}
+.metric .body{flex:1}
+.metric .cat{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--dim)}
+.metric h3{margin:.2rem 0 .5rem;font-size:1.02rem}
+.metric p{color:var(--dim);font-size:.88rem}
+
+/* ── footer ── */
+footer{padding-block:10vh 12vh;text-align:center}
+.doorways{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:3vh}
+.doorways a{display:inline-block;padding:.65em 1.5em;text-decoration:none;font-size:.7rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--mist);background:rgba(67,230,176,.10);
+  border:1px solid rgba(67,230,176,.35);border-radius:4px 20px 4px 20px;transition:.4s var(--ease-soft)}
+.doorways a:hover,.doorways a:focus-visible{background:rgba(67,230,176,.22);border-color:var(--emerald);
+  box-shadow:0 0 20px rgba(67,230,176,.45);transform:translateY(-4px)}
+footer small{display:block;color:var(--dim);font-size:.75rem;letter-spacing:.12em}
+
+/* ── responsive ── */
+@media (max-width:700px){
+  .metric{flex-direction:column;gap:.8rem}
+  .metric .target{min-width:0}
+  .back{top:12px;left:12px;font-size:.62rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<canvas id="sky" aria-hidden="true"></canvas>
+<div class="aurora" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+<div class="mist" aria-hidden="true"></div>
+
+<div class="bar-track" aria-hidden="true"><div id="bar"></div></div>
+<a class="back" href="https://sowbharnikarn-hub.github.io/portfolio/">← Back to the journey</a>
+
+<main>
+
+  <!-- ───────── HERO ───────── -->
+  <header class="hero wrap">
+    <p class="eyebrow">Independent Project · Learning &amp; Enablement</p>
+    <h1>AI UPSKILL ACCELERATOR</h1>
+    <p class="alt">Employee training programme for the AI era</p>
+    <p class="lede">An employee training programme designed to raise productivity and operational efficiency in a fast-moving AI era — 240 people, twelve weeks, four specialisation tracks, and a measurement plan that starts before the first workshop.</p>
+    <ul class="facts">
+      <li><b>Programme Manager</b><span>Role</span></li>
+      <li><b>240 employees</b><span>Enrolled</span></li>
+      <li><b>12 weeks</b><span>Duration</span></li>
+      <li><b>4 tracks</b><span>By role</span></li>
+      <li><b>8 platforms</b><span>AI tools</span></li>
+    </ul>
+    <p class="hint">Scroll to read the programme</p>
+  </header>
+
+  <!-- ───────── THE CASE ───────── -->
+  <section class="wrap">
+    <p class="eyebrow">Why the programme is built this way</p>
+    <h2>Training that survives contact with real sprints</h2>
+    <p class="lede">Most AI training is a webinar people forget by Friday. Three decisions separate this programme from that.</p>
+    <div class="cases">
+      <article class="case glass">
+        <span class="tag">Specialise, don't generalise</span>
+        <p>An engineer and a design lead need different things from AI. Four role-based tracks — engineering, product and design, platform, leadership — each with its own curriculum, tools and seat allocation.</p>
+      </article>
+      <article class="case glass">
+        <span class="tag">Learn on live work</span>
+        <p>Weeks 6–8 put the tools into real sprints on the company's own codebases, with Friday peer demos and a mid-programme checkpoint with managers. No sandbox exercises.</p>
+      </article>
+      <article class="case glass">
+        <span class="tag">Baseline before you begin</span>
+        <p>Sprint velocity and review times are captured in weeks 1–2, before any AI tooling appears — so the +35% claim at day 90 is a comparison, not an assertion.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ───────── PART I · DASHBOARD ───────── -->
+  <section class="wrap">
+    <div class="part-head">
+      <span class="part-no">I.</span>
+      <h2>Employee Training Programme Dashboard</h2>
+    </div>
+    <p class="lede">The framework a sponsor actually reviews: who is enrolled, what they'll learn, when it happens, which platforms are in scope, and how success gets proven.</p>
+
+    <div class="prog-head glass">
+      <span class="org">TechCore Solutions · Q2 2026 initiative</span>
+      <span class="sep"></span>
+      <ul>
+        <li><b>240</b> employees enrolled</li>
+        <li><b>12-week</b> programme</li>
+        <li>All <b>engineering staff</b></li>
+        <li>Launches <b>5 May 2026</b></li>
+      </ul>
+    </div>
+
+    <div class="kpis">
+      <article class="kpi glass"><p class="k-label">Productivity target</p><p class="k-val">+35%</p><p class="k-note">dev output per sprint</p></article>
+      <article class="kpi glass"><p class="k-label">AI tools covered</p><p class="k-val">8</p><p class="k-note">platforms &amp; APIs</p></article>
+      <article class="kpi glass"><p class="k-label">Training hours</p><p class="k-val">96 hrs</p><p class="k-note">live + async</p></article>
+      <article class="kpi glass"><p class="k-label">Certifications</p><p class="k-val">3</p><p class="k-note">recognised badges</p></article>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Dashboard views">
+      <button class="tab" role="tab" id="tab-tracks"   aria-controls="panel-tracks"   aria-selected="true">Learning tracks</button>
+      <button class="tab" role="tab" id="tab-schedule" aria-controls="panel-schedule" aria-selected="false">12-week schedule</button>
+      <button class="tab" role="tab" id="tab-tools"    aria-controls="panel-tools"    aria-selected="false">AI tools</button>
+      <button class="tab" role="tab" id="tab-metrics"  aria-controls="panel-metrics"  aria-selected="false">Success metrics</button>
+    </div>
+
+    <div id="panel-tracks" role="tabpanel" aria-labelledby="tab-tracks">
+      <div class="tracks" id="tracks"></div>
+    </div>
+
+    <div id="panel-schedule" role="tabpanel" aria-labelledby="tab-schedule" hidden>
+      <div class="rail" id="rail"></div>
+    </div>
+
+    <div id="panel-tools" role="tabpanel" aria-labelledby="tab-tools" hidden>
+      <div class="tbl-scroll glass" style="padding:.4rem 1rem">
+        <table>
+          <caption class="visually-hidden" style="position:absolute;left:-9999px">AI tools and platforms covered</caption>
+          <thead><tr><th scope="col">Tool / platform</th><th scope="col">Primary use</th><th scope="col">Track(s)</th></tr></thead>
+          <tbody id="tools"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="panel-metrics" role="tabpanel" aria-labelledby="tab-metrics" hidden>
+      <div class="metrics" id="metrics"></div>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <ul class="doorways">
+      <li><a href="https://sowbharnikarn.wixsite.com/portfolio/projects" target="_blank" rel="noopener">More projects</a></li>
+      <li><a href="https://www.linkedin.com/in/sowbharnika-rn-901b42bb/" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+    <small>Sowbharnika RN · Project &amp; Programme Manager · Thank you for visiting my profile</small>
+  </footer>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+(() => {
+  "use strict";
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ── 1 · the sky ── */
+  const sky = document.getElementById("sky"), sc = sky.getContext("2d");
+  const DPR = Math.min(devicePixelRatio || 1, 2);
+  let W, H, stars = [], flies = [];
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  function seed() {
+    sky.width = (W = innerWidth) * DPR; sky.height = (H = innerHeight) * DPR;
+    sc.setTransform(DPR, 0, 0, DPR, 0, 0);
+    stars = Array.from({ length: Math.round(W * H / 5200) }, () => ({
+      x: rnd(0, W), y: rnd(0, H), r: rnd(.4, 1.5), a: rnd(.25, .95), tw: rnd(0, 6.28), sp: rnd(.4, 1.6) }));
+    flies = Array.from({ length: 24 }, () => ({
+      x: rnd(0, W), y: rnd(0, H), r: rnd(1.2, 2.6), s: rnd(0, 6.28), vy: rnd(-.12, -.03), vx: rnd(-.12, .12) }));
+  }
+  function paint(t) {
+    sc.clearRect(0, 0, W, H);
+    for (const s of stars) {
+      const a = s.a * (reduced ? 1 : .55 + .45 * Math.sin(t * .0012 * s.sp + s.tw));
+      sc.beginPath(); sc.fillStyle = `rgba(214,232,255,${a})`; sc.arc(s.x, s.y, s.r, 0, 6.29); sc.fill();
+    }
+    for (const f of flies) {
+      if (!reduced) {
+        f.x += f.vx + Math.sin(t * .0008 + f.s) * .22; f.y += f.vy;
+        if (f.y < -10) { f.y = H + 10; f.x = rnd(0, W); }
+        if (f.x < -10) f.x = W + 10; if (f.x > W + 10) f.x = -10;
+      }
+      const g = sc.createRadialGradient(f.x, f.y, 0, f.x, f.y, f.r * 6);
+      const p = reduced ? .8 : .45 + .55 * Math.sin(t * .0016 + f.s);
+      g.addColorStop(0, `rgba(67,230,176,${.85 * p})`); g.addColorStop(1, "rgba(67,230,176,0)");
+      sc.fillStyle = g; sc.beginPath(); sc.arc(f.x, f.y, f.r * 6, 0, 6.29); sc.fill();
+    }
+    if (!reduced) requestAnimationFrame(paint);
+  }
+  seed(); addEventListener("resize", () => { seed(); ScrollTrigger.refresh(); });
+  reduced ? paint(0) : requestAnimationFrame(paint);
+
+  /* ── 2 · progress ── */
+  const bar = document.getElementById("bar");
+  ScrollTrigger.create({ trigger: document.body, start: "top top", end: "bottom bottom",
+    onUpdate: (s) => { bar.style.width = s.progress * 100 + "%"; } });
+
+  /* ── 3 · programme data ── */
+  const TRACKS = [
+    { n:"AI-Assisted Development", who:"Engineers · 90 seats", pct:88, v:"--t1",
+      d:"Copilot workflows, prompt engineering for code, AI-powered code review, automated testing with LLMs, context-aware debugging, and integrating AI pair-programming into daily development cycles.",
+      tools:"GitHub Copilot · Claude API · LangChain" },
+    { n:"AI-Driven Product &amp; Design", who:"PMs &amp; Designers · 50 seats", pct:76, v:"--t2",
+      d:"Generative UI prototyping, AI user research synthesis, intelligent roadmap prioritisation, data storytelling with AI, A/B testing automation, and customer insight extraction at scale.",
+      tools:"Figma AI · Notion AI · Gemini for Workspace" },
+    { n:"MLOps &amp; AI Infrastructure", who:"DevOps / Platform · 60 seats", pct:65, v:"--t3",
+      d:"Model deployment pipelines, RAG architecture, LLM observability and cost optimisation, vector databases and embeddings, fine-tuning workflows, and AI-aware CI/CD practices.",
+      tools:"Pinecone · Datadog AI · LangGraph" },
+    { n:"AI Leadership &amp; Ethics", who:"Managers &amp; Leads · 40 seats", pct:93, v:"--t4",
+      d:"Responsible AI adoption frameworks, team change management, ROI measurement and business case building, AI governance, compliance requirements, and building a culture of continuous AI learning.",
+      tools:"All platforms (executive overview track)" },
+  ];
+  const STAGES = [
+    { wk:"Weeks 1–2",  n:"Foundations",              kind:"Onboarding",      v:"--emerald",
+      d:"AI literacy bootcamp for all staff, tool access provisioning, team kickoff sessions, baseline skill assessments, pre-programme survey, and manager briefings on supporting learners." },
+    { wk:"Weeks 3–5",  n:"Core Skills",              kind:"Live workshops",  v:"--cyan",
+      d:"Track-specific workshops twice per week, hands-on labs using company codebases, prompt engineering deep dives, pair-learning sessions with assigned mentors, and async video modules." },
+    { wk:"Weeks 6–8",  n:"Applied Projects",         kind:"Capstone sprints",v:"--t1",
+      d:"Real-world project integration — employees apply AI tools in live sprints. Peer demo sessions every Friday, AI tool adoption metrics tracked, mid-programme productivity checkpoint with managers." },
+    { wk:"Weeks 9–11", n:"Advanced Topics",          kind:"Expert sessions", v:"--t3",
+      d:"Guest speakers from AI research labs and industry leaders, advanced model fine-tuning workshops, agentic workflow design, a cross-team hackathon (48-hour build sprint), and Q&amp;A with AI practitioners." },
+    { wk:"Week 12",    n:"Certification &amp; Showcase", kind:"Graduation",  v:"--gold",
+      d:"Final skill assessments, internal demo day open to all staff and leadership, badge awards ceremony, post-programme survey, 90-day impact tracking kickoff, and peer recognition nominations." },
+  ];
+  const TOOLS = [
+    ["GitHub Copilot", "AI code completion &amp; chat", ["Development"]],
+    ["Claude API", "LLM integration &amp; agentic workflows", ["Development","MLOps"]],
+    ["Gemini for Workspace", "Docs, Sheets, Gmail AI assistance", ["Product","Leadership"]],
+    ["LangChain / LangGraph", "Agentic pipeline building", ["Development","MLOps"]],
+    ["Pinecone (Vector DB)", "RAG &amp; semantic search", ["MLOps"]],
+    ["Datadog AI Monitoring", "LLM observability &amp; cost tracking", ["MLOps"]],
+    ["Figma AI", "Generative UI &amp; design prototyping", ["Product &amp; Design"]],
+    ["Notion AI", "Knowledge base &amp; docs assistant", ["All tracks"]],
+  ];
+  const METRICS = [
+    { cat:"Engineering", n:"Sprint velocity increase", target:"+35%", v:"--t2",
+      d:"Measured via Jira sprint reports over 90 days post-training. Baseline captured in weeks 1–2, before any AI tooling is introduced." },
+    { cat:"Engineering", n:"Code review cycle time", target:"−40%", v:"--cyan",
+      d:"Time from PR open to merge, aided by AI-assisted reviews and auto-generated PR summaries. Tracked via GitHub Analytics." },
+    { cat:"All tracks", n:"AI tool daily active usage", target:"80%+", v:"--t1",
+      d:"Percentage of employees actively using at least one AI tool daily after week 8. Captured via tool analytics dashboards and manager check-ins." },
+    { cat:"All tracks", n:"Employee satisfaction score", target:"4.3/5", v:"--gold",
+      d:"Post-programme survey NPS and satisfaction rating for overall training quality and relevance. Collected in week 12 and again at the 90-day follow-up." },
+    { cat:"Ops efficiency", n:"Support ticket deflection", target:"−25%", v:"--t4",
+      d:"Internal IT and tooling tickets reduced via AI self-service skills gained during training. Measured against the six-month pre-programme baseline." },
+  ];
+  const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+
+  /* ── 4 · tracks with readiness rings (signature) ── */
+  const R = 33, CIRC = 2 * Math.PI * R;
+  document.getElementById("tracks").innerHTML = TRACKS.map((t) => `
+    <article class="track glass" style="--c:${css(t.v)}">
+      <div class="track-top">
+        <div class="track-id"><h3>${t.n}</h3><em>${t.who}</em></div>
+        <div>
+          <div class="ring" role="img" aria-label="Track readiness ${t.pct} percent">
+            <svg viewBox="0 0 76 76"><circle class="bg" cx="38" cy="38" r="${R}"></circle>
+            <circle class="fg" cx="38" cy="38" r="${R}"
+              stroke-dasharray="${CIRC}" stroke-dashoffset="${CIRC}" data-pct="${t.pct}"></circle></svg>
+            <b>${t.pct}%</b>
+          </div>
+          <span class="ring-cap">Readiness</span>
+        </div>
+      </div>
+      <p>${t.d}</p>
+      <p class="tools">Tools · ${t.tools}</p>
+    </article>`).join("");
+
+  function drawRings() {
+    document.querySelectorAll(".ring .fg").forEach((c) => {
+      const target = CIRC * (1 - c.dataset.pct / 100);
+      if (reduced) { c.style.strokeDashoffset = target; return; }
+      gsap.to(c, { strokeDashoffset: target, duration: 1.5, ease: "power2.out",
+        scrollTrigger: { trigger: c.closest(".track"), start: "top 88%" } });
+    });
+  }
+  drawRings();
+
+  /* ── 5 · schedule rail ── */
+  document.getElementById("rail").innerHTML = STAGES.map((s) => `
+    <div class="stage" style="--c:${css(s.v)}">
+      <span class="wk">${s.wk}</span>
+      <h3>${s.n}</h3>
+      <span class="kind">${s.kind}</span>
+      <p>${s.d}</p>
+    </div>`).join("");
+
+  /* ── 6 · tools table ── */
+  document.getElementById("tools").innerHTML = TOOLS.map(([n, use, tracks]) => `
+    <tr><td>${n}</td><td class="use">${use}</td>
+    <td>${tracks.map((x) => `<span class="pill">${x}</span>`).join("")}</td></tr>`).join("");
+
+  /* ── 7 · metrics ── */
+  document.getElementById("metrics").innerHTML = METRICS.map((m) => `
+    <article class="metric glass" style="--c:${css(m.v)}">
+      <span class="target">${m.target}</span>
+      <div class="body"><span class="cat">${m.cat}</span><h3>${m.n}</h3><p>${m.d}</p></div>
+    </article>`).join("");
+
+  /* ── 8 · tabs ── */
+  const tabs = [...document.querySelectorAll(".tab")];
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      tabs.forEach((t) => {
+        const on = t === tab;
+        t.setAttribute("aria-selected", String(on));
+        document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+      });
+      ScrollTrigger.refresh();
+    });
+    tab.addEventListener("keydown", (e) => {
+      if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+      const next = tabs[(tabs.indexOf(tab) + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length];
+      next.focus(); next.click();
+    });
+  });
+
+  /* ── 9 · reveals ── */
+  if (!reduced) {
+    gsap.from(".hero > *", { y: 30, opacity: 0, stagger: .12, duration: 1, ease: "power3.out", delay: .2 });
+    gsap.utils.toArray("section > .eyebrow, section > h2, section > .part-head, section > .lede, .case, .prog-head, .kpi, .tabs, .track, .stage, .metric, .tbl-scroll")
+      .forEach((el) => gsap.from(el, {
+        y: 26, opacity: 0, duration: .9, ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 90%" } }));
+  }
+
+  addEventListener("load", () => ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>
