@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>STATCOM Based Power Quality Improvement | Sowbharnika RN</title>
+<meta name="description" content="Power quality improvement for grid-connected wind-energy systems using a fuzzy-logic-controlled STATCOM — PWM technique, ATmega8 microcontroller and H-Bridge inverter." />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="STATCOM Based Power Quality Improvement | Sowbharnika RN" />
+<meta property="og:description" content="An innovative renewable energy program: stabilising voltage and correcting power factor on a grid-connected wind farm using a fuzzy-logic STATCOM." />
+<meta property="og:url" content="https://sowbharnikarn-hub.github.io/portfolio/projects/statcom-power-quality/" />
+<meta property="og:image" content="https://sowbharnikarn-hub.github.io/portfolio/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:ital,wght@0,200;0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+/* ═══════════════════════════════════════════════════════════
+   STATCOM · renewable energy program
+   Same world as the journey.
+   Signature: an animated closed-loop control diagram — signal
+   pulses travel PCC → Sense → Fuzzy Logic → PWM → Inverter → PCC.
+   ═══════════════════════════════════════════════════════════ */
+:root{
+  --ink:#050914; --deep:#0b1230; --violet:#241a4f;
+  --emerald:#43e6b0; --cyan:#7ce7ff; --gold:#e8c47f;
+  --mist:#eef3ff; --dim:#9aa7c9;
+  --glass:rgba(20,28,60,.42); --glass-edge:rgba(140,190,255,.16);
+  --font-display:'Marcellus',serif; --font-body:'Jost',sans-serif; --font-mono:'JetBrains Mono',monospace;
+  --ease-soft:cubic-bezier(.22,.9,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--mist);font-family:var(--font-body);font-weight:300;
+  line-height:1.65;letter-spacing:.02em;overflow-x:hidden}
+::selection{background:rgba(124,231,255,.22)}
+img,svg,canvas{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--emerald);outline-offset:3px;border-radius:4px}
+
+#sky{position:fixed;inset:0;z-index:0}
+.aurora{position:fixed;inset:-10% -20%;z-index:1;pointer-events:none;filter:blur(46px);opacity:.5;mix-blend-mode:screen}
+.aurora span{position:absolute;width:70%;height:38%;border-radius:50%}
+.aurora .a1{top:2%;left:6%;background:linear-gradient(100deg,transparent,rgba(67,230,176,.5),transparent);animation:drift 26s ease-in-out infinite alternate}
+.aurora .a2{top:12%;left:30%;background:linear-gradient(80deg,transparent,rgba(124,231,255,.4),transparent);animation:drift 34s ease-in-out infinite alternate-reverse}
+.aurora .a3{top:-4%;left:18%;background:linear-gradient(120deg,transparent,rgba(120,80,220,.45),transparent);animation:drift 42s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate3d(-4%,0,0) rotate(-4deg)}to{transform:translate3d(5%,3%,0) rotate(5deg) scaleX(1.15)}}
+.mist{position:fixed;left:0;right:0;bottom:0;height:32vh;z-index:2;pointer-events:none;
+  background:linear-gradient(to top,rgba(10,16,40,.88),transparent)}
+
+.bar-track{position:fixed;top:0;left:0;right:0;height:2px;z-index:60;background:rgba(255,255,255,.06)}
+#bar{height:100%;width:0;background:linear-gradient(90deg,var(--emerald),var(--cyan),var(--gold));box-shadow:0 0 12px rgba(124,231,255,.7)}
+.back{position:fixed;top:18px;left:20px;z-index:60;display:inline-flex;align-items:center;gap:.6em;
+  padding:.55em 1.15em;text-decoration:none;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--cyan);background:var(--glass);border:1px solid rgba(124,231,255,.3);border-radius:99px;
+  backdrop-filter:blur(10px);transition:.4s var(--ease-soft)}
+.back:hover,.back:focus-visible{color:var(--mist);border-color:var(--emerald);box-shadow:0 0 18px rgba(67,230,176,.35)}
+
+main{position:relative;z-index:10}
+.wrap{max-width:1100px;margin:0 auto;padding-inline:7vw}
+section{padding-block:11vh}
+.eyebrow{font-size:.72rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;letter-spacing:.04em}
+h2{font-size:clamp(1.7rem,3.6vw,2.7rem);line-height:1.2}
+h3{font-size:1.1rem}
+.lede{color:var(--dim);max-width:66ch;margin-top:1.4rem}
+.glass{background:var(--glass);border:1px solid var(--glass-edge);border-radius:18px;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 18px 50px rgba(3,6,18,.5)}
+
+/* ── hero ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;text-align:center;padding-block:14vh}
+.hero h1{font-size:clamp(1.7rem,4.8vw,3.4rem);line-height:1.18;margin:.5rem 0;
+  background:linear-gradient(115deg,var(--mist) 20%,var(--cyan) 52%,var(--emerald) 80%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.hero h1{color:var(--mist)}}
+.hero .alt{font-family:var(--font-display);font-size:clamp(.85rem,1.8vw,1.1rem);color:var(--mist);opacity:.85;
+  letter-spacing:.16em;text-transform:uppercase;max-width:50ch;margin:0 auto}
+.hero .lede{margin:1.6rem auto 0}
+.facts{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:2.4rem}
+.facts li{display:flex;flex-direction:column;align-items:center;gap:.1rem;padding:.7em 1.3em;
+  border:1px solid var(--glass-edge);border-radius:14px;background:var(--glass);backdrop-filter:blur(10px)}
+.facts b{font-family:var(--font-display);font-size:.92rem;color:var(--mist);font-weight:400}
+.facts span{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--dim)}
+.hint{margin-top:4vh;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
+
+/* ── part heading ── */
+.part-head{display:flex;align-items:baseline;gap:1.1rem;flex-wrap:wrap;margin-bottom:.5rem}
+.part-no{font-family:var(--font-display);font-size:.9rem;letter-spacing:.3em;color:var(--gold)}
+
+/* ── feature pair cards ── */
+.pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.4rem;margin-top:3.5vh}
+.feat{padding:1.9rem 1.8rem;border-left:2px solid var(--c)}
+.feat .tag{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;color:var(--c);display:block;margin-bottom:.7rem}
+.feat h3{font-size:1.08rem;margin-bottom:.8rem}
+.feat p{color:var(--dim);font-size:.9rem;line-height:1.8}
+
+/* ── SIGNATURE · closed-loop diagram ── */
+.loop-wrap{margin-top:5vh}
+.loop-svg{width:100%;max-width:640px;margin:0 auto;display:block}
+.loop-node{cursor:pointer}
+.loop-node rect,.loop-node circle{transition:filter .3s,stroke-width .3s}
+.loop-node.active rect,.loop-node.active circle{filter:drop-shadow(0 0 10px currentColor);stroke-width:2.4}
+.loop-node text{font-family:'JetBrains Mono',monospace;pointer-events:none}
+.loop-node .lbl{font-size:10.5px;fill:var(--mist)}
+.loop-node .sub{font-size:8px;fill:var(--dim)}
+.pulse{filter:drop-shadow(0 0 6px currentColor)}
+
+.loop-detail{margin-top:2.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.9rem}
+.loop-step{padding:1.3rem 1.5rem;border-left:2px solid var(--glass-edge);cursor:pointer;transition:.3s var(--ease-soft)}
+.loop-step.active{border-left-color:var(--emerald);background:rgba(67,230,176,.05)}
+.loop-step .n{font-family:var(--font-mono);font-size:.6rem;color:var(--gold);letter-spacing:.1em}
+.loop-step h3{font-size:.9rem;margin:.35rem 0 .5rem}
+.loop-step p{font-size:.82rem;color:var(--dim);line-height:1.7}
+
+/* ── mode toggle ── */
+.mode-toggle{margin-top:4vh;padding:1.8rem 2rem;text-align:center}
+.mode-btns{display:flex;justify-content:center;gap:1rem;margin-top:1.2rem;flex-wrap:wrap}
+.mode-btn{padding:.8em 1.6em;border-radius:99px;cursor:pointer;font-family:var(--font-body);font-size:.8rem;
+  border:1px solid var(--glass-edge);background:var(--glass);color:var(--dim);transition:.3s var(--ease-soft)}
+.mode-btn.on{color:var(--ink);font-weight:500}
+.mode-btn[data-mode="low"].on{background:var(--cyan);border-color:var(--cyan)}
+.mode-btn[data-mode="high"].on{background:#ff9e7d;border-color:#ff9e7d}
+.mode-readout{margin-top:1.4rem;font-size:.86rem;color:var(--mist);min-height:2.4em}
+.mode-readout b{color:var(--gold)}
+
+/* ── footer ── */
+footer{padding-block:10vh 12vh;text-align:center}
+.doorways{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:3vh}
+.doorways a{display:inline-block;padding:.65em 1.5em;text-decoration:none;font-size:.7rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--mist);background:rgba(67,230,176,.10);
+  border:1px solid rgba(67,230,176,.35);border-radius:4px 20px 4px 20px;transition:.4s var(--ease-soft)}
+.doorways a:hover,.doorways a:focus-visible{background:rgba(67,230,176,.22);border-color:var(--emerald);
+  box-shadow:0 0 20px rgba(67,230,176,.45);transform:translateY(-4px)}
+footer small{display:block;color:var(--dim);font-size:.75rem;letter-spacing:.12em}
+
+@media (max-width:700px){
+  .back{top:12px;left:12px;font-size:.62rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<canvas id="sky" aria-hidden="true"></canvas>
+<div class="aurora" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+<div class="mist" aria-hidden="true"></div>
+
+<div class="bar-track" aria-hidden="true"><div id="bar"></div></div>
+<a class="back" href="https://sowbharnikarn-hub.github.io/portfolio/">← Back to the journey</a>
+
+<main>
+
+  <!-- ───────── HERO ───────── -->
+  <header class="hero wrap">
+    <p class="eyebrow">Academic Project · Renewable Energy</p>
+    <h1>STATCOM Based Power Quality Improvement</h1>
+    <p class="alt">For Grid-Connected Wind-Energy Systems — an Innovative Renewable Energy Program</p>
+    <p class="lede">A fuzzy-logic-controlled STATCOM that stabilises voltage and improves power quality where intermittent wind power meets the grid — built around an ATMEL ATmega8 microcontroller, PWM switching, and an H-Bridge inverter.</p>
+    <ul class="facts">
+      <li><b>STATCOM</b><span>System type</span></li>
+      <li><b>Fuzzy Logic</b><span>Control method</span></li>
+      <li><b>ATmega8</b><span>Microcontroller</span></li>
+      <li><b>H-Bridge</b><span>Inverter topology</span></li>
+      <li><b>PWM</b><span>Switching technique</span></li>
+    </ul>
+    <p class="hint">Scroll to see how it works</p>
+  </header>
+
+  <!-- ───────── PART I · ALGORITHMS ───────── -->
+  <section class="wrap">
+    <div class="part-head">
+      <span class="part-no">I.</span>
+      <h2>Algorithms Employed</h2>
+    </div>
+    <p class="lede">Two techniques work together: one decides <em>how much</em> compensation is needed, the other decides <em>how</em> to physically deliver it.</p>
+    <div class="pair">
+      <article class="feat glass" style="--c:#43e6b0">
+        <span class="tag">i. Control Algorithm</span>
+        <h3>Fuzzy Logic Controller (FLC)</h3>
+        <p>Used in place of — or alongside — a conventional PI controller, to give more robust, adaptive control over the highly non-linear dynamics of a wind energy conversion system. It uses "if-then" rules to determine the reactive current needed for compensation, improving dynamic response during voltage sags, swells and load changes. Inputs — voltage error and its rate of change — pass through fuzzification, an inference engine, and defuzzification to produce the control output.</p>
+      </article>
+      <article class="feat glass" style="--c:#7ce7ff">
+        <span class="tag">ii. Switching Technique</span>
+        <h3>Pulse Width Modulation (PWM)</h3>
+        <p>The modulation method used to generate switching signals for the voltage source converter (VSC). Reference currents from the control algorithm are compared against a carrier signal to produce precise gating signals for the inverter's IGBTs — rapid, precise switching that lets the STATCOM inject a current waveform which cancels harmonics and maintains unity power factor at the Point of Common Coupling (PCC).</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ───────── PART II · COMPONENTS ───────── -->
+  <section class="wrap">
+    <div class="part-head">
+      <span class="part-no">II.</span>
+      <h2>Main Components</h2>
+    </div>
+    <div class="pair">
+      <article class="feat glass" style="--c:#e8c47f">
+        <span class="tag">i. Central Processor</span>
+        <h3>ATMEL ATmega8 Microcontroller</h3>
+        <p>The central processing unit for the whole control scheme — it executes the fuzzy control algorithm, processes sensor input measuring voltage and current at the PCC, and generates the high-frequency PWM signals that drive the H-Bridge inverter. Its role is critical for real-time STATCOM operation.</p>
+      </article>
+      <article class="feat glass" style="--c:#ff9e7d">
+        <span class="tag">ii. Power Stage</span>
+        <h3>H-Bridge Inverter</h3>
+        <p>The STATCOM's voltage source converter is built from H-Bridge circuits per phase. Each bridge uses switching devices (IGBTs) to create an AC output from a DC input — a DC-link capacitor. By adjusting the phase and magnitude of that output relative to the grid voltage via PWM, the STATCOM rapidly absorbs or injects reactive power, regulating terminal voltage and improving overall power quality.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ───────── PART III · HOW IT WORKS (SIGNATURE) ───────── -->
+  <section class="wrap" id="howworks">
+    <div class="part-head">
+      <span class="part-no">III.</span>
+      <h2>How It Works</h2>
+    </div>
+    <p class="lede">A closed-loop control system, continuously monitoring grid conditions and correcting for the variable nature of wind power. Click a stage — in the diagram or the list below — to follow the signal around the loop.</p>
+
+    <div class="loop-wrap">
+      <svg class="loop-svg" viewBox="0 0 640 380" id="loopSvg"></svg>
+    </div>
+    <div class="loop-detail" id="loopDetail"></div>
+
+    <div class="mode-toggle glass">
+      <p class="eyebrow" style="margin-bottom:.3rem">Reactive Power Response</p>
+      <h3>What the STATCOM does when voltage drifts</h3>
+      <div class="mode-btns">
+        <button class="mode-btn" data-mode="low">Grid voltage too low</button>
+        <button class="mode-btn" data-mode="high">Grid voltage too high</button>
+      </div>
+      <p class="mode-readout" id="modeReadout"></p>
+    </div>
+  </section>
+
+  <!-- ───────── RESULT ───────── -->
+  <section class="wrap">
+    <p class="eyebrow">v. Result</p>
+    <h2>What improves at the grid side of the PCC</h2>
+    <div class="pair">
+      <article class="feat glass" style="--c:#43e6b0"><span class="tag">01</span><h3>Reduced Harmonics</h3><p>Distortion introduced by the wind turbine's power electronics is cancelled at the point of common coupling.</p></article>
+      <article class="feat glass" style="--c:#7ce7ff"><span class="tag">02</span><h3>Stabilised Voltage</h3><p>Sags and swells caused by fluctuating wind speed and generator output are actively mitigated.</p></article>
+      <article class="feat glass" style="--c:#e8c47f"><span class="tag">03</span><h3>Power Factor Correction</h3><p>Reactive power compensation brings the system closer to unity power factor.</p></article>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <ul class="doorways">
+      <li><a href="https://sowbharnikarn.wixsite.com/portfolio/projects" target="_blank" rel="noopener">More projects</a></li>
+      <li><a href="https://www.linkedin.com/in/sowbharnika-rn-901b42bb/" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+    <small>Sowbharnika RN · Project &amp; Programme Manager · Thank you for visiting my profile</small>
+  </footer>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+(() => {
+  "use strict";
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ── 1 · the sky ── */
+  const sky = document.getElementById("sky"), sc = sky.getContext("2d");
+  const DPR = Math.min(devicePixelRatio || 1, 2);
+  let W, H, stars = [], flies = [];
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  function seed() {
+    sky.width = (W = innerWidth) * DPR; sky.height = (H = innerHeight) * DPR;
+    sc.setTransform(DPR, 0, 0, DPR, 0, 0);
+    stars = Array.from({ length: Math.round(W * H / 5200) }, () => ({
+      x: rnd(0, W), y: rnd(0, H), r: rnd(.4, 1.5), a: rnd(.25, .95), tw: rnd(0, 6.28), sp: rnd(.4, 1.6) }));
+    flies = Array.from({ length: 22 }, () => ({
+      x: rnd(0, W), y: rnd(0, H), r: rnd(1.2, 2.6), s: rnd(0, 6.28), vy: rnd(-.12, -.03), vx: rnd(-.12, .12) }));
+  }
+  function paint(t) {
+    sc.clearRect(0, 0, W, H);
+    for (const s of stars) {
+      const a = s.a * (reduced ? 1 : .55 + .45 * Math.sin(t * .0012 * s.sp + s.tw));
+      sc.beginPath(); sc.fillStyle = `rgba(214,232,255,${a})`; sc.arc(s.x, s.y, s.r, 0, 6.29); sc.fill();
+    }
+    for (const f of flies) {
+      if (!reduced) {
+        f.x += f.vx + Math.sin(t * .0008 + f.s) * .22; f.y += f.vy;
+        if (f.y < -10) { f.y = H + 10; f.x = rnd(0, W); }
+        if (f.x < -10) f.x = W + 10; if (f.x > W + 10) f.x = -10;
+      }
+      const g = sc.createRadialGradient(f.x, f.y, 0, f.x, f.y, f.r * 6);
+      const p = reduced ? .8 : .45 + .55 * Math.sin(t * .0016 + f.s);
+      g.addColorStop(0, `rgba(67,230,176,${.85 * p})`); g.addColorStop(1, "rgba(67,230,176,0)");
+      sc.fillStyle = g; sc.beginPath(); sc.arc(f.x, f.y, f.r * 6, 0, 6.29); sc.fill();
+    }
+    if (!reduced) requestAnimationFrame(paint);
+  }
+  seed(); addEventListener("resize", () => { seed(); ScrollTrigger.refresh(); });
+  reduced ? paint(0) : requestAnimationFrame(paint);
+
+  const bar = document.getElementById("bar");
+  ScrollTrigger.create({ trigger: document.body, start: "top top", end: "bottom bottom",
+    onUpdate: (s) => { bar.style.width = s.progress * 100 + "%"; } });
+
+  /* ── 2 · closed-loop diagram (signature) ── */
+  const svgNS = "http://www.w3.org/2000/svg";
+  const loopSvg = document.getElementById("loopSvg");
+  // 5 nodes positioned around an oval loop, in process order
+  const NODES = [
+    { id: 0, x: 256, y: 26,  w: 168, h: 52, c: "#7ce7ff", lbl: "GRID / PCC", sub: "Point of Common Coupling" },
+    { id: 1, x: 462, y: 150, w: 150, h: 60, c: "#43e6b0", lbl: "SENSING", sub: "ATmega8 · ADC" },
+    { id: 2, x: 400, y: 292, w: 190, h: 60, c: "#e8c47f", lbl: "FUZZY LOGIC", sub: "If-then rule inference" },
+    { id: 3, x: 100, y: 292, w: 190, h: 60, c: "#b69cff", lbl: "PWM GENERATOR", sub: "Gating signal synthesis" },
+    { id: 4, x: 28,  y: 150, w: 160, h: 60, c: "#ff9e7d", lbl: "H-BRIDGE INVERTER", sub: "IGBT switching" },
+  ];
+  const STEPS = [
+    { n: "i.", h: "Sensing the problem", node: 1,
+      t: "At the PCC, the ATmega8 uses its ADC to read voltage and current, watching for voltage sags/swells from fluctuating wind speed, harmonics from the turbine's power electronics, and reactive-power imbalance from the induction generators." },
+    { n: "ii.", h: "Intelligent control — Fuzzy algorithm", node: 2,
+      t: "The measured signals feed into the Fuzzy Logic controller. Better suited to wind energy's non-linear, unpredictable behaviour than a conventional PI controller, it processes voltage error and its rate of change through \u201cif-then\u201d rules to determine exactly how much reactive current the STATCOM needs to inject or absorb." },
+    { n: "iii.", h: "Generating PWM signals", node: 3,
+      t: "The microcontroller converts the Fuzzy controller's decision into Pulse Width Modulation signals — high-frequency, variable-width pulses that will drive the H-Bridge inverter and precisely shape its AC output waveform." },
+    { n: "iv.", h: "Injecting the compensating current", node: 4,
+      t: "The PWM signals switch the H-Bridge's IGBTs rapidly, converting the DC-link voltage into a synthesised AC waveform. Its phase and magnitude are controlled so the inverter injects a compensating current back into the grid at the PCC through a reactor." },
+    { n: "v.", h: "Improving power quality", node: 0,
+      t: "The injected current is phase-shifted and shaped to cancel grid harmonics and correct reactive power — closing the loop back at the PCC with reduced harmonics, stabilised voltage, and power factor closer to unity." },
+  ];
+
+  function centre(n) { return [n.x + n.w / 2, n.y + n.h / 2]; }
+  function drawLoop() {
+    loopSvg.innerHTML = "";
+    // connecting path through all node centres, closed loop
+    const pts = NODES.map(centre);
+    const d = "M " + pts.map((p) => p.join(",")).join(" L ") + " Z";
+    const path = document.createElementNS(svgNS, "path");
+    path.setAttribute("d", d); path.setAttribute("fill", "none");
+    path.setAttribute("stroke", "rgba(140,190,255,.18)"); path.setAttribute("stroke-width", "1.4");
+    path.setAttribute("id", "loopPath");
+    loopSvg.appendChild(path);
+
+    NODES.forEach((n) => {
+      const g = document.createElementNS(svgNS, "g");
+      g.setAttribute("class", "loop-node"); g.dataset.id = n.id;
+      g.style.color = n.c;
+      const rect = document.createElementNS(svgNS, "rect");
+      rect.setAttribute("x", n.x); rect.setAttribute("y", n.y);
+      rect.setAttribute("width", n.w); rect.setAttribute("height", n.h);
+      rect.setAttribute("rx", 12); rect.setAttribute("fill", "rgba(11,18,48,.85)");
+      rect.setAttribute("stroke", n.c); rect.setAttribute("stroke-width", "1.4");
+      g.appendChild(rect);
+      const [cx, cy] = centre(n);
+      const t1 = document.createElementNS(svgNS, "text");
+      t1.setAttribute("x", cx); t1.setAttribute("y", cy - 3);
+      t1.setAttribute("text-anchor", "middle"); t1.setAttribute("class", "lbl");
+      t1.textContent = n.lbl;
+      g.appendChild(t1);
+      const t2 = document.createElementNS(svgNS, "text");
+      t2.setAttribute("x", cx); t2.setAttribute("y", cy + 14);
+      t2.setAttribute("text-anchor", "middle"); t2.setAttribute("class", "sub");
+      t2.textContent = n.sub;
+      g.appendChild(t2);
+      loopSvg.appendChild(g);
+    });
+  }
+  drawLoop();
+
+  // animated pulse travelling the loop
+  if (!reduced) {
+    const pulse = document.createElementNS(svgNS, "circle");
+    pulse.setAttribute("r", 5); pulse.setAttribute("fill", "#43e6b0"); pulse.setAttribute("class", "pulse");
+    loopSvg.appendChild(pulse);
+    const pathEl = document.getElementById("loopPath");
+    const len = pathEl.getTotalLength();
+    let t0 = null;
+    function animatePulse(ts) {
+      if (!t0) t0 = ts;
+      const dur = 5200;
+      const p = ((ts - t0) % dur) / dur;
+      const pt = pathEl.getPointAtLength(p * len);
+      pulse.setAttribute("cx", pt.x); pulse.setAttribute("cy", pt.y);
+      requestAnimationFrame(animatePulse);
+    }
+    requestAnimationFrame(animatePulse);
+  }
+
+  document.getElementById("loopDetail").innerHTML = STEPS.map((s, i) => `
+    <article class="loop-step glass" data-i="${i}">
+      <span class="n">${s.n}</span><h3>${s.h}</h3><p>${s.t}</p>
+    </article>`).join("");
+
+  function activate(i) {
+    document.querySelectorAll(".loop-step").forEach((el) => el.classList.toggle("active", +el.dataset.i === i));
+    document.querySelectorAll(".loop-node").forEach((el) => el.classList.toggle("active", +el.dataset.id === STEPS[i].node));
+  }
+  document.querySelectorAll(".loop-step").forEach((el) => el.addEventListener("click", () => activate(+el.dataset.i)));
+  document.querySelectorAll(".loop-node").forEach((el) => el.addEventListener("click", () => {
+    const stepIdx = STEPS.findIndex((s) => s.node === +el.dataset.id);
+    if (stepIdx > -1) activate(stepIdx);
+  }));
+  activate(0);
+
+  /* ── 3 · capacitive / inductive mode toggle ── */
+  const MODES = {
+    low: "Grid voltage has dropped. The STATCOM switches to <b>capacitive mode</b> — generating and injecting reactive power to boost the terminal voltage back toward its reference level.",
+    high: "Grid voltage has risen. The STATCOM switches to <b>inductive mode</b> — absorbing reactive power from the grid to pull the terminal voltage back down toward its reference level.",
+  };
+  const readout = document.getElementById("modeReadout");
+  document.querySelectorAll(".mode-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".mode-btn").forEach((b) => b.classList.remove("on"));
+      btn.classList.add("on");
+      readout.innerHTML = MODES[btn.dataset.mode];
+    });
+  });
+  document.querySelector('.mode-btn[data-mode="low"]').click();
+
+  /* ── 4 · reveals ── */
+  if (!reduced) {
+    gsap.from(".hero > *", { y: 28, opacity: 0, stagger: .1, duration: 1, ease: "power3.out", delay: .2 });
+    gsap.utils.toArray("section > .eyebrow, section > h2, section > .part-head, section > .lede, .feat, .loop-wrap, .loop-step, .mode-toggle")
+      .forEach((el) => gsap.from(el, {
+        y: 22, opacity: 0, duration: .8, ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 92%" } }));
+  }
+
+  addEventListener("load", () => ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>
