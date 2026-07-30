@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Project Portfolio — Sowbharnika RN</title>
+<meta name="description" content="A selection of work by Sowbharnika RN — professional project management gigs, academic research and theses, independent projects, and case study papers presented." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Project Portfolio — Sowbharnika RN" />
+<meta property="og:description" content="Professional gigs, academic research, independent projects and papers presented — a full portfolio in four doorways." />
+<meta property="og:url" content="https://sowbharnikarn-hub.github.io/portfolio/projects/" />
+<meta property="og:image" content="https://sowbharnikarn-hub.github.io/portfolio/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:ital,wght@0,200;0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+/* ═══════════════════════════════════════════════════════════
+   PROJECT PORTFOLIO · four-doorway hub
+   Same world as the journey.
+   ═══════════════════════════════════════════════════════════ */
+:root{
+  --ink:#050914; --deep:#0b1230; --violet:#241a4f;
+  --emerald:#43e6b0; --cyan:#7ce7ff; --gold:#e8c47f;
+  --mist:#eef3ff; --dim:#9aa7c9;
+  --glass:rgba(20,28,60,.42); --glass-edge:rgba(140,190,255,.16);
+  --font-display:'Marcellus',serif; --font-body:'Jost',sans-serif; --font-mono:'JetBrains Mono',monospace;
+  --ease-soft:cubic-bezier(.22,.9,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--mist);font-family:var(--font-body);font-weight:300;
+  line-height:1.65;letter-spacing:.02em;overflow-x:hidden;min-height:100vh}
+::selection{background:rgba(124,231,255,.22)}
+img,svg,canvas{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--emerald);outline-offset:3px;border-radius:4px}
+
+#sky{position:fixed;inset:0;z-index:0}
+.aurora{position:fixed;inset:-10% -20%;z-index:1;pointer-events:none;filter:blur(46px);opacity:.5;mix-blend-mode:screen}
+.aurora span{position:absolute;width:70%;height:38%;border-radius:50%}
+.aurora .a1{top:2%;left:6%;background:linear-gradient(100deg,transparent,rgba(67,230,176,.5),transparent);animation:drift 26s ease-in-out infinite alternate}
+.aurora .a2{top:12%;left:30%;background:linear-gradient(80deg,transparent,rgba(124,231,255,.4),transparent);animation:drift 34s ease-in-out infinite alternate-reverse}
+.aurora .a3{top:-4%;left:18%;background:linear-gradient(120deg,transparent,rgba(120,80,220,.45),transparent);animation:drift 42s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate3d(-4%,0,0) rotate(-4deg)}to{transform:translate3d(5%,3%,0) rotate(5deg) scaleX(1.15)}}
+.mist{position:fixed;left:0;right:0;bottom:0;height:32vh;z-index:2;pointer-events:none;
+  background:linear-gradient(to top,rgba(10,16,40,.88),transparent)}
+
+.back{position:fixed;top:18px;left:20px;z-index:60;display:inline-flex;align-items:center;gap:.6em;
+  padding:.55em 1.15em;text-decoration:none;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--cyan);background:var(--glass);border:1px solid rgba(124,231,255,.3);border-radius:99px;
+  backdrop-filter:blur(10px);transition:.4s var(--ease-soft)}
+.back:hover,.back:focus-visible{color:var(--mist);border-color:var(--emerald);box-shadow:0 0 18px rgba(67,230,176,.35)}
+
+main{position:relative;z-index:10;min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:14vh 7vw 10vh}
+.wrap{max-width:1100px;margin:0 auto;width:100%}
+.eyebrow{font-size:.72rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1.3rem;text-align:center}
+h1{font-family:var(--font-display);font-weight:400;letter-spacing:.05em;text-align:center;
+  font-size:clamp(2rem,5.5vw,3.6rem);
+  background:linear-gradient(115deg,var(--mist) 20%,var(--cyan) 52%,var(--emerald) 80%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){h1{color:var(--mist)}}
+.lede{color:var(--dim);max-width:62ch;margin:1.4rem auto 0;text-align:center;font-size:1rem;line-height:1.8}
+
+/* ── four doorways ── */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem;margin-top:6vh}
+.tile{
+  position:relative;padding:2.6rem 2.2rem;text-decoration:none;overflow:hidden;border-radius:20px;
+  background:var(--glass);border:1px solid var(--glass-edge);backdrop-filter:blur(14px);
+  transition:transform .45s var(--ease-soft),border-color .45s,box-shadow .45s;
+  display:flex;flex-direction:column;gap:1.1rem;min-height:230px;
+}
+.tile::before{
+  content:"";position:absolute;inset:-40%;opacity:0;transition:opacity .5s;
+  background:radial-gradient(circle at 30% 20%,var(--c) 0%,transparent 60%);pointer-events:none;
+}
+.tile:hover,.tile:focus-visible{transform:translateY(-6px);border-color:var(--c);
+  box-shadow:0 24px 60px rgba(3,6,18,.6),0 0 50px color-mix(in srgb, var(--c) 30%, transparent)}
+.tile:hover::before,.tile:focus-visible::before{opacity:.16}
+.tile-icon{width:52px;height:52px;position:relative;z-index:1}
+.tile-icon svg{width:100%;height:100%;stroke:var(--c);fill:none;stroke-width:1.4;
+  filter:drop-shadow(0 0 8px color-mix(in srgb, var(--c) 60%, transparent))}
+.tile-num{position:absolute;top:1.8rem;right:2rem;font-family:var(--font-mono);font-size:.68rem;
+  color:var(--dim);letter-spacing:.1em;z-index:1}
+.tile-body{position:relative;z-index:1;flex:1}
+.tile-body h2{font-family:var(--font-display);font-size:1.35rem;font-weight:400;color:var(--mist);
+  letter-spacing:.03em;margin-bottom:.6rem}
+.tile-body p{font-size:.88rem;color:var(--dim);line-height:1.7;max-width:38ch}
+.tile-cta{position:relative;z-index:1;display:inline-flex;align-items:center;gap:.5em;
+  font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--c);margin-top:auto}
+.tile-cta svg{width:13px;height:13px;stroke:var(--c);fill:none;stroke-width:2;transition:transform .35s var(--ease-soft)}
+.tile:hover .tile-cta svg{transform:translateX(4px)}
+
+footer{position:relative;z-index:10;text-align:center;padding:6vh 7vw 4vh}
+.doorways{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:2.4rem}
+.doorways a{display:inline-block;padding:.6em 1.4em;text-decoration:none;font-size:.68rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--mist);background:rgba(67,230,176,.10);
+  border:1px solid rgba(67,230,176,.35);border-radius:4px 18px 4px 18px;transition:.4s var(--ease-soft)}
+.doorways a:hover,.doorways a:focus-visible{background:rgba(67,230,176,.22);border-color:var(--emerald);
+  box-shadow:0 0 18px rgba(67,230,176,.4);transform:translateY(-3px)}
+footer small{display:block;color:var(--dim);font-size:.72rem;letter-spacing:.1em}
+
+@media (max-width:760px){
+  .grid{grid-template-columns:1fr}
+  .back{top:12px;left:12px;font-size:.62rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<canvas id="sky" aria-hidden="true"></canvas>
+<div class="aurora" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+<div class="mist" aria-hidden="true"></div>
+
+<a class="back" href="https://sowbharnikarn-hub.github.io/portfolio/">← Back to the journey</a>
+
+<main>
+  <div class="wrap">
+    <p class="eyebrow">Project Portfolio</p>
+    <h1>Four Doorways Into the Work</h1>
+    <p class="lede">A selection of my work — Project Management gigs and sample best practices, academic research theses and projects, independent builds, and market research case studies. Feel free to explore and take a look around.</p>
+
+    <nav class="grid" aria-label="Project categories">
+      <a class="tile" style="--c:#43e6b0" href="https://sowbharnikarn.wixsite.com/portfolio/work-projects" target="_blank" rel="noopener">
+        <span class="tile-num">01</span>
+        <span class="tile-icon"><svg viewBox="0 0 48 48"><rect x="6" y="14" width="36" height="26" rx="3"/><path d="M17 14v-4a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v4"/><path d="M6 24h36"/><path d="M20 24v4h8v-4"/></svg></span>
+        <span class="tile-body"><h2>Professional</h2><p>Project management gigs and real client delivery work — the roles, sprints, and outcomes.</p></span>
+        <span class="tile-cta">Explore <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="tile" style="--c:#7ce7ff" href="https://sowbharnikarn.wixsite.com/portfolio/academic-projects" target="_blank" rel="noopener">
+        <span class="tile-num">02</span>
+        <span class="tile-icon"><svg viewBox="0 0 48 48"><path d="M24 8 4 17l20 9 20-9-20-9Z"/><path d="M12 21v10c0 3 5.4 6 12 6s12-3 12-6V21"/><path d="M40 17v12"/></svg></span>
+        <span class="tile-body"><h2>Academic Projects</h2><p>Research theses, papers presented, and structured academic studies across disciplines.</p></span>
+        <span class="tile-cta">Explore <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="tile" style="--c:#e8c47f" href="https://sowbharnikarn.wixsite.com/portfolio/independent-projects" target="_blank" rel="noopener">
+        <span class="tile-num">03</span>
+        <span class="tile-icon"><svg viewBox="0 0 48 48"><circle cx="24" cy="16" r="7"/><path d="M24 23v9"/><path d="M13 42c0-7 5-11 11-11s11 4 11 11"/><path d="M8 32l5 3M40 32l-5 3"/></svg></span>
+        <span class="tile-body"><h2>Independent</h2><p>Self-directed builds and demo projects — planned, designed, and delivered end-to-end solo.</p></span>
+        <span class="tile-cta">Explore <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="tile" style="--c:#b69cff" href="https://sowbharnikarn.wixsite.com/portfolio/case-study-papers" target="_blank" rel="noopener">
+        <span class="tile-num">04</span>
+        <span class="tile-icon"><svg viewBox="0 0 48 48"><path d="M10 8h20l8 8v24a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2Z"/><path d="M30 8v8h8"/><path d="M14 26h16M14 32h16M14 20h8"/></svg></span>
+        <span class="tile-body"><h2>Case Study / Papers Presented</h2><p>Market research papers and strategic case studies — from theory to applied analysis.</p></span>
+        <span class="tile-cta">Explore <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </nav>
+  </div>
+</main>
+
+<footer>
+  <ul class="doorways">
+    <li><a href="https://sowbharnikarn-hub.github.io/portfolio/">The full journey</a></li>
+    <li><a href="https://www.linkedin.com/in/sowbharnika-rn-901b42bb/" target="_blank" rel="noopener">LinkedIn</a></li>
+  </ul>
+  <small>Sowbharnika RN · Project &amp; Programme Manager · Thank you for visiting my profile</small>
+</footer>
+
+<script>
+(() => {
+  "use strict";
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const sky = document.getElementById("sky"), sc = sky.getContext("2d");
+  const DPR = Math.min(devicePixelRatio || 1, 2);
+  let W, H, stars = [], flies = [];
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  function seed() {
+    sky.width = (W = innerWidth) * DPR; sky.height = (H = innerHeight) * DPR;
+    sc.setTransform(DPR, 0, 0, DPR, 0, 0);
+    stars = Array.from({ length: Math.round(W * H / 5000) }, () => ({
+      x: rnd(0, W), y: rnd(0, H), r: rnd(.4, 1.5), a: rnd(.25, .95), tw: rnd(0, 6.28), sp: rnd(.4, 1.6) }));
+    flies = Array.from({ length: 18 }, () => ({
+      x: rnd(0, W), y: rnd(0, H), r: rnd(1.2, 2.6), s: rnd(0, 6.28), vy: rnd(-.12, -.03), vx: rnd(-.12, .12) }));
+  }
+  function paint(t) {
+    sc.clearRect(0, 0, W, H);
+    for (const s of stars) {
+      const a = s.a * (reduced ? 1 : .55 + .45 * Math.sin(t * .0012 * s.sp + s.tw));
+      sc.beginPath(); sc.fillStyle = `rgba(214,232,255,${a})`; sc.arc(s.x, s.y, s.r, 0, 6.29); sc.fill();
+    }
+    for (const f of flies) {
+      if (!reduced) {
+        f.x += f.vx + Math.sin(t * .0008 + f.s) * .22; f.y += f.vy;
+        if (f.y < -10) { f.y = H + 10; f.x = rnd(0, W); }
+        if (f.x < -10) f.x = W + 10; if (f.x > W + 10) f.x = -10;
+      }
+      const g = sc.createRadialGradient(f.x, f.y, 0, f.x, f.y, f.r * 6);
+      const p = reduced ? .8 : .45 + .55 * Math.sin(t * .0016 + f.s);
+      g.addColorStop(0, `rgba(67,230,176,${.85 * p})`); g.addColorStop(1, "rgba(67,230,176,0)");
+      sc.fillStyle = g; sc.beginPath(); sc.arc(f.x, f.y, f.r * 6, 0, 6.29); sc.fill();
+    }
+    if (!reduced) requestAnimationFrame(paint);
+  }
+  seed(); addEventListener("resize", seed);
+  reduced ? paint(0) : requestAnimationFrame(paint);
+
+  if (!reduced && window.gsap) {
+    gsap.from(".eyebrow, h1, .lede", { y: 24, opacity: 0, stagger: .12, duration: .9, ease: "power3.out" });
+    gsap.from(".tile", { y: 30, opacity: 0, stagger: .1, duration: .9, ease: "power3.out", delay: .3 });
+  } else if (!reduced) {
+    // GSAP not loaded on this lightweight page — do a simple CSS-only fade-in fallback
+    document.querySelectorAll(".tile, h1, .lede, .eyebrow").forEach((el, i) => {
+      el.style.opacity = 0; el.style.transform = "translateY(20px)";
+      el.style.transition = `opacity .7s ${i * 0.07}s, transform .7s ${i * 0.07}s`;
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        el.style.opacity = 1; el.style.transform = "none";
+      }));
+    });
+  }
+})();
+</script>
+</body>
+</html>
