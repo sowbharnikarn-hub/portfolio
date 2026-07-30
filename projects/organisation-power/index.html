@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Power &amp; Organisational Effectiveness — Paper Presented | Sowbharnika RN</title>
+<meta name="description" content="A theoretical analysis of organisational power and its influence on organisational effectiveness — traditional and contemporary theories, from Weber to Simon. Paper presented by Sowbharnika RN, with two companion essays on leadership and employee welfare." />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Power &amp; Organisational Effectiveness — Paper Presented | Sowbharnika RN" />
+<meta property="og:description" content="How organisational power shapes effectiveness — traditional and contemporary theory, from Max Weber to Herbert Simon — plus two companion essays." />
+<meta property="og:url" content="https://sowbharnikarn-hub.github.io/portfolio/projects/organisational-power-paper/" />
+<meta property="og:image" content="https://sowbharnikarn-hub.github.io/portfolio/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:ital,wght@0,200;0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+<style>
+/* ═══════════════════════════════════════════════════════════
+   PAPERS PRESENTED · Power & Organisational Effectiveness
+   Same world as the journey.
+   Signature: a chronological theorist constellation (1959–1997),
+   long-form essays set in a readable serif for the prose itself.
+   ═══════════════════════════════════════════════════════════ */
+:root{
+  --ink:#050914; --deep:#0b1230; --violet:#241a4f;
+  --emerald:#43e6b0; --cyan:#7ce7ff; --gold:#e8c47f;
+  --mist:#eef3ff; --dim:#9aa7c9;
+  --glass:rgba(20,28,60,.42); --glass-edge:rgba(140,190,255,.16);
+  --font-display:'Marcellus',serif; --font-body:'Jost',sans-serif;
+  --font-mono:'JetBrains Mono',monospace; --font-serif:'Lora',serif;
+  --ease-soft:cubic-bezier(.22,.9,.3,1);
+  --trad:#b69cff; --cont:#7ce7ff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--mist);font-family:var(--font-body);font-weight:300;
+  line-height:1.65;letter-spacing:.02em;overflow-x:hidden}
+::selection{background:rgba(124,231,255,.22)}
+img,svg,canvas{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--emerald);outline-offset:3px;border-radius:4px}
+
+#sky{position:fixed;inset:0;z-index:0}
+.aurora{position:fixed;inset:-10% -20%;z-index:1;pointer-events:none;filter:blur(46px);opacity:.5;mix-blend-mode:screen}
+.aurora span{position:absolute;width:70%;height:38%;border-radius:50%}
+.aurora .a1{top:2%;left:6%;background:linear-gradient(100deg,transparent,rgba(67,230,176,.5),transparent);animation:drift 26s ease-in-out infinite alternate}
+.aurora .a2{top:12%;left:30%;background:linear-gradient(80deg,transparent,rgba(124,231,255,.4),transparent);animation:drift 34s ease-in-out infinite alternate-reverse}
+.aurora .a3{top:-4%;left:18%;background:linear-gradient(120deg,transparent,rgba(120,80,220,.45),transparent);animation:drift 42s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate3d(-4%,0,0) rotate(-4deg)}to{transform:translate3d(5%,3%,0) rotate(5deg) scaleX(1.15)}}
+.mist{position:fixed;left:0;right:0;bottom:0;height:32vh;z-index:2;pointer-events:none;
+  background:linear-gradient(to top,rgba(10,16,40,.88),transparent)}
+
+.bar-track{position:fixed;top:0;left:0;right:0;height:2px;z-index:60;background:rgba(255,255,255,.06)}
+#bar{height:100%;width:0;background:linear-gradient(90deg,var(--emerald),var(--cyan),var(--gold));box-shadow:0 0 12px rgba(124,231,255,.7)}
+.back{position:fixed;top:18px;left:20px;z-index:60;display:inline-flex;align-items:center;gap:.6em;
+  padding:.55em 1.15em;text-decoration:none;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--cyan);background:var(--glass);border:1px solid rgba(124,231,255,.3);border-radius:99px;
+  backdrop-filter:blur(10px);transition:.4s var(--ease-soft)}
+.back:hover,.back:focus-visible{color:var(--mist);border-color:var(--emerald);box-shadow:0 0 18px rgba(67,230,176,.35)}
+
+main{position:relative;z-index:10}
+.wrap{max-width:900px;margin:0 auto;padding-inline:7vw}
+.wrap-wide{max-width:1180px;margin:0 auto;padding-inline:7vw}
+section{padding-block:11vh}
+.eyebrow{font-size:.72rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;letter-spacing:.04em}
+h2{font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.25}
+h3{font-size:1.05rem}
+.lede{color:var(--dim);max-width:68ch;margin-top:1.4rem}
+.glass{background:var(--glass);border:1px solid var(--glass-edge);border-radius:18px;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 18px 50px rgba(3,6,18,.5)}
+
+/* ── hero ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;text-align:center;padding-block:14vh}
+.hero h1{font-size:clamp(1.7rem,4.6vw,3.2rem);line-height:1.22;letter-spacing:.02em;margin:.5rem 0;
+  background:linear-gradient(115deg,var(--mist) 20%,var(--cyan) 52%,var(--emerald) 80%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.hero h1{color:var(--mist)}}
+.hero .alt{font-family:var(--font-display);font-size:clamp(.85rem,1.8vw,1.05rem);color:var(--mist);opacity:.85;
+  letter-spacing:.18em;text-transform:uppercase;max-width:44ch;margin:0 auto}
+.hero .lede{margin:1.6rem auto 0;text-align:center}
+.facts{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:2.4rem}
+.facts li{display:flex;flex-direction:column;align-items:center;gap:.1rem;padding:.7em 1.3em;
+  border:1px solid var(--glass-edge);border-radius:14px;background:var(--glass);backdrop-filter:blur(10px)}
+.facts b{font-family:var(--font-display);font-size:.9rem;color:var(--mist);font-weight:400}
+.facts span{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--dim)}
+.hint{margin-top:4vh;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
+
+/* ── contents nav ── */
+.toc{list-style:none;display:flex;flex-wrap:wrap;gap:.6rem;margin-top:3.5vh}
+.toc a{display:inline-block;padding:.55em 1.2em;text-decoration:none;font-size:.68rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--dim);border:1px solid var(--glass-edge);border-radius:99px;
+  background:var(--glass);transition:.35s var(--ease-soft)}
+.toc a:hover,.toc a:focus-visible{color:var(--mist);border-color:var(--emerald);box-shadow:0 0 14px rgba(67,230,176,.3)}
+
+/* ── abstract ── */
+.abstract{padding:2.1rem 2rem;margin-top:4vh}
+.abstract p{font-family:var(--font-serif);font-style:italic;color:var(--mist);font-size:1.02rem;line-height:1.9}
+
+/* ── essay prose (shared by paper + both medium essays) ── */
+.prose{font-family:var(--font-serif);font-size:1.02rem;line-height:1.9;color:#dbe3f5}
+.prose p{margin-top:1.3rem}
+.prose p:first-of-type{margin-top:0}
+.prose strong{color:var(--mist);font-weight:600}
+.prose em{color:var(--cyan);font-style:italic}
+.drop::first-letter{
+  font-family:var(--font-display);font-size:3.6rem;line-height:.8;float:left;
+  padding:.1rem .55rem 0 0;color:var(--gold);text-shadow:0 0 20px rgba(232,196,127,.35);
+}
+.pull{font-family:var(--font-display);font-size:1.35rem;line-height:1.5;color:var(--mist);
+  border-left:2px solid var(--emerald);padding:.3rem 0 .3rem 1.6rem;margin:2.4rem 0;font-style:normal}
+.subhead{font-family:var(--font-display);font-size:1.2rem;color:var(--gold);margin-top:2.6rem;margin-bottom:.4rem}
+.subhead.small{font-size:1.02rem;color:var(--cyan)}
+
+/* ── SIGNATURE · theorist constellation ── */
+.constellation{position:relative;margin-top:5vh;padding:2.5rem 1.5rem 1rem}
+.const-line{position:absolute;left:7.5%;right:7.5%;top:2.85rem;height:1px;
+  background:linear-gradient(90deg,var(--trad) 0%,var(--trad) 48%,var(--cont) 52%,var(--cont) 100%);opacity:.4}
+.const-track{display:flex;justify-content:space-between;position:relative;gap:.5rem;flex-wrap:wrap}
+.theorist{flex:1;min-width:130px;display:flex;flex-direction:column;align-items:center;text-align:center;cursor:default}
+.t-dot{width:14px;height:14px;border-radius:50%;background:var(--c);box-shadow:0 0 12px var(--c);margin-bottom:.8rem;
+  transition:transform .3s var(--ease-soft)}
+.theorist:hover .t-dot{transform:scale(1.3)}
+.t-year{font-family:var(--font-mono);font-size:.62rem;color:var(--c)}
+.t-name{font-family:var(--font-display);font-size:.92rem;margin-top:.25rem}
+.t-theory{font-size:.68rem;color:var(--dim);margin-top:.2rem;max-width:16ch}
+.const-legend{display:flex;justify-content:center;gap:2rem;margin-top:2.5rem}
+.const-legend span{display:flex;align-items:center;gap:.5em;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.const-legend i{width:9px;height:9px;border-radius:50%}
+
+/* ── takeaways ── */
+.takeaways{display:flex;flex-direction:column;gap:.9rem;margin-top:3.5vh}
+.takeaway{display:flex;gap:1rem;align-items:flex-start;padding:1.3rem 1.5rem}
+.takeaway .n{font-family:var(--font-display);font-size:1.1rem;color:var(--emerald);flex-shrink:0}
+.takeaway p{color:var(--mist);font-size:.95rem}
+
+/* ── bibliography accordion ── */
+.biblio{margin-top:1rem;overflow:hidden}
+.biblio-btn{width:100%;background:none;border:none;cursor:pointer;text-align:left;font-family:var(--font-body);
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.1rem 1.4rem;color:var(--mist)}
+.biblio-btn span:first-child{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.biblio-chev{color:var(--dim);font-size:.7rem;transition:transform .3s var(--ease-soft)}
+.biblio-btn[aria-expanded="true"] .biblio-chev{transform:rotate(180deg)}
+.biblio-body{display:none;padding:0 1.4rem 1.4rem}
+.biblio-body.open{display:block}
+.biblio-body ol{padding-left:1.3rem;display:flex;flex-direction:column;gap:.7rem}
+.biblio-body li{font-size:.82rem;color:var(--dim);line-height:1.7}
+.biblio-body em{color:var(--mist);font-style:italic}
+
+/* ── essay meta strip ── */
+.essay-meta{display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;align-items:center;padding:1rem 1.4rem;margin-top:3.5vh;
+  font-size:.76rem;color:var(--dim)}
+.essay-meta b{color:var(--mist);font-weight:400}
+.essay-meta a{color:var(--cyan);text-decoration:none;border-bottom:1px solid rgba(124,231,255,.35)}
+.essay-tags{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:2.4rem}
+.essay-tags li{font-size:.64rem;letter-spacing:.1em;padding:.4em 1em;color:var(--cyan);
+  border:1px solid rgba(124,231,255,.25);border-radius:99px}
+
+/* ── divider ── */
+.divider{display:flex;align-items:center;gap:1.2rem;margin:0 auto;max-width:900px;padding:0 7vw}
+.divider .line{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--glass-edge),transparent)}
+.divider span{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
+
+/* ── footer ── */
+footer{padding-block:10vh 12vh;text-align:center}
+.doorways{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:3vh}
+.doorways a{display:inline-block;padding:.65em 1.5em;text-decoration:none;font-size:.7rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--mist);background:rgba(67,230,176,.10);
+  border:1px solid rgba(67,230,176,.35);border-radius:4px 20px 4px 20px;transition:.4s var(--ease-soft)}
+.doorways a:hover,.doorways a:focus-visible{background:rgba(67,230,176,.22);border-color:var(--emerald);
+  box-shadow:0 0 20px rgba(67,230,176,.45);transform:translateY(-4px)}
+footer small{display:block;color:var(--dim);font-size:.75rem;letter-spacing:.12em}
+
+@media (max-width:700px){
+  .const-track{flex-direction:column;gap:1.6rem;align-items:flex-start}
+  .const-line{display:none}
+  .theorist{flex-direction:row;text-align:left;gap:.9rem;min-width:0}
+  .t-dot{margin-bottom:0;flex-shrink:0}
+  .t-theory{max-width:none}
+  .back{top:12px;left:12px;font-size:.62rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<canvas id="sky" aria-hidden="true"></canvas>
+<div class="aurora" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+<div class="mist" aria-hidden="true"></div>
+
+<div class="bar-track" aria-hidden="true"><div id="bar"></div></div>
+<a class="back" href="https://sowbharnikarn-hub.github.io/portfolio/">← Back to the journey</a>
+
+<main>
+
+  <!-- ───────── HERO ───────── -->
+  <header class="hero wrap">
+    <p class="eyebrow">Paper Presented · Organisational Behaviour</p>
+    <h1>Importance of Power in Achieving Organisational Effectiveness</h1>
+    <p class="alt">A theoretical analysis of traditional &amp; contemporary power theory</p>
+    <p class="lede">A literature focused on the main perspective managers can use today to evaluate organisational effectiveness. To validate this theory, in-depth research was conducted across traditional and contemporary theories on power in organisations.</p>
+    <ul class="facts">
+      <li><b>Anglia Ruskin Univ.</b><span>Originally published</span></li>
+      <li><b>2017</b><span>Written</span></li>
+      <li><b>1959–1997</b><span>Theory span</span></li>
+      <li><b>6</b><span>Theorists covered</span></li>
+      <li><b>11</b><span>Sources cited</span></li>
+    </ul>
+    <ul class="toc">
+      <li><a href="#abstract">Abstract</a></li>
+      <li><a href="#paper">The Paper</a></li>
+      <li><a href="#takeaways">Key Takeaways</a></li>
+      <li><a href="#biblio">Bibliography</a></li>
+      <li><a href="#essay-welfare">Essay · Employee Welfare</a></li>
+    </ul>
+    <p class="hint">Scroll to read</p>
+  </header>
+
+  <!-- ───────── ABSTRACT ───────── -->
+  <section class="wrap" id="abstract">
+    <p class="eyebrow">Abstract</p>
+    <h2>What the paper set out to test</h2>
+    <div class="abstract glass">
+      <p>The rate at which an organisation can achieve its goal efficiently is termed Organisational Effectiveness. To attain that, managers must analyse and steadily maintain many perspectives related to organisational behaviour — and power is a vital dynamic among them. Understanding the effective use of power helps managers influence employee behaviour and achieve organisational goals efficiently (Daft, 2007). This paper highlights the importance of power in achieving organisational effectiveness through a theoretical analysis of traditional and contemporary theories valid to date.</p>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"><span class="line"></span><span>The Paper</span><span class="line"></span></div>
+
+  <!-- ───────── PART I · THE PAPER ───────── -->
+  <section class="wrap" id="paper">
+    <p class="eyebrow">I. Theoretical Analysis of Organisational Power</p>
+    <h2>How organisational power contributes to organisational effectiveness</h2>
+    <p class="lede">Referring to all definitions, organisational power can be outlined as the capability of an individual or group in higher authority to influence others' behavioural action, emotions or thoughts — in order to alter the method of events, overcome unwillingness, and take control of employees' processes to achieve desired goals (Ott et al., 2007). Power is distributed among individuals according to organisational hierarchy, and its holders carry out their will regardless of others' will, even compelling them to act (cited in Hatch, 2006).</p>
+
+    <!-- signature: theorist constellation -->
+    <div class="constellation glass" id="constellation">
+      <div class="const-line" aria-hidden="true"></div>
+      <div class="const-track" id="track"></div>
+      <div class="const-legend">
+        <span><i style="background:var(--trad)"></i>Traditional theory</span>
+        <span><i style="background:var(--cont)"></i>Contemporary theory</span>
+      </div>
+    </div>
+
+    <p class="subhead">i. Traditional Theories on Organisational Power</p>
+    <div class="prose drop">
+      <p>While discussing traditional theories of power, the first to come to knowledge is <strong>Max Weber</strong> (1968), the father of "Bureaucratic Management Theory." He illustrated organisational structure as different hierarchy levels used to govern a vast number of employees according to position, and highlighted three forms of domination or authority legitimised by rational-legal decision-making rules: <strong>Traditional, Charismatic,</strong> and <strong>Rational-Legal</strong> (Weber, 1968). Among these, "Rational-Legal Authority" is considered the ideal form of domination, promoting organisational efficiency systematically and mitigating the demerits of the other two forms (Morgan, 1996; Weber, 2009). Research by Hatch in 2006 shows Weber's theory remains relevant today and is considered an important tool for modern industrialists and managers — bureaucratic management, Hatch argues, eventually improves an organisation's technical efficiency (Hatch, 2006).</p>
+
+      <p>In contrast to Weber's approach, theories such as the <strong>"Theory of Social Influence and Power"</strong> by John French and Bertram Raven (1959) and John Kotter's <strong>"Power Generation Theory"</strong> (1977) help us better understand how effective managerial performance and power execution highly influence employee behaviour in an organisation (French and Raven, 1959; Kotter, 1977). In these theories, the power summoned by a manager is based purely on the perspective of the organisational members. French and Raven described four bases of power — <strong>Coercive, Expert, Referent, Reward, Legitimate/Authority, Knowledge</strong> — while Kotter points to four power-generation methods managers use: <strong>creating a sense of obligation in others, building belief in the manager's expertise or experience, unconscious identification,</strong> and <strong>interpreted dependence on the manager.</strong></p>
+
+      <p>In Acquired Need Theory, David McClelland highlights three vital managerial behaviours in an organisation: <strong>Power — Achievement — Affiliation</strong>. His theory also explains the tendency of power to control across four stages: <strong>drawing on the employer's inner strength, self-strengthening, self-assertion,</strong> and <strong>playing as an instrument of higher authority.</strong> This theory portrays how a manager's role is centrally focused on productivity rather than on employee welfare (McClelland, 1960).</p>
+    </div>
+
+    <p class="subhead">ii. Contemporary Theories on Organisational Power</p>
+    <div class="prose">
+      <p>Most modern theories suggest how effective power execution results in both organisational and personal development. In the <strong>"Strategic Contingency Theory,"</strong> Gerald Salancik and Jeffrey Pfeffer (1977) highlight that employees who can successfully tackle organisational uncertainties and face critical situations easily will eventually acquire power — thereby enabling the organisation to align and adapt with its environment. In 2007, Ott, Parkes and Simpson emphasised the importance of this theory, describing the purpose and function of power and noting that effective power holders are more adaptive in nature and ready to face all sorts of situations (Ott et al., 2007).</p>
+
+      <p>Taking a positive approach to Weber's theory, Herbert Simon proposed the <strong>"Zone of Acceptance Model"</strong> in 1997. Though these theories are rooted in autocratic authority, Simon highlights the employee's choice toward compliance with orders from higher authority, building on Chester Barnard's concept of the <strong>"Zone of Indifference"</strong> (1971) (Simon, 1997, p.182) — which depicts the influence of power on individual behaviour. According to John Miner's research on Simon's theory, though it lacks specificity, it still provides a solid framework for decision-making based on analysis of employee behaviour and thinking (Miner, 2003).</p>
+    </div>
+
+    <div class="pull">"Power is not only interconnected to rule and oppression, but also enhances productivity and development."</div>
+
+    <p class="subhead">Synopsis</p>
+    <div class="prose">
+      <p>This study conducts a theoretical analysis of organisational power and its influence on organisational effectiveness, from both traditional and contemporary perspectives, reaching certain conclusions. According to traditional theories, power is summoned upon and executed based on organisational structure and authority — proving that the execution of power is centrally focused on productivity. In contemporary theories, however, power has both positive and negative effects in an organisation: they critically expose how organisational power execution can abuse employees in phases of domination, while also highlighting employees' freedom of choice, as in Simon's "Zone of Acceptance."</p>
+      <p>Some traditional methods are certainly outdated today, but with the right mix of proven knowledge from both traditional and contemporary methods, managers can successfully excel at this skill — understanding and using power the right way. It is an inevitable managerial skill that one should exercise and improvise: understanding the responsibilities that come with power, and being able to tackle the consequences that arise. Thus, managers can effectively manage, predict responses, take control, and convert unfavourable situations into favourable ones — enhancing organisational effectiveness.</p>
+    </div>
+  </section>
+
+  <!-- ───────── TAKEAWAYS ───────── -->
+  <section class="wrap" id="takeaways">
+    <p class="eyebrow">Key Takeaways</p>
+    <h2>What managers should carry forward</h2>
+    <div class="takeaways" id="takeawaysList"></div>
+  </section>
+
+  <!-- ───────── BIBLIOGRAPHY ───────── -->
+  <section class="wrap" id="biblio">
+    <p class="eyebrow">Sources</p>
+    <h2>Bibliography</h2>
+    <div class="biblio glass">
+      <button class="biblio-btn" aria-expanded="false" aria-controls="biblio-body">
+        <span>11 sources cited</span><span class="biblio-chev" aria-hidden="true">▾</span>
+      </button>
+      <div class="biblio-body" id="biblio-body"><ol id="biblioList"></ol></div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"><span class="line"></span><span>Companion Essay</span><span class="line"></span></div>
+
+  <!-- ───────── ESSAY: EMPLOYEE WELFARE ───────── -->
+  <section class="wrap" id="essay-welfare">
+    <p class="eyebrow">Essay · Originally published on Medium</p>
+    <h2>How much does employee welfare directly impact organisational growth?</h2>
+    <div class="essay-meta glass">
+      <span><b>Sowbharnika RN</b></span><span>3 min read</span><span>12 Aug 2025</span>
+      <span><a href="https://medium.com/@sowbharnikarn_56987/how-much-the-employee-welfare-directly-impact-the-organisational-growth-1ea414c04fb8" target="_blank" rel="noopener">Read on Medium ↗</a></span>
+    </div>
+
+    <div class="prose drop" style="margin-top:3.5vh">
+      <p>It is no surprise how Google and similar employee-goodwill companies are also performing well and doing great on a business level, parallelly. While it is easy to point out that any big corporation can do more good for their employees, and that it's hard for a start-up to follow the same, it's also a fact that every big-scale company was once a start-up. In fact, they used to have the same empathy towards their employees, and were always consistent in cherishing them even from the scratch of their growth period, as per records.</p>
+
+      <p>All research studies validate the same: that employee welfare, which implicates employee satisfaction, is indeed directly proportional to organisational growth and success. Those who understand this logic as a true fact are the true leaders leading successful businesses today. And those who are open to understanding and accepting this logic are pursuing promising success en route.</p>
+
+      <p>But is every company ready to see the truth as it is? Sadly, not. Apparently, from most start-ups to big corporations, employees are not taken into account as assets but as liabilities. Employee welfare, yearly compensation, even basic benefits are among the most vulnerable factors subjected to cost-cutting, while revenue and wealth are reinvested toward sales and marketing promotions. Is that really going to help in the long run?</p>
+
+      <div class="pull">"Think of an organisation as a skeletal body. Sales is, of course, the spine of the business, but every other employee who executes the business is important too."</div>
+
+      <p>Obviously not — such practices have proven to corrode the foundation of the business itself. Think of an organisation as a skeletal body. Sales is, of course, the spine of the business, but so is every other employee who executes the business — from manager to voice support — as they are the ones who run the company from various roles, like how different organs function in sync.</p>
+
+      <p>Without a developer, can code be written by a manager, or run on its own? Without customer support, does a client get their service? Without a QA tester, can a product be released bug-free? With a manager, can everything function smoothly? Without a finance person, can a company have precise final records to scale their profit and losses?</p>
+
+      <p>Every department, every employee, acts as the cells of an entire body, while every department acts as the organs for the organisation to function as an efficient and collaborative system. A body cannot function well if any of these organs fail. All departments need to communicate with each other transparently, and they must be seen and respected in the same regard.</p>
+
+      <p>Is it justifiable to cost-cut over employee benefits or welfare to save revenue? The answer is a big no. Although such costing strategies are perceived as easy to implement, they always backfire — resulting in frustrated employees and overwhelmed emotional stress at the workplace, which in turn causes less productivity, missed deadlines, or worse: loss of sales and dissatisfied clients.</p>
+
+      <p>This is not an emotional note, but indeed a statistical fact: companies that do not ensure welfare will eventually face major, terrible setbacks — large turnover and irreversible damage in the form of lost clients and revenue. So how should an organisation tackle this?</p>
+
+      <p>Plan wisely on revenue reinvestment into sales or other expenses, in a balanced manner, without compromising employee welfare — paving a way forward without choosing between layoffs or deducting from the budget allocated for employee growth and wellness, which are utterly poor solutions.</p>
+
+      <p>It's safe to conclude: employee welfare is the heart of every business. It is a building block of the foundation of any organisation, regardless of company size. The budget toward employee welfare should, in fact, keep progressing as the company scales up in parallel. This ensures employee satisfaction at work, and thereby excellent service, client experience, and retention as well.</p>
+
+      <p>In short, organisational growth is directly proportional to employee satisfaction — just like client satisfaction.</p>
+    </div>
+    <ul class="essay-tags">
+      <li>Organizational Culture</li><li>Organizational Success</li><li>Employee Retention</li>
+      <li>Employee Welfare</li><li>Organisation Development</li>
+    </ul>
+  </section>
+
+  <footer class="wrap-wide">
+    <ul class="doorways">
+      <li><a href="https://medium.com/@sowbharnikarn_56987" target="_blank" rel="noopener">More on Medium</a></li>
+      <li><a href="https://sowbharnikarn.wixsite.com/portfolio/projects" target="_blank" rel="noopener">More projects</a></li>
+      <li><a href="https://www.linkedin.com/in/sowbharnika-rn-901b42bb/" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+    <small>Sowbharnika RN · Project &amp; Programme Manager · Thank you for visiting my profile</small>
+  </footer>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+(() => {
+  "use strict";
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ── 1 · the sky ── */
+  const sky = document.getElementById("sky"), sc = sky.getContext("2d");
+  const DPR = Math.min(devicePixelRatio || 1, 2);
+  let W, H, stars = [], flies = [];
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  function seed() {
+    sky.width = (W = innerWidth) * DPR; sky.height = (H = innerHeight) * DPR;
+    sc.setTransform(DPR, 0, 0, DPR, 0, 0);
+    stars = Array.from({ length: Math.round(W * H / 5200) }, () => ({
+      x: rnd(0, W), y: rnd(0, H), r: rnd(.4, 1.5), a: rnd(.25, .95), tw: rnd(0, 6.28), sp: rnd(.4, 1.6) }));
+    flies = Array.from({ length: 20 }, () => ({
+      x: rnd(0, W), y: rnd(0, H), r: rnd(1.2, 2.6), s: rnd(0, 6.28), vy: rnd(-.12, -.03), vx: rnd(-.12, .12) }));
+  }
+  function paint(t) {
+    sc.clearRect(0, 0, W, H);
+    for (const s of stars) {
+      const a = s.a * (reduced ? 1 : .55 + .45 * Math.sin(t * .0012 * s.sp + s.tw));
+      sc.beginPath(); sc.fillStyle = `rgba(214,232,255,${a})`; sc.arc(s.x, s.y, s.r, 0, 6.29); sc.fill();
+    }
+    for (const f of flies) {
+      if (!reduced) {
+        f.x += f.vx + Math.sin(t * .0008 + f.s) * .22; f.y += f.vy;
+        if (f.y < -10) { f.y = H + 10; f.x = rnd(0, W); }
+        if (f.x < -10) f.x = W + 10; if (f.x > W + 10) f.x = -10;
+      }
+      const g = sc.createRadialGradient(f.x, f.y, 0, f.x, f.y, f.r * 6);
+      const p = reduced ? .8 : .45 + .55 * Math.sin(t * .0016 + f.s);
+      g.addColorStop(0, `rgba(67,230,176,${.85 * p})`); g.addColorStop(1, "rgba(67,230,176,0)");
+      sc.fillStyle = g; sc.beginPath(); sc.arc(f.x, f.y, f.r * 6, 0, 6.29); sc.fill();
+    }
+    if (!reduced) requestAnimationFrame(paint);
+  }
+  seed(); addEventListener("resize", () => { seed(); ScrollTrigger.refresh(); });
+  reduced ? paint(0) : requestAnimationFrame(paint);
+
+  const bar = document.getElementById("bar");
+  ScrollTrigger.create({ trigger: document.body, start: "top top", end: "bottom bottom",
+    onUpdate: (s) => { bar.style.width = s.progress * 100 + "%"; } });
+
+  /* ── 2 · theorist constellation (signature) ── */
+  const THEORISTS = [
+    { y:"1959", n:"French &amp; Raven", th:"Bases of Power", c:"trad" },
+    { y:"1960", n:"McClelland", th:"Acquired Need Theory", c:"trad" },
+    { y:"1968", n:"Max Weber", th:"Bureaucratic Management", c:"trad" },
+    { y:"1977", n:"Kotter", th:"Power Generation", c:"trad" },
+    { y:"1977", n:"Salancik &amp; Pfeffer", th:"Strategic Contingency", c:"cont" },
+    { y:"1997", n:"Herbert Simon", th:"Zone of Acceptance", c:"cont" },
+  ];
+  document.getElementById("track").innerHTML = THEORISTS.map((t) => `
+    <div class="theorist" style="--c:var(--${t.c})">
+      <span class="t-dot"></span>
+      <span class="t-year">${t.y}</span>
+      <span class="t-name">${t.n}</span>
+      <span class="t-theory">${t.th}</span>
+    </div>`).join("");
+  if (!reduced) {
+    gsap.from("#track .theorist", {
+      opacity: 0, y: 18, stagger: .08, duration: .7, ease: "power2.out",
+      scrollTrigger: { trigger: "#constellation", start: "top 85%" },
+    });
+    gsap.from(".const-line", { scaleX: 0, transformOrigin: "left center", duration: 1.1, ease: "power2.out",
+      scrollTrigger: { trigger: "#constellation", start: "top 85%" } });
+  }
+
+  /* ── 3 · key takeaways ── */
+  const TAKEAWAYS = [
+    "Power is assigned to and exercised by an individual or collective group, according to their authority level.",
+    "Power generally leads to conflict — due to differences in opinion and inability to carry out assigned roles — but not necessarily.",
+    "Power is not only interconnected to rule and oppression, but also enhances productivity and development.",
+  ];
+  document.getElementById("takeawaysList").innerHTML = TAKEAWAYS.map((t, i) => `
+    <article class="takeaway glass"><span class="n">${String(i + 1).padStart(2, "0")}</span><p>${t}</p></article>`).join("");
+
+  /* ── 4 · bibliography ── */
+  const BIBLIO = [
+    "Ching, B., 2015. <em>Power in Organizations, from Traditional, Modernist and Postmodernist perspectives</em>. [Accessed 26 August 2017].",
+    "Daft, R., 2007. <em>Understanding the Theory and Design of Organizations</em>. USA: Thomson. Power, Conflict and Politics.",
+    "French, J. R. P., and Raven, B., 1959. <em>The Bases of Power</em>. [Accessed 26 August 2017].",
+    "Hatch, M. J., 2006. <em>Organization Theory: Modern, Symbolic and Postmodern Perspectives</em>. New York: Oxford University Press.",
+    "Kotter, J. P., 1977. <em>Power, Dependence, and Effective Management</em>. Harvard Business Review, 125–136.",
+    "McClelland, D. C., 1960. <em>Acquired Need Theory: Theories of Organisation Power</em>. [Accessed 26 August 2017].",
+    "Miner, John. B., 2003. Rated Importance, Scientific Validity &amp; Practical Usefulness of Organisational Behaviour Theories: A Quantitative Review. <em>Academy of Management Learning &amp; Education</em>.",
+    "Ott, J. S., Parkes, S. J., and Simpson, R. B., 2007. <em>Classic Readings in Organizational Behaviour</em>. Wadsworth Publishing.",
+    "Simon, H. A., 1997. <em>Administrative Behaviour</em>, 4th Edition. Free Press.",
+    "UK Essays, 2013. <em>Organizational Power, Politics and Conflict</em>. [Accessed 27 August 2017].",
+    "Weber, M., 1968. <em>Theory of Impersonal Management: Economy and Society — An Outline of Interpretive Sociology</em>. New York: Bedminster Press.",
+  ];
+  document.getElementById("biblioList").innerHTML = BIBLIO.map((b) => `<li>${b}</li>`).join("");
+  const bBtn = document.querySelector(".biblio-btn");
+  bBtn.addEventListener("click", () => {
+    const open = bBtn.getAttribute("aria-expanded") === "true";
+    bBtn.setAttribute("aria-expanded", String(!open));
+    document.getElementById("biblio-body").classList.toggle("open", !open);
+    ScrollTrigger.refresh();
+  });
+
+  /* ── 5 · reveals ── */
+  if (!reduced) {
+    gsap.from(".hero > *", { y: 30, opacity: 0, stagger: .1, duration: 1, ease: "power3.out", delay: .2 });
+    gsap.utils.toArray("section > .eyebrow, section > h2, section > .lede, .abstract, .subhead, .prose > p, .pull, .takeaway, .biblio, .essay-meta, .essay-tags")
+      .forEach((el) => gsap.from(el, {
+        y: 22, opacity: 0, duration: .8, ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 93%" } }));
+  }
+
+  addEventListener("load", () => ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>
