@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Website Redesign — Project Charter, WBS &amp; RACI | Sowbharnika RN</title>
+<meta name="description" content="Core project management artifacts for a website redesign: project charter, work breakdown structure, and RACI matrix. Governance framework by Sowbharnika RN." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Website Redesign — Project Charter, WBS &amp; RACI | Sowbharnika RN" />
+<meta property="og:description" content="The three artifacts that govern a website redesign: what we're authorizing, how the work breaks down, and who owns each decision." />
+<meta property="og:url" content="https://sowbharnikarn-hub.github.io/portfolio/projects/website-redesign/" />
+<meta property="og:image" content="https://sowbharnikarn-hub.github.io/portfolio/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:ital,wght@0,200;0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+/* ═══════════════════════════════════════════════════════════
+   WEBSITE REDESIGN · project page
+   Same world as the journey.
+   Signature: before/after metric dials, a WBS constellation,
+   and a RACI grid that lights up row-by-row on hover.
+   ═══════════════════════════════════════════════════════════ */
+:root{
+  --ink:#050914; --deep:#0b1230; --violet:#241a4f;
+  --emerald:#43e6b0; --cyan:#7ce7ff; --gold:#e8c47f;
+  --mist:#eef3ff; --dim:#9aa7c9;
+  --glass:rgba(20,28,60,.42); --glass-edge:rgba(140,190,255,.16);
+  --font-display:'Marcellus',serif; --font-body:'Jost',sans-serif; --font-mono:'JetBrains Mono',monospace;
+  --ease-soft:cubic-bezier(.22,.9,.3,1);
+  --bad:#ff9e7d; --warn:#e8c47f; --good:#43e6b0;
+  --l1:#43e6b0; --l2:#7ce7ff; --l3:#b69cff; --l4:#e8c47f; --l5:#ff9e7d; --l6:#9cc4ff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--mist);font-family:var(--font-body);font-weight:300;
+  line-height:1.65;letter-spacing:.02em;overflow-x:hidden}
+::selection{background:rgba(124,231,255,.22)}
+img,svg,canvas{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--emerald);outline-offset:3px;border-radius:4px}
+
+#sky{position:fixed;inset:0;z-index:0}
+.aurora{position:fixed;inset:-10% -20%;z-index:1;pointer-events:none;filter:blur(46px);opacity:.5;mix-blend-mode:screen}
+.aurora span{position:absolute;width:70%;height:38%;border-radius:50%}
+.aurora .a1{top:2%;left:6%;background:linear-gradient(100deg,transparent,rgba(67,230,176,.5),transparent);animation:drift 26s ease-in-out infinite alternate}
+.aurora .a2{top:12%;left:30%;background:linear-gradient(80deg,transparent,rgba(124,231,255,.4),transparent);animation:drift 34s ease-in-out infinite alternate-reverse}
+.aurora .a3{top:-4%;left:18%;background:linear-gradient(120deg,transparent,rgba(120,80,220,.45),transparent);animation:drift 42s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate3d(-4%,0,0) rotate(-4deg)}to{transform:translate3d(5%,3%,0) rotate(5deg) scaleX(1.15)}}
+.mist{position:fixed;left:0;right:0;bottom:0;height:32vh;z-index:2;pointer-events:none;
+  background:linear-gradient(to top,rgba(10,16,40,.88),transparent)}
+
+.bar-track{position:fixed;top:0;left:0;right:0;height:2px;z-index:60;background:rgba(255,255,255,.06)}
+#bar{height:100%;width:0;background:linear-gradient(90deg,var(--emerald),var(--cyan),var(--gold));box-shadow:0 0 12px rgba(124,231,255,.7)}
+.back{position:fixed;top:18px;left:20px;z-index:60;display:inline-flex;align-items:center;gap:.6em;
+  padding:.55em 1.15em;text-decoration:none;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--cyan);background:var(--glass);border:1px solid rgba(124,231,255,.3);border-radius:99px;
+  backdrop-filter:blur(10px);transition:.4s var(--ease-soft)}
+.back:hover,.back:focus-visible{color:var(--mist);border-color:var(--emerald);box-shadow:0 0 18px rgba(67,230,176,.35)}
+
+main{position:relative;z-index:10}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:7vw}
+section{padding-block:11vh}
+.eyebrow{font-size:.72rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;letter-spacing:.04em}
+h2{font-size:clamp(1.7rem,3.6vw,2.7rem);line-height:1.2}
+h3{font-size:1.1rem}
+.lede{color:var(--dim);max-width:66ch;margin-top:1.4rem}
+.glass{background:var(--glass);border:1px solid var(--glass-edge);border-radius:18px;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 18px 50px rgba(3,6,18,.5)}
+
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;text-align:center;padding-block:14vh}
+.hero h1{font-size:clamp(1.7rem,5.2vw,3.8rem);line-height:1.14;letter-spacing:.05em;margin:.5rem 0;
+  background:linear-gradient(115deg,var(--mist) 20%,var(--cyan) 52%,var(--emerald) 80%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.hero h1{color:var(--mist)}}
+.hero .alt{font-family:var(--font-display);font-size:clamp(.9rem,2vw,1.2rem);color:var(--mist);opacity:.85;
+  letter-spacing:.2em;text-transform:uppercase}
+.hero .lede{margin:1.6rem auto 0}
+.facts{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:2.4rem}
+.facts li{display:flex;flex-direction:column;align-items:center;gap:.1rem;padding:.7em 1.3em;
+  border:1px solid var(--glass-edge);border-radius:14px;background:var(--glass);backdrop-filter:blur(10px)}
+.facts b{font-family:var(--font-display);font-size:.92rem;color:var(--mist);font-weight:400}
+.facts span{font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--dim)}
+.hint{margin-top:4vh;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
+
+.part-head{display:flex;align-items:baseline;gap:1.1rem;flex-wrap:wrap;margin-bottom:.5rem}
+.part-no{font-family:var(--font-display);font-size:.9rem;letter-spacing:.3em;color:var(--gold)}
+.doc-strip{display:flex;flex-wrap:wrap;gap:.5rem 2rem;padding:1.2rem 1.6rem;margin-top:3.5vh;font-size:.78rem;color:var(--dim)}
+.doc-strip b{color:var(--mist);font-weight:400}
+
+/* ── SIGNATURE 1 · before/after metric dials ── */
+.dials{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.4rem;margin-top:4.5vh}
+.dial-card{padding:1.7rem 1.5rem;text-align:center}
+.dial{width:104px;height:104px;margin:0 auto .9rem;position:relative}
+.dial svg{width:100%;height:100%;transform:rotate(-90deg)}
+.dial circle{fill:none;stroke-width:6;stroke-linecap:round}
+.dial .bg{stroke:rgba(140,190,255,.1)}
+.dial .now{stroke:var(--bad)}
+.dial .goal{stroke:var(--good);stroke-dasharray:2 5;opacity:.55}
+.dial-mid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.dial-mid b{font-family:var(--font-mono);font-size:.86rem;color:var(--mist)}
+.dial-mid span{font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:.15rem}
+.dial-label{font-size:.68rem;letter-spacing:.1em;color:var(--dim);line-height:1.5}
+.dial-goal{font-family:var(--font-mono);font-size:.68rem;color:var(--good);margin-top:.4rem}
+
+/* ── objectives / scope ── */
+.two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.6rem;margin-top:4vh}
+.obj-list,.scope-list{list-style:none;display:flex;flex-direction:column;gap:.8rem;padding:1.8rem 1.7rem}
+.obj-list li,.scope-list li{position:relative;padding-left:1.6rem;font-size:.9rem;color:var(--mist)}
+.obj-list li::before{content:"↗";position:absolute;left:0;color:var(--emerald)}
+.scope-list.out li::before{content:"—";color:var(--dim)}
+.scope-list.out li{color:var(--dim)}
+.col-title{font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;padding:1.4rem 1.7rem 0;color:var(--gold)}
+
+/* ── stakeholders ── */
+.stake-table{width:100%;border-collapse:collapse;min-width:560px}
+.stake-table th,.stake-table td{text-align:left;padding:.9rem 1.1rem;border-bottom:1px solid rgba(140,190,255,.09);font-size:.85rem}
+.stake-table th{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);font-weight:400}
+.stake-table td:first-child{font-family:var(--font-display);color:var(--mist)}
+.role-pill{display:inline-block;font-family:var(--font-mono);font-size:.6rem;padding:.25em .65em;border-radius:99px;
+  border:1px solid rgba(124,231,255,.3);color:var(--cyan)}
+
+/* ── timeline rail (reused pattern) ── */
+.rail{position:relative;padding-left:2.4rem;margin-top:1rem}
+.rail::before{content:"";position:absolute;left:9px;top:.6rem;bottom:.6rem;width:1px;
+  background:linear-gradient(to bottom,var(--l1),var(--l3),var(--l5))}
+.stage{position:relative;padding:0 0 2.2rem}
+.stage:last-child{padding-bottom:0}
+.stage::before{content:"";position:absolute;left:-2.4rem;top:.4rem;width:17px;height:17px;border-radius:50%;
+  background:var(--ink);border:2px solid var(--c);box-shadow:0 0 12px var(--c)}
+.stage .ph{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.12em;color:var(--c)}
+.stage h3{margin:.2rem 0 .15rem;font-size:1rem}
+.stage .target{font-size:.68rem;color:var(--dim)}
+.stage p{color:var(--dim);font-size:.88rem;margin-top:.5rem}
+
+/* ── budget ── */
+.budget{display:flex;flex-direction:column;gap:.55rem;margin-top:1rem}
+.b-row{display:flex;align-items:center;gap:1rem}
+.b-name{width:170px;flex-shrink:0;font-size:.82rem;color:var(--mist)}
+.b-bar-wrap{flex:1;height:22px;background:rgba(140,190,255,.06);border-radius:6px;overflow:hidden}
+.b-bar{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--cyan),var(--emerald))}
+.b-amt{width:80px;flex-shrink:0;text-align:right;font-family:var(--font-mono);font-size:.76rem;color:var(--gold)}
+.b-total{display:flex;justify-content:space-between;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--glass-edge);
+  font-family:var(--font-display);font-size:1.15rem}
+
+/* ── risks ── */
+.risks{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.3rem;margin-top:1rem}
+.risk{padding:1.5rem 1.5rem;border-left:2px solid var(--c)}
+.risk h3{font-size:.94rem;margin-bottom:.6rem}
+.risk .lvl{display:flex;gap:.5rem;margin-bottom:.7rem}
+.chip{font-family:var(--font-mono);font-size:.56rem;letter-spacing:.08em;padding:.25em .6em;border-radius:4px}
+.chip.hi{background:rgba(255,158,125,.16);color:var(--bad)}
+.chip.md{background:rgba(232,196,127,.16);color:var(--warn)}
+.chip.lo{background:rgba(67,230,176,.16);color:var(--good)}
+.risk p{color:var(--dim);font-size:.85rem}
+
+/* ── success criteria ── */
+.criteria{list-style:none;display:flex;flex-direction:column;gap:.9rem;margin-top:1rem;max-width:76ch}
+.criteria li{display:flex;gap:.9rem;align-items:flex-start;font-size:.92rem;color:var(--mist)}
+.criteria li::before{content:"✓";flex-shrink:0;width:22px;height:22px;border-radius:50%;
+  display:grid;place-content:center;font-size:.68rem;background:rgba(67,230,176,.15);color:var(--emerald);
+  box-shadow:0 0 10px rgba(67,230,176,.3)}
+
+/* ── SIGNATURE 2 · WBS constellation ── */
+.wbs{margin-top:4vh;display:flex;flex-direction:column;gap:2.2rem}
+.wbs-level{display:flex;gap:1.4rem;align-items:flex-start;flex-wrap:wrap}
+.wbs-l1{flex-shrink:0;width:168px;padding-top:.3rem}
+.wbs-l1 .code{font-family:var(--font-mono);font-size:.62rem;color:var(--c)}
+.wbs-l1 h3{color:var(--c);font-size:1.02rem;margin-top:.15rem}
+.wbs-nodes{flex:1;min-width:0;display:flex;flex-wrap:wrap;gap:.7rem}
+.wbs-node{padding:.85rem 1.1rem;min-width:190px;flex:1 1 220px;border-top:2px solid var(--c)}
+.wbs-node .code{font-family:var(--font-mono);font-size:.58rem;color:var(--c)}
+.wbs-node strong{display:block;font-size:.86rem;color:var(--mist);margin:.2rem 0 .15rem;font-weight:500}
+.wbs-node span{font-size:.78rem;color:var(--dim)}
+
+/* ── SIGNATURE 3 · RACI grid ── */
+.raci-scroll{overflow-x:auto;margin-top:4vh}
+.raci{border-collapse:separate;border-spacing:0;min-width:680px;width:100%}
+.raci th,.raci td{padding:.8rem .9rem;text-align:center;font-size:.78rem;border-bottom:1px solid rgba(140,190,255,.08)}
+.raci thead th{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);font-weight:400;
+  position:sticky;top:0;background:rgba(11,18,48,.9);backdrop-filter:blur(6px)}
+.raci tbody th{text-align:left;font-family:var(--font-display);font-weight:400;color:var(--mist);
+  font-size:.85rem;white-space:nowrap;padding-right:1.4rem}
+.raci tbody tr{transition:background .25s}
+.raci tbody tr:hover{background:rgba(124,231,255,.05)}
+.raci-cell{width:34px;height:34px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;
+  font-family:var(--font-mono);font-weight:500;font-size:.74rem;cursor:default}
+.raci-cell.R{background:rgba(67,230,176,.16);color:var(--emerald)}
+.raci-cell.A{background:rgba(232,196,127,.18);color:var(--gold)}
+.raci-cell.C{background:rgba(124,231,255,.14);color:var(--cyan)}
+.raci-cell.I{background:rgba(154,167,201,.12);color:var(--dim)}
+.raci-legend{list-style:none;display:flex;flex-wrap:wrap;gap:1.2rem;margin-top:1.6rem}
+.raci-legend li{display:flex;align-items:center;gap:.5em;font-size:.72rem;color:var(--dim)}
+.raci-legend b{width:22px;height:22px;border-radius:6px;display:grid;place-content:center;font-family:var(--font-mono);font-size:.66rem}
+
+/* ── footer ── */
+footer{padding-block:10vh 12vh;text-align:center}
+.doorways{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:3vh}
+.doorways a{display:inline-block;padding:.65em 1.5em;text-decoration:none;font-size:.7rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--mist);background:rgba(67,230,176,.10);
+  border:1px solid rgba(67,230,176,.35);border-radius:4px 20px 4px 20px;transition:.4s var(--ease-soft)}
+.doorways a:hover,.doorways a:focus-visible{background:rgba(67,230,176,.22);border-color:var(--emerald);
+  box-shadow:0 0 20px rgba(67,230,176,.45);transform:translateY(-4px)}
+footer small{display:block;color:var(--dim);font-size:.75rem;letter-spacing:.12em}
+
+@media (max-width:760px){
+  .wbs-level{flex-direction:column}
+  .wbs-l1{width:auto}
+  .back{top:12px;left:12px;font-size:.62rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<canvas id="sky" aria-hidden="true"></canvas>
+<div class="aurora" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+<div class="mist" aria-hidden="true"></div>
+
+<div class="bar-track" aria-hidden="true"><div id="bar"></div></div>
+<a class="back" href="https://sowbharnikarn-hub.github.io/portfolio/">← Back to the journey</a>
+
+<main>
+
+  <header class="hero wrap">
+    <p class="eyebrow">Independent Project · Governance Artifacts</p>
+    <h1>WEBSITE REDESIGN</h1>
+    <p class="alt">Charter · WBS · RACI</p>
+    <p class="lede">The core project management artifacts needed to formally authorize and govern a website redesign — the agreement between sponsor, stakeholders and team, the work broken into ownable pieces, and exactly who decides what.</p>
+    <ul class="facts">
+      <li><b>Project Manager</b><span>Role</span></li>
+      <li><b>Acme Corporation</b><span>Client</span></li>
+      <li><b>20 weeks</b><span>Discovery → post-launch</span></li>
+      <li><b>$116,600</b><span>Total budget</span></li>
+      <li><b>45 pages</b><span>In scope</span></li>
+    </ul>
+    <p class="hint">Scroll to read the charter</p>
+  </header>
+
+  <!-- ───────── PART I · CHARTER ───────── -->
+  <section class="wrap">
+    <div class="part-head">
+      <span class="part-no">I.</span>
+      <h2>Project Charter</h2>
+    </div>
+    <p class="lede">Formally authorizes the redesign for Acme Corporation — purpose, scope, objectives, stakeholders, timeline and governance, standing as the primary agreement between sponsor, stakeholders and the project team.</p>
+    <div class="doc-strip glass">
+      <span><b>Acme Corporation</b> · Digital Transformation Initiative</span>
+      <span>Version <b>1.0</b></span>
+      <span><b>April 2026</b></span>
+      <span><b>Confidential</b></span>
+    </div>
+
+    <!-- signature 1: before/after -->
+    <p class="col-title" style="padding:0;margin-top:4.5vh">Background — why now</p>
+    <p class="lede" style="margin-top:.8rem">Acme's site was last redesigned in 2019. Six metrics show what's changed since.</p>
+    <div class="dials" id="dials"></div>
+
+    <div class="two-col">
+      <div>
+        <p class="col-title">Objectives</p>
+        <ul class="obj-list glass" id="objectives"></ul>
+      </div>
+      <div>
+        <p class="col-title">Scope</p>
+        <ul class="scope-list glass" id="in-scope" style="border-radius:18px 18px 0 0"></ul>
+        <p class="col-title" style="color:var(--dim)">Out of scope</p>
+        <ul class="scope-list out glass" id="out-scope" style="border-radius:0 0 18px 18px;margin-top:-1px"></ul>
+      </div>
+    </div>
+
+    <p class="col-title" style="padding-left:0">Stakeholders &amp; roles</p>
+    <div class="glass" style="overflow-x:auto;margin-top:1rem">
+      <table class="stake-table" id="stakeholders"></table>
+    </div>
+
+    <p class="col-title" style="padding-left:0">High-level timeline</p>
+    <div class="rail" id="rail"></div>
+
+    <p class="col-title" style="padding-left:0">Budget summary</p>
+    <div class="glass" style="padding:1.7rem 1.8rem;margin-top:1rem">
+      <div class="budget" id="budget"></div>
+    </div>
+
+    <p class="col-title" style="padding-left:0">Key risks &amp; mitigations</p>
+    <div class="risks" id="risks"></div>
+
+    <p class="col-title" style="padding-left:0">Success criteria</p>
+    <p class="lede" style="margin-top:.6rem">The project is successful when these are true within 90 days of launch.</p>
+    <ul class="criteria" id="criteria"></ul>
+  </section>
+
+  <!-- ───────── PART II · WBS ───────── -->
+  <section class="wrap">
+    <div class="part-head">
+      <span class="part-no">II.</span>
+      <h2>Work Breakdown Structure</h2>
+    </div>
+    <p class="lede">Six phases, each broken into ownable work packages — the map from "redesign the website" down to individual, assignable pieces of work.</p>
+    <div class="wbs" id="wbs"></div>
+  </section>
+
+  <!-- ───────── PART III · RACI ───────── -->
+  <section class="wrap">
+    <div class="part-head">
+      <span class="part-no">III.</span>
+      <h2>RACI Matrix</h2>
+    </div>
+    <p class="lede">Who's Responsible, Accountable, Consulted or Informed for every key decision — the document that ends "I thought you were handling that."</p>
+    <div class="raci-scroll glass" style="padding:.6rem 1.2rem 1.2rem">
+      <table class="raci" id="raci"></table>
+    </div>
+    <ul class="raci-legend">
+      <li><b class="raci-cell R">R</b> Responsible — does the work</li>
+      <li><b class="raci-cell A">A</b> Accountable — owns the outcome</li>
+      <li><b class="raci-cell C">C</b> Consulted — gives input</li>
+      <li><b class="raci-cell I">I</b> Informed — kept in the loop</li>
+    </ul>
+  </section>
+
+  <footer class="wrap">
+    <ul class="doorways">
+      <li><a href="https://sowbharnikarn.wixsite.com/portfolio/projects" target="_blank" rel="noopener">More projects</a></li>
+      <li><a href="https://www.linkedin.com/in/sowbharnika-rn-901b42bb/" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+    <small>Sowbharnika RN · Project &amp; Programme Manager · Thank you for visiting my profile</small>
+  </footer>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+(() => {
+  "use strict";
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ── 1 · the sky ── */
+  const sky = document.getElementById("sky"), sc = sky.getContext("2d");
+  const DPR = Math.min(devicePixelRatio || 1, 2);
+  let W, H, stars = [], flies = [];
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  function seed() {
+    sky.width = (W = innerWidth) * DPR; sky.height = (H = innerHeight) * DPR;
+    sc.setTransform(DPR, 0, 0, DPR, 0, 0);
+    stars = Array.from({ length: Math.round(W * H / 5200) }, () => ({
+      x: rnd(0, W), y: rnd(0, H), r: rnd(.4, 1.5), a: rnd(.25, .95), tw: rnd(0, 6.28), sp: rnd(.4, 1.6) }));
+    flies = Array.from({ length: 22 }, () => ({
+      x: rnd(0, W), y: rnd(0, H), r: rnd(1.2, 2.6), s: rnd(0, 6.28), vy: rnd(-.12, -.03), vx: rnd(-.12, .12) }));
+  }
+  function paint(t) {
+    sc.clearRect(0, 0, W, H);
+    for (const s of stars) {
+      const a = s.a * (reduced ? 1 : .55 + .45 * Math.sin(t * .0012 * s.sp + s.tw));
+      sc.beginPath(); sc.fillStyle = `rgba(214,232,255,${a})`; sc.arc(s.x, s.y, s.r, 0, 6.29); sc.fill();
+    }
+    for (const f of flies) {
+      if (!reduced) {
+        f.x += f.vx + Math.sin(t * .0008 + f.s) * .22; f.y += f.vy;
+        if (f.y < -10) { f.y = H + 10; f.x = rnd(0, W); }
+        if (f.x < -10) f.x = W + 10; if (f.x > W + 10) f.x = -10;
+      }
+      const g = sc.createRadialGradient(f.x, f.y, 0, f.x, f.y, f.r * 6);
+      const p = reduced ? .8 : .45 + .55 * Math.sin(t * .0016 + f.s);
+      g.addColorStop(0, `rgba(67,230,176,${.85 * p})`); g.addColorStop(1, "rgba(67,230,176,0)");
+      sc.fillStyle = g; sc.beginPath(); sc.arc(f.x, f.y, f.r * 6, 0, 6.29); sc.fill();
+    }
+    if (!reduced) requestAnimationFrame(paint);
+  }
+  seed(); addEventListener("resize", () => { seed(); ScrollTrigger.refresh(); });
+  reduced ? paint(0) : requestAnimationFrame(paint);
+
+  const bar = document.getElementById("bar");
+  ScrollTrigger.create({ trigger: document.body, start: "top top", end: "bottom bottom",
+    onUpdate: (s) => { bar.style.width = s.progress * 100 + "%"; } });
+  const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+
+  /* ── DATA ── */
+  const DIALS = [
+    { label:"Bounce rate", now:68, goal:20, unit:"%", dir:"down", note:"reduce by ≥20%" },
+    { label:"Mobile traffic share", now:57, goal:57, unit:"%", dir:"flat", note:"drives mobile-first" },
+    { label:"Page load time", now:6.2, goal:2.5, unit:"s", max:8, dir:"down", note:"target < 2.5s" },
+    { label:"Conversion rate", now:1.1, goal:3, unit:"%", max:5, dir:"up", note:"target ≥ 3%" },
+    { label:"Industry avg. conversion", now:3.5, goal:3.5, unit:"%", max:5, dir:"flat", note:"benchmark" },
+    { label:"WCAG 2.1 AA", now:0, goal:100, unit:"%", dir:"up", note:"currently non-compliant" },
+  ];
+  const OBJECTIVES = [
+    "Deliver a modern, mobile-first website aligned with current brand guidelines",
+    "Improve page load speed to under 2.5 seconds on average",
+    "Increase overall conversion rate to a minimum of 3% within 90 days of launch",
+    "Achieve WCAG 2.1 AA accessibility compliance across all pages",
+    "Reduce bounce rate by 20% within 60 days of launch",
+    "Integrate with CRM (Salesforce) and Marketing Automation (HubSpot)",
+    "Implement an SEO-optimized content architecture to improve organic rankings",
+  ];
+  const IN_SCOPE = ["Redesign of all public-facing pages (approx. 45 pages)","New information architecture and site navigation",
+    "Brand-aligned visual design system (typography, color, components)","Responsive front-end development (HTML/CSS/JS)",
+    "CMS migration to WordPress (from legacy custom CMS)","SEO audit and on-page optimization",
+    "QA testing across browsers and devices","Launch and 30-day post-launch support"];
+  const OUT_SCOPE = ["E-commerce or payment processing functionality","Back-end application or API development",
+    "Third-party vendor integrations beyond CRM and HubSpot","Social media management or content creation beyond web copy",
+    "Ongoing website maintenance after the 30-day support period"];
+  const STAKEHOLDERS = [
+    ["Sarah Nguyen","CMO","Project Sponsor","Final approvals, budget sign-off"],
+    ["Marcus Liu","VP Digital","Project Owner","Day-to-day decisions, scope management"],
+    ["Emily Carr","Project Manager","PM","Timeline, risk, communications"],
+    ["Dev Team (Agency)","External","Design &amp; Dev","UX/UI design and development"],
+    ["IT Department","Internal","Technical Lead","Hosting, security, integrations"],
+    ["Content Team","Internal","Content","Copy, SEO, and content migration"],
+  ];
+  const PHASES = [
+    { n:"Discovery", a:"Stakeholder interviews, audit, IA", dur:"3 weeks", date:"2 May 2026", v:"--l1" },
+    { n:"Design", a:"Wireframes, UI design, prototype", dur:"4 weeks", date:"30 May 2026", v:"--l2" },
+    { n:"Development", a:"Front-end build, CMS setup, integrations", dur:"6 weeks", date:"11 Jul 2026", v:"--l3" },
+    { n:"QA &amp; UAT", a:"Testing, bug fixes, stakeholder review", dur:"2 weeks", date:"25 Jul 2026", v:"--l4" },
+    { n:"Launch", a:"Go-live, DNS cutover, monitoring", dur:"1 week", date:"1 Aug 2026", v:"--l5" },
+    { n:"Post-Launch", a:"Bug fixes, analytics review, handover", dur:"4 weeks", date:"29 Aug 2026", v:"--l6" },
+  ];
+  const BUDGET = [
+    ["UX/UI Design", 28000], ["Front-End Development", 42000], ["CMS Setup &amp; Configuration", 8000],
+    ["Content &amp; SEO", 12000], ["QA &amp; Testing", 6000], ["Project Management", 10000], ["Contingency (10%)", 10600],
+  ];
+  const RISKS = [
+    { n:"Scope creep from stakeholder requests", l:"hi", i:"hi", v:"--bad",
+      m:"Strict change control process; scope changes require sponsor approval." },
+    { n:"Content not ready on time", l:"md", i:"hi", v:"--warn",
+      m:"Content calendar established in Phase 1; dedicated content owner assigned." },
+    { n:"Third-party integration delays", l:"md", i:"md", v:"--warn",
+      m:"Early technical discovery; fallback plan for phased integration." },
+    { n:"Key personnel unavailability", l:"lo", i:"md", v:"--good",
+      m:"Cross-training; documented processes and design system." },
+  ];
+  const CRITERIA = [
+    "Page load time &lt; 2.5 seconds (Google PageSpeed score &gt; 85)",
+    "Conversion rate on primary CTAs ≥ 3%",
+    "Bounce rate reduced by ≥ 20% vs. baseline",
+    "WCAG 2.1 AA compliance verified by third-party audit",
+    "Zero critical bugs in production for 30 consecutive days post-launch",
+    "Stakeholder satisfaction score ≥ 8/10 in post-launch survey",
+  ];
+  const WBS = [
+    { code:"1.0", n:"Initiation", v:"--l1", items:[
+      ["1.0","Project setup","Define goals and stakeholders"], ["1.1","Charter approval","Approve project charter"]] },
+    { code:"2.0", n:"Discovery", v:"--l2", items:[
+      ["2.0","Current site audit","Review UX, SEO, and content"], ["2.1","Requirements gathering","Collect stakeholder inputs"],
+      ["2.2","Schedule","Create timeline"], ["2.3","Resources","Assign resources"]] },
+    { code:"3.0", n:"Design", v:"--l3", items:[
+      ["3.0","Wireframes","Create homepage and page wireframes"], ["3.1","Visual design","Prepare style direction"],
+      ["3.2","Mockups","Prepare &amp; review mockups"], ["3.3","Final design","Design approval"]] },
+    { code:"4.0", n:"Development", v:"--l4", items:[
+      ["4.0","Frontend build","Develop templates; build homepage &amp; inner pages"],
+      ["4.1","CMS setup","Configure content management system"]] },
+    { code:"5.0", n:"Testing", v:"--l5", items:[
+      ["5.0","Functional testing","Validate features and user flows"], ["5.1","UX","UX testing"],
+      ["5.2","Bug fixes","Resolve QA issues"]] },
+    { code:"6.0", n:"Launch", v:"--l6", items:[
+      ["6.0","Final","Final approval"], ["6.1","Deployment","Go live with approved release"],
+      ["6.2","Post-launch review","Monitor issues and metrics"]] },
+  ];
+  const RACI_ROWS = [
+    ["Approve project goals", "A","R","I","I","I"],
+    ["Define scope", "C","AR","C","I","I"],
+    ["Create wireframes", "I","A","R","C","I"],
+    ["Approve designs", "A","R","C","I","I"],
+    ["Develop pages", "I","A","I","R","I"],
+    ["Prepare content", "I","A","C","I","I"],
+    ["Test website", "I","A","I","C","R"],
+    ["Approve launch", "A","R","I","I","C"],
+  ];
+  const RACI_COLS = ["Sponsor","Project Manager","Designer","Developer","QA"];
+
+  /* ── 2 · before/after dials (signature) ── */
+  const DR = 40, DC = 2 * Math.PI * DR;
+  document.getElementById("dials").innerHTML = DIALS.map((d) => {
+    const max = d.max || 100;
+    const nowFrac = Math.min(d.now / max, 1);
+    return `<article class="dial-card glass">
+      <div class="dial">
+        <svg viewBox="0 0 96 96">
+          <circle class="bg" cx="48" cy="48" r="${DR}"></circle>
+          <circle class="goal" cx="48" cy="48" r="${DR}" stroke-dasharray="${DC}"
+            stroke-dashoffset="${DC * (1 - Math.min(d.goal / max, 1))}"></circle>
+          <circle class="now" cx="48" cy="48" r="${DR}" stroke-dasharray="${DC}"
+            stroke-dashoffset="${DC}" data-frac="${nowFrac}"></circle>
+        </svg>
+        <div class="dial-mid"><b>${d.now}${d.unit}</b><span>current</span></div>
+      </div>
+      <p class="dial-label">${d.label}</p>
+      <p class="dial-goal">${d.note}</p>
+    </article>`;
+  }).join("");
+  document.querySelectorAll(".dial .now").forEach((c) => {
+    const target = DC * (1 - parseFloat(c.dataset.frac));
+    if (reduced) { c.style.strokeDashoffset = target; return; }
+    gsap.to(c, { strokeDashoffset: target, duration: 1.4, ease: "power2.out",
+      scrollTrigger: { trigger: c.closest(".dial-card"), start: "top 90%" } });
+  });
+
+  /* ── 3 · objectives / scope ── */
+  document.getElementById("objectives").innerHTML = OBJECTIVES.map((o) => `<li>${o}</li>`).join("");
+  document.getElementById("in-scope").innerHTML = IN_SCOPE.map((o) => `<li>${o}</li>`).join("");
+  document.getElementById("out-scope").innerHTML = OUT_SCOPE.map((o) => `<li>${o}</li>`).join("");
+
+  /* ── 4 · stakeholders ── */
+  document.getElementById("stakeholders").innerHTML =
+    `<thead><tr><th>Name</th><th>Title</th><th>Role</th><th>Responsibility</th></tr></thead><tbody>` +
+    STAKEHOLDERS.map(([n, t, r, resp]) => `<tr><td>${n}</td><td>${t}</td>
+      <td><span class="role-pill">${r}</span></td><td style="color:var(--dim)">${resp}</td></tr>`).join("") +
+    `</tbody>`;
+
+  /* ── 5 · timeline rail ── */
+  document.getElementById("rail").innerHTML = PHASES.map((p, i) => `
+    <div class="stage" style="--c:${css(p.v)}">
+      <span class="ph">Phase ${i + 1}</span>
+      <h3>${p.n}</h3>
+      <span class="target">${p.dur} · target ${p.date}</span>
+      <p>${p.a}</p>
+    </div>`).join("");
+
+  /* ── 6 · budget ── */
+  const total = BUDGET.reduce((s, [, v]) => s + v, 0);
+  const maxV = Math.max(...BUDGET.map(([, v]) => v));
+  document.getElementById("budget").innerHTML =
+    BUDGET.map(([n, v]) => `<div class="b-row">
+      <span class="b-name">${n}</span>
+      <div class="b-bar-wrap"><div class="b-bar" style="width:0%" data-w="${(v / maxV * 100).toFixed(1)}"></div></div>
+      <span class="b-amt">$${v.toLocaleString()}</span>
+    </div>`).join("") +
+    `<div class="b-total"><span>Total budget</span><span>$${total.toLocaleString()}</span></div>`;
+  document.querySelectorAll(".b-bar").forEach((b) => {
+    if (reduced) { b.style.width = b.dataset.w + "%"; return; }
+    gsap.to(b, { width: b.dataset.w + "%", duration: 1.1, ease: "power2.out",
+      scrollTrigger: { trigger: b, start: "top 92%" } });
+  });
+
+  /* ── 7 · risks ── */
+  document.getElementById("risks").innerHTML = RISKS.map((r) => `
+    <article class="risk glass" style="--c:${css(r.v)}">
+      <h3>${r.n}</h3>
+      <div class="lvl"><span class="chip ${r.l}">Likelihood · ${r.l.toUpperCase()}</span><span class="chip ${r.i}">Impact · ${r.i.toUpperCase()}</span></div>
+      <p>${r.m}</p>
+    </article>`).join("");
+
+  /* ── 8 · criteria ── */
+  document.getElementById("criteria").innerHTML = CRITERIA.map((c) => `<li>${c}</li>`).join("");
+
+  /* ── 9 · WBS constellation ── */
+  document.getElementById("wbs").innerHTML = WBS.map((l) => `
+    <div class="wbs-level" style="--c:${css(l.v)}">
+      <div class="wbs-l1"><span class="code">${l.code}</span><h3>${l.n}</h3></div>
+      <div class="wbs-nodes">${l.items.map(([code, n, wp]) => `
+        <div class="wbs-node glass" style="--c:${css(l.v)}">
+          <span class="code">${code}</span><strong>${n}</strong><span>${wp}</span>
+        </div>`).join("")}</div>
+    </div>`).join("");
+
+  /* ── 10 · RACI grid ── */
+  document.getElementById("raci").innerHTML =
+    `<thead><tr><th></th>${RACI_COLS.map((c) => `<th>${c}</th>`).join("")}</tr></thead>
+     <tbody>${RACI_ROWS.map(([task, ...cells]) => `
+       <tr><th scope="row">${task}</th>${cells.map((v) => {
+         const first = v[0];
+         return `<td>${v.split("").map((ch) =>
+           `<span class="raci-cell ${ch}" title="${({R:"Responsible",A:"Accountable",C:"Consulted",I:"Informed"})[ch]}">${ch}</span>`
+         ).join("")}</td>`;
+       }).join("")}</tr>`).join("")}</tbody>`;
+
+  /* ── 11 · reveals ── */
+  if (!reduced) {
+    gsap.from(".hero > *", { y: 30, opacity: 0, stagger: .12, duration: 1, ease: "power3.out", delay: .2 });
+    gsap.utils.toArray("section > .eyebrow, section > h2, section > .part-head, section > .lede, .doc-strip, .col-title, .obj-list, .scope-list, .stake-table, .stage, .risk, .wbs-level, .raci-scroll")
+      .forEach((el) => gsap.from(el, {
+        y: 24, opacity: 0, duration: .85, ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 92%" } }));
+  }
+
+  addEventListener("load", () => ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>
