@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Burberry in China — A Strategic Management Analysis | Sowbharnika RN</title>
+<meta name="description" content="A strategic management study of Burberry's brand repositioning in the Chinese luxury market — PEST, Porter's Five Forces, Value Chain, VRIO, SWOT, TOWS and Ansoff strategy proposal." />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Burberry in China — A Strategic Management Analysis | Sowbharnika RN" />
+<meta property="og:description" content="How should a heritage British luxury brand reposition itself for China's next generation of buyers? A full strategic management study." />
+<meta property="og:url" content="https://sowbharnikarn-hub.github.io/portfolio/projects/burberry-china/" />
+<meta property="og:image" content="https://sowbharnikarn-hub.github.io/portfolio/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:ital,wght@0,200;0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+<style>
+/* ═══════════════════════════════════════════════════════════
+   BURBERRY IN CHINA · strategic management paper
+   Same world as the journey.
+   Signature: a PEST compass and a Porter's Five Forces orbit,
+   both native SVG, replacing the original doc's static charts.
+   ═══════════════════════════════════════════════════════════ */
+:root{
+  --ink:#050914; --deep:#0b1230; --violet:#241a4f;
+  --emerald:#43e6b0; --cyan:#7ce7ff; --gold:#e8c47f;
+  --mist:#eef3ff; --dim:#9aa7c9;
+  --glass:rgba(20,28,60,.42); --glass-edge:rgba(140,190,255,.16);
+  --font-display:'Marcellus',serif; --font-body:'Jost',sans-serif;
+  --font-mono:'JetBrains Mono',monospace; --font-serif:'Lora',serif;
+  --ease-soft:cubic-bezier(.22,.9,.3,1);
+  --s:#43e6b0; --w:#ff9e7d; --o:#7ce7ff; --t:#b69cff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--mist);font-family:var(--font-body);font-weight:300;
+  line-height:1.65;letter-spacing:.02em;overflow-x:hidden}
+::selection{background:rgba(124,231,255,.22)}
+img,svg,canvas{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--emerald);outline-offset:3px;border-radius:4px}
+
+#sky{position:fixed;inset:0;z-index:0}
+.aurora{position:fixed;inset:-10% -20%;z-index:1;pointer-events:none;filter:blur(46px);opacity:.5;mix-blend-mode:screen}
+.aurora span{position:absolute;width:70%;height:38%;border-radius:50%}
+.aurora .a1{top:2%;left:6%;background:linear-gradient(100deg,transparent,rgba(67,230,176,.5),transparent);animation:drift 26s ease-in-out infinite alternate}
+.aurora .a2{top:12%;left:30%;background:linear-gradient(80deg,transparent,rgba(124,231,255,.4),transparent);animation:drift 34s ease-in-out infinite alternate-reverse}
+.aurora .a3{top:-4%;left:18%;background:linear-gradient(120deg,transparent,rgba(120,80,220,.45),transparent);animation:drift 42s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate3d(-4%,0,0) rotate(-4deg)}to{transform:translate3d(5%,3%,0) rotate(5deg) scaleX(1.15)}}
+.mist{position:fixed;left:0;right:0;bottom:0;height:32vh;z-index:2;pointer-events:none;
+  background:linear-gradient(to top,rgba(10,16,40,.88),transparent)}
+
+.bar-track{position:fixed;top:0;left:0;right:0;height:2px;z-index:60;background:rgba(255,255,255,.06)}
+#bar{height:100%;width:0;background:linear-gradient(90deg,var(--emerald),var(--cyan),var(--gold));box-shadow:0 0 12px rgba(124,231,255,.7)}
+.back{position:fixed;top:18px;left:20px;z-index:60;display:inline-flex;align-items:center;gap:.6em;
+  padding:.55em 1.15em;text-decoration:none;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--cyan);background:var(--glass);border:1px solid rgba(124,231,255,.3);border-radius:99px;
+  backdrop-filter:blur(10px);transition:.4s var(--ease-soft)}
+.back:hover,.back:focus-visible{color:var(--mist);border-color:var(--emerald);box-shadow:0 0 18px rgba(67,230,176,.35)}
+
+main{position:relative;z-index:10}
+.wrap{max-width:980px;margin:0 auto;padding-inline:7vw}
+.wrap-wide{max-width:1180px;margin:0 auto;padding-inline:7vw}
+section{padding-block:10vh}
+.eyebrow{font-size:.7rem;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);margin-bottom:1.3rem}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;letter-spacing:.04em}
+h2{font-size:clamp(1.55rem,3vw,2.3rem);line-height:1.25}
+h3{font-size:1.05rem}
+.lede{color:var(--dim);max-width:70ch;margin-top:1.3rem}
+.glass{background:var(--glass);border:1px solid var(--glass-edge);border-radius:18px;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 18px 50px rgba(3,6,18,.5)}
+
+/* ── hero ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;text-align:center;padding-block:14vh}
+.hero h1{font-size:clamp(1.7rem,4.6vw,3.2rem);line-height:1.2;margin:.5rem 0;
+  background:linear-gradient(115deg,var(--mist) 20%,var(--cyan) 52%,var(--emerald) 80%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.hero h1{color:var(--mist)}}
+.hero .alt{font-family:var(--font-display);font-size:clamp(.85rem,1.8vw,1.05rem);color:var(--mist);opacity:.85;
+  letter-spacing:.16em;text-transform:uppercase;max-width:46ch;margin:0 auto}
+.hero .lede{margin:1.6rem auto 0}
+.facts{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:2.4rem}
+.facts li{display:flex;flex-direction:column;align-items:center;gap:.1rem;padding:.7em 1.3em;
+  border:1px solid var(--glass-edge);border-radius:14px;background:var(--glass);backdrop-filter:blur(10px)}
+.facts b{font-family:var(--font-display);font-size:.9rem;color:var(--mist);font-weight:400}
+.facts span{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--dim)}
+.toc{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:.55rem;margin-top:3vh;max-width:640px}
+.toc a{display:inline-block;padding:.5em 1.05em;text-decoration:none;font-size:.63rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--dim);border:1px solid var(--glass-edge);border-radius:99px;
+  background:var(--glass);transition:.35s var(--ease-soft)}
+.toc a:hover,.toc a:focus-visible{color:var(--mist);border-color:var(--emerald)}
+.hint{margin-top:4vh;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
+
+/* ── prose ── */
+.prose{font-family:var(--font-serif);font-size:.98rem;line-height:1.85;color:#dbe3f5}
+.prose p{margin-top:1.2rem}
+.prose p:first-child{margin-top:0}
+.prose strong{color:var(--mist);font-weight:600}
+.note-ai{display:inline-flex;align-items:center;gap:.4em;font-family:var(--font-mono);font-size:.6rem;
+  letter-spacing:.08em;color:var(--gold);opacity:.85;margin-top:.6rem}
+.note-ai::before{content:"◆"}
+
+/* ── divider ── */
+.divider{display:flex;align-items:center;gap:1.2rem;max-width:980px;margin:0 auto;padding:0 7vw}
+.divider .line{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--glass-edge),transparent)}
+.divider span{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--dim)}
+
+/* ── mission/vision/smart tables ── */
+.mv-grid{display:grid;grid-template-columns:auto repeat(3,1fr);gap:1px;background:var(--glass-edge);
+  border-radius:14px;overflow:hidden;margin-top:3.5vh;font-size:.84rem}
+.mv-grid > div{background:var(--deep);padding:1rem 1.1rem}
+.mv-grid .hd{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);background:#0d1530}
+.mv-grid .rowlabel{font-family:var(--font-display);color:var(--cyan);background:#0d1530}
+.mv-grid .cell{color:var(--dim);line-height:1.6}
+.smart{display:flex;flex-direction:column;gap:.8rem;margin-top:3.5vh}
+.smart-row{display:flex;gap:1.2rem;padding:1.2rem 1.4rem;align-items:flex-start}
+.smart-letter{width:38px;height:38px;flex-shrink:0;border-radius:50%;display:grid;place-content:center;
+  font-family:var(--font-display);color:var(--ink);background:var(--gold);font-size:1rem}
+.smart-body b{display:block;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+.smart-body p{font-size:.88rem;color:var(--dim)}
+.revised{font-family:var(--font-serif);font-style:italic;font-size:1.05rem;line-height:1.8;color:var(--mist);
+  padding:2rem 2.1rem;margin-top:3.5vh;border-left:2px solid var(--emerald)}
+
+/* ── key issues ── */
+.issues{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin-top:3.5vh}
+.issue{padding:1.5rem 1.5rem;border-left:2px solid var(--w)}
+.issue .stat{font-family:var(--font-display);font-size:1.5rem;color:var(--w);text-shadow:0 0 18px rgba(255,158,125,.3)}
+.issue h3{font-size:.92rem;margin-top:.4rem}
+.issue p{color:var(--dim);font-size:.83rem;margin-top:.4rem}
+
+/* ── SIGNATURE 1 · PEST compass ── */
+.pest-wrap{margin-top:4.5vh;display:grid;grid-template-columns:minmax(260px,340px) 1fr;gap:2rem;align-items:center}
+.pest-svg{width:100%;max-width:340px;margin:0 auto}
+.pest-node{cursor:pointer}
+.pest-node circle{transition:r .3s var(--ease-soft),filter .3s}
+.pest-node.active circle{filter:drop-shadow(0 0 10px currentColor)}
+.pest-node text{font-family:var(--font-mono);font-size:11px;fill:var(--mist);pointer-events:none}
+.pest-panels{display:flex;flex-direction:column;gap:.6rem}
+.pest-panel{padding:1.3rem 1.4rem;cursor:pointer;border-left:2px solid var(--c);transition:.3s}
+.pest-panel h3{color:var(--c);font-size:.95rem;display:flex;align-items:center;gap:.6em}
+.pest-panel h3::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c);box-shadow:0 0 8px var(--c)}
+.pest-panel-body{display:none;font-size:.85rem;color:var(--dim);margin-top:.8rem;line-height:1.75}
+.pest-panel.open .pest-panel-body{display:block}
+.pest-panel.open{background:rgba(124,231,255,.05)}
+
+/* ── SIGNATURE 2 · Porter's Five Forces orbit ── */
+.porter-wrap{margin-top:4.5vh}
+.porter-orbit{position:relative;width:min(520px,100%);aspect-ratio:1;margin:0 auto 3rem}
+.porter-center{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center}
+.porter-center-inner{width:38%;aspect-ratio:1;border-radius:50%;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;background:radial-gradient(circle,rgba(232,196,127,.16),rgba(232,196,127,.03));
+  border:1px solid rgba(232,196,127,.35);box-shadow:0 0 40px rgba(232,196,127,.15)}
+.porter-center-inner b{font-family:var(--font-display);font-size:1rem;color:var(--gold)}
+.porter-center-inner span{font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:.3rem;padding:0 10%}
+.porter-node{position:absolute;width:120px;margin-left:-60px;text-align:center;cursor:pointer}
+.porter-dot{width:14px;height:14px;border-radius:50%;margin:0 auto .5rem;background:var(--c);box-shadow:0 0 12px var(--c);
+  transition:transform .3s var(--ease-soft)}
+.porter-node:hover .porter-dot,.porter-node.active .porter-dot{transform:scale(1.4)}
+.porter-node .lbl{font-size:.68rem;letter-spacing:.05em;color:var(--mist);line-height:1.3}
+.porter-cards{display:flex;flex-direction:column;gap:.7rem}
+.porter-card{padding:1.2rem 1.4rem;border-left:2px solid var(--c);display:none}
+.porter-card.show{display:block}
+.porter-card h3{color:var(--c);font-size:.95rem;margin-bottom:.5rem}
+.porter-card p{color:var(--dim);font-size:.86rem;line-height:1.75}
+
+/* ── value chain ── */
+.vchain{margin-top:4vh;display:flex;flex-direction:column;gap:.5rem}
+.vchain-group-label{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin:1.6rem 0 .6rem}
+.vchain-group-label:first-child{margin-top:0}
+.vc-item{padding:1.3rem 1.5rem}
+.vc-item h3{font-size:.92rem;color:var(--cyan);margin-bottom:.6rem}
+.vc-item ul{padding-left:1.2rem;color:var(--dim);font-size:.85rem;line-height:1.8}
+.vc-item.completed{border-left:2px solid var(--emerald)}
+.vc-item.written{border-left:2px solid var(--gold)}
+.vc-tag{display:inline-block;font-family:var(--font-mono);font-size:.55rem;letter-spacing:.08em;
+  padding:.2em .55em;border-radius:4px;margin-left:.6em;vertical-align:middle}
+.vc-tag.orig{background:rgba(67,230,176,.14);color:var(--emerald)}
+.vc-tag.new{background:rgba(232,196,127,.14);color:var(--gold)}
+
+/* ── resource audit / VRIO ── */
+.ra-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin-top:3.5vh}
+.ra-card{padding:1.5rem 1.6rem}
+.ra-card .k{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem;display:block}
+.ra-card ul{padding-left:1.1rem;color:var(--dim);font-size:.85rem;line-height:1.8}
+.vrio-scroll{overflow-x:auto;margin-top:1rem}
+table.vrio{width:100%;min-width:680px;border-collapse:collapse}
+table.vrio th,table.vrio td{padding:.75rem .8rem;text-align:center;font-size:.76rem;border-bottom:1px solid rgba(140,190,255,.08)}
+table.vrio th{font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);font-weight:400}
+table.vrio td:first-child,table.vrio th:first-child{text-align:left;font-family:var(--font-display);color:var(--mist);white-space:nowrap}
+.vb{display:inline-block;width:22px;height:22px;border-radius:6px;line-height:22px;font-family:var(--font-mono);font-size:.66rem}
+.vb.y{background:rgba(67,230,176,.16);color:var(--emerald)}
+.vb.n{background:rgba(154,167,201,.12);color:var(--dim)}
+.vb.c{background:rgba(232,196,127,.16);color:var(--gold)}
+.imp{font-size:.68rem;letter-spacing:.04em;padding:.3em .6em;border-radius:99px;white-space:nowrap}
+.imp.parity{background:rgba(154,167,201,.12);color:var(--dim)}
+.imp.temp{background:rgba(232,196,127,.14);color:var(--gold)}
+.imp.sustained{background:rgba(67,230,176,.16);color:var(--emerald)}
+
+/* ── KPI benchmarking ── */
+.kpi-bench{display:flex;flex-direction:column;gap:1.1rem;margin-top:3.5vh}
+.kb-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.kb-label{width:190px;flex-shrink:0;font-size:.82rem;color:var(--mist)}
+.kb-bars{flex:1;min-width:220px;display:flex;flex-direction:column;gap:.35rem}
+.kb-bar-line{display:flex;align-items:center;gap:.7rem}
+.kb-who{width:76px;flex-shrink:0;font-family:var(--font-mono);font-size:.6rem;color:var(--dim)}
+.kb-track{flex:1;height:14px;background:rgba(140,190,255,.07);border-radius:7px;overflow:hidden}
+.kb-fill{height:100%;border-radius:7px;width:0}
+.kb-fill.burberry{background:linear-gradient(90deg,var(--emerald),var(--cyan))}
+.kb-fill.lv{background:linear-gradient(90deg,var(--gold),#ffb35c)}
+
+/* ── SWOT ── */
+.swot{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-top:3.5vh}
+.swot-q{padding:1.5rem 1.6rem}
+.swot-q h3{font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.9rem}
+.swot-q ul{padding-left:1.1rem;color:var(--dim);font-size:.85rem;line-height:1.9}
+.swot-q.s{border-top:2px solid var(--s)} .swot-q.s h3{color:var(--s)}
+.swot-q.w{border-top:2px solid var(--w)} .swot-q.w h3{color:var(--w)}
+.swot-q.o{border-top:2px solid var(--o)} .swot-q.o h3{color:var(--o)}
+.swot-q.t{border-top:2px solid var(--t)} .swot-q.t h3{color:var(--t)}
+
+/* ── TOWS ── */
+.tows{display:flex;flex-direction:column;gap:.9rem;margin-top:3.5vh}
+.tows-row{display:flex;gap:1rem;align-items:flex-start;padding:1.3rem 1.5rem}
+.tows-tag{font-family:var(--font-mono);font-size:.66rem;padding:.3em .65em;border-radius:6px;flex-shrink:0;white-space:nowrap}
+.tows-row p{font-size:.87rem;color:var(--dim);line-height:1.75}
+
+/* ── Ansoff ── */
+.ansoff{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:3.5vh}
+.an-card{padding:1.7rem 1.7rem;border-top:2px solid var(--c)}
+.an-card h3{color:var(--c);font-size:1.02rem;margin-bottom:.7rem}
+.an-card p{color:var(--dim);font-size:.87rem;line-height:1.8}
+
+/* ── evaluation ── */
+.evals{display:flex;flex-direction:column;gap:1rem;margin-top:3.5vh}
+.eval-row{padding:1.4rem 1.5rem}
+.eval-row h3{font-size:.95rem;margin-bottom:.9rem}
+.eval-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+.eval-cell b{display:block;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:.3rem}
+.eval-cell .rating{font-family:var(--font-display);color:var(--gold);font-size:.95rem}
+.eval-cell p{font-size:.78rem;color:var(--dim);margin-top:.25rem;line-height:1.6}
+
+/* ── footer ── */
+footer{padding-block:10vh 12vh;text-align:center}
+.doorways{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:3vh}
+.doorways a{display:inline-block;padding:.65em 1.5em;text-decoration:none;font-size:.7rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--mist);background:rgba(67,230,176,.10);
+  border:1px solid rgba(67,230,176,.35);border-radius:4px 20px 4px 20px;transition:.4s var(--ease-soft)}
+.doorways a:hover,.doorways a:focus-visible{background:rgba(67,230,176,.22);border-color:var(--emerald);
+  box-shadow:0 0 20px rgba(67,230,176,.45);transform:translateY(-4px)}
+footer small{display:block;color:var(--dim);font-size:.75rem;letter-spacing:.12em}
+
+@media (max-width:820px){
+  .pest-wrap{grid-template-columns:1fr}
+  .mv-grid{grid-template-columns:1fr;font-size:.8rem}
+  .mv-grid .rowlabel{padding-bottom:.3rem}
+  .swot,.ansoff,.ra-grid{grid-template-columns:1fr}
+  .eval-grid{grid-template-columns:1fr}
+  .back{top:12px;left:12px;font-size:.62rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<canvas id="sky" aria-hidden="true"></canvas>
+<div class="aurora" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+<div class="mist" aria-hidden="true"></div>
+
+<div class="bar-track" aria-hidden="true"><div id="bar"></div></div>
+<a class="back" href="https://sowbharnikarn-hub.github.io/portfolio/">← Back to the journey</a>
+
+<main>
+
+  <!-- ───────── HERO ───────── -->
+  <header class="hero wrap">
+    <p class="eyebrow">Paper Presented · Strategic Management</p>
+    <h1>Burberry in China — Repositioning a Heritage Brand</h1>
+    <p class="alt">PEST · Porter's Five Forces · Value Chain · VRIO · SWOT · TOWS · Ansoff Strategy</p>
+    <p class="lede">Strategic management applied to help Burberry form an effective set of mission and objectives for the Chinese luxury market — benchmarked against its rivals, tested against the environment it competes in, and proposed forward as a concrete strategy.</p>
+    <ul class="facts">
+      <li><b>Burberry</b><span>Company studied</span></li>
+      <li><b>China</b><span>Market segment</span></li>
+      <li><b>2017/18</b><span>Fiscal year studied</span></li>
+      <li><b>7</b><span>Frameworks applied</span></li>
+    </ul>
+    <ul class="toc">
+      <li><a href="#background">Background</a></li>
+      <li><a href="#pest">PEST</a></li>
+      <li><a href="#porter">Five Forces</a></li>
+      <li><a href="#vchain">Value Chain</a></li>
+      <li><a href="#vrio">VRIO</a></li>
+      <li><a href="#swot">SWOT</a></li>
+      <li><a href="#strategy">Strategy</a></li>
+    </ul>
+    <p class="hint">Scroll to read the study</p>
+  </header>
+
+  <!-- ───────── INTRODUCTION ───────── -->
+  <section class="wrap">
+    <p class="eyebrow">Introduction</p>
+    <h2>Why this study, and how it's built</h2>
+    <div class="prose">
+      <p>As the primary purpose of this study, strategic management is applied as it offers assistance for our chosen company, Burberry, to form an effective set of mission and objectives relevant to the present condition — made possible by carrying out different analyses.</p>
+    </div>
+    <div class="issues" style="margin-top:2.5rem">
+      <article class="issue glass" style="border-left-color:var(--cyan)">
+        <p class="stat" style="color:var(--cyan)">01</p>
+        <h3>KPI Benchmarking</h3>
+        <p>Burberry benchmarked against key rivals to evaluate performance and competitive edge in the market.</p>
+      </article>
+      <article class="issue glass" style="border-left-color:var(--cyan)">
+        <p class="stat" style="color:var(--cyan)">02</p>
+        <h3>Environmental Analyses</h3>
+        <p>PEST and Porter's Five Forces evaluate opportunities and threats for Burberry, narrowed to the China market.</p>
+      </article>
+      <article class="issue glass" style="border-left-color:var(--cyan)">
+        <p class="stat" style="color:var(--cyan)">03</p>
+        <h3>Capability Analysis</h3>
+        <p>Strengths and weaknesses of Burberry within China's fashion industry are evaluated in depth.</p>
+      </article>
+      <article class="issue glass" style="border-left-color:var(--cyan)">
+        <p class="stat" style="color:var(--cyan)">04</p>
+        <h3>Strategy Proposal</h3>
+        <p>Findings inform a revised objective and mission statement, and a new strategy proposed to close the gap.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ───────── COMPANY BACKGROUND ───────── -->
+  <section class="wrap" id="background">
+    <p class="eyebrow">Company Background</p>
+    <h2>A 160-year-old British house, repositioning for China</h2>
+    <div class="prose">
+      <p>Burberry is a luxury fashion brand renowned for its unique British brand image. This British fashion brand was founded by Thomas Burberry in 1856 for clothing apparel, fragrances and accessories, with its first store opened in Basingstoke, UK. By 1867 they had established outdoor attire and developed their signature pattern — the trench check coat, patented in 1912 — for which they remain renowned. Burberry has grown into a famous international luxury brand, with global reach across 44 countries, employing over 10,000 staff and headquartered in London.</p>
+      <p>Over the past five years, £1.2bn has been returned to shareholders in dividends and buy-backs, while the company has maintained its dividend per share at or above the previous year's value. The new management team at Burberry — with Marco Gobbetti replacing Christopher Bailey as CEO in 2017 — has put forward a new capital allocation framework applied to boost shareholder value. The segmentation chosen for this study is narrowed to China, because the China market has marked tremendous growth in Burberry's revenue and sales over the past few years, which is in turn experiencing a slight decline recently (Burberry.com, 2018).</p>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"><span class="line"></span><span>Mission &amp; Objectives</span><span class="line"></span></div>
+
+  <!-- ───────── MISSION VISION OBJECTIVES ───────── -->
+  <section class="wrap">
+    <p class="eyebrow">Mission, Vision, Objectives, Values &amp; Principles</p>
+    <h2>Focus – Clear – Motivational analysis</h2>
+    <div class="mv-grid">
+      <div class="hd"></div><div class="hd">Focus</div><div class="hd">Clear</div><div class="hd">Motivational</div>
+      <div class="rowlabel">Mission</div>
+      <div class="cell">Boosting productivity, simplicity and strong financial position</div>
+      <div class="cell">Repositioning of brand, ensuring improved customer satisfaction</div>
+      <div class="cell">Long-term value for employees, customers and shareholders</div>
+      <div class="rowlabel">Vision</div>
+      <div class="cell">Attractive returns, sustainable growth and higher margins over time</div>
+      <div class="cell">Successfully implementing a new multi-year strategic plan with strong foundations, ensuring long-term sustainability and social responsibility</div>
+      <div class="cell">Narrowing gender pay gap and discrimination; ethical trading and international labour policies enforced organisationally</div>
+    </div>
+    <div class="prose" style="margin-top:2.2rem">
+      <p>As per this analysis, Burberry's mission and vision statements are very focused on implementing their multi-year strategy plan — repositioning their brand — and are very clear in conveying the associated benefits foreseen, alongside a clear vision. On the other hand, these statements do reflect the company's social responsibility as well as their commitment not just to customers and shareholders, but also serve to motivate leaders and employees.</p>
+    </div>
+
+    <p class="eyebrow" style="margin-top:4.5vh">SMART Objectives</p>
+    <h2>Testing Burberry's stated objective against SMART</h2>
+    <p class="lede">Burberry's new strategy, in the context of a rapidly changing luxury market, unites the board around winning with today's customer — sharpening brand positioning as the proven key factor of success in the global fashion industry.</p>
+    <div class="smart" id="smart"></div>
+
+    <p class="eyebrow" style="margin-top:4.5vh">Revised Mission Statement</p>
+    <blockquote class="revised glass">"By re-energising products and customer experience to establish a firm position in luxury — through revitalisation of the most rewarding, enduring segment of the market with a fresh new approach to the brand — Burberry will drive sustainable growth and higher margins over time, while continuing to deliver attractive returns to shareholders."</blockquote>
+  </section>
+
+  <!-- ───────── KEY ISSUES ───────── -->
+  <section class="wrap">
+    <p class="eyebrow">Key Issues</p>
+    <h2>What's actually pressuring the business</h2>
+    <div class="issues">
+      <article class="issue glass">
+        <p class="stat">−1%</p>
+        <h3>Revenue Decline</h3>
+        <p>FY2017/18 revenue slipped from £2,766M to £2,733M — despite mass improvement the year before, from £2,515M to £2,766M. A softer US market pushed shares down 8pc to £15.70, with a predicted £10M hit for 2018.</p>
+      </article>
+      <article class="issue glass">
+        <p class="stat">−16%</p>
+        <h3>Wholesale Revenue</h3>
+        <p>The decline in wholesale revenue has been offset only partly by retail growth of 3% — a structural shift the new strategy must account for.</p>
+      </article>
+      <article class="issue glass">
+        <p class="stat">⚔</p>
+        <h3>Intense Competition</h3>
+        <p>Though Burberry reflects a respectable luxury image, it has never attained the top-most position in the fashion industry.</p>
+      </article>
+      <article class="issue glass">
+        <p class="stat">↓</p>
+        <h3>Market Share &amp; Asset Utilisation</h3>
+        <p>Market share decline sits alongside ineffective asset utilisation — capital and retail footprint not yet converting into proportional returns.</p>
+      </article>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"><span class="line"></span><span>Environmental Analysis</span><span class="line"></span></div>
+
+  <!-- ───────── PEST ───────── -->
+  <section class="wrap" id="pest">
+    <p class="eyebrow">Macro-Environmental Analysis</p>
+    <h2>PEST — the Chinese luxury apparel market</h2>
+    <p class="lede">Click a point on the compass, or a panel, to read that dimension.</p>
+    <div class="pest-wrap">
+      <svg class="pest-svg" viewBox="0 0 300 300" id="pestSvg">
+        <circle cx="150" cy="150" r="118" fill="none" stroke="rgba(140,190,255,.12)" stroke-width="1"/>
+        <circle cx="150" cy="150" r="78" fill="none" stroke="rgba(140,190,255,.1)" stroke-width="1"/>
+        <line x1="150" y1="20" x2="150" y2="280" stroke="rgba(140,190,255,.1)"/>
+        <line x1="20" y1="150" x2="280" y2="150" stroke="rgba(140,190,255,.1)"/>
+        <text x="150" y="150" text-anchor="middle" dy="-4" font-family="JetBrains Mono" font-size="10" fill="#9aa7c9">CHINA</text>
+        <text x="150" y="150" text-anchor="middle" dy="10" font-family="JetBrains Mono" font-size="9" fill="#9aa7c9">LUXURY MKT</text>
+      </svg>
+      <div class="pest-panels" id="pestPanels"></div>
+    </div>
+  </section>
+
+  <!-- ───────── PORTER'S FIVE FORCES ───────── -->
+  <section class="wrap" id="porter">
+    <p class="eyebrow">Micro-Environmental (Industrial) Analysis</p>
+    <h2>Porter's Five Forces — opportunities &amp; threats</h2>
+    <p class="lede">Click a force to read its analysis. Competitive Rivalry — the missing fifth force in the original draft — is completed here, tying the other four together.</p>
+    <div class="porter-wrap">
+      <div class="porter-orbit" id="porterOrbit">
+        <div class="porter-center"><div class="porter-center-inner"><b>Burberry</b><span>China luxury apparel</span></div></div>
+      </div>
+      <div class="porter-cards" id="porterCards"></div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"><span class="line"></span><span>Capability Analysis</span><span class="line"></span></div>
+
+  <!-- ───────── VALUE CHAIN ───────── -->
+  <section class="wrap" id="vchain">
+    <p class="eyebrow">Capability Analysis · Strengths &amp; Weaknesses</p>
+    <h2>Value Chain Analysis</h2>
+    <p class="lede">Primary activities were well documented in the original study for Inbound Logistics, Outbound Logistics and Operations. Sales &amp; Marketing, Services, and all four Support Activities were left blank — completed here using the same evidence base and framework. <span class="vc-tag orig">original</span> marks the student's own research; <span class="vc-tag new">completed</span> marks sections written to finish the framework.</p>
+    <div class="vchain" id="vchain-primary"></div>
+    <p class="vchain-group-label">Support Activities</p>
+    <div class="vchain" id="vchain-support"></div>
+  </section>
+
+  <!-- ───────── RESOURCE AUDIT + VRIO ───────── -->
+  <section class="wrap" id="vrio">
+    <p class="eyebrow">Resource Audit <span class="vc-tag new">completed</span></p>
+    <h2>Threshold vs. Distinctive resources &amp; competencies</h2>
+    <div class="ra-grid">
+      <article class="ra-card glass">
+        <span class="k">Threshold Resources</span>
+        <ul><li>Global store network across 44 countries</li><li>Capital base &amp; access to financing</li><li>Established raw-material supply chain</li><li>Standard retail &amp; e-commerce infrastructure</li></ul>
+      </article>
+      <article class="ra-card glass">
+        <span class="k">Distinctive Resources</span>
+        <ul><li>The trench check pattern, patented since 1912</li><li>160+ years of British heritage &amp; provenance</li><li>Iconic trench coat as a singular hero product</li><li>Burberry Business Services hub, Leeds</li></ul>
+      </article>
+      <article class="ra-card glass">
+        <span class="k">Threshold Competencies</span>
+        <ul><li>Standard luxury retail operations</li><li>Quality manufacturing to industry benchmark</li><li>Compliance with Chinese market-entry regulation</li></ul>
+      </article>
+      <article class="ra-card glass">
+        <span class="k">Distinctive Competencies</span>
+        <ul><li>Early, sustained WeChat social-commerce presence</li><li>Bespoke personalisation &amp; monogramming service</li><li>Brand storytelling through runway livestreams</li><li>Lean Six Sigma-driven operational efficiency</li></ul>
+      </article>
+    </div>
+
+    <p class="eyebrow" style="margin-top:5vh">VRIO Analysis <span class="vc-tag new">completed</span></p>
+    <h2>Which capabilities actually hold up as an advantage</h2>
+    <p class="lede">The original draft set up the VRIO table with no ratings. Completed here against each value-chain process, using Valuable / Rare / Imitable / Organised.</p>
+    <div class="vrio-scroll glass" style="padding:.6rem 1rem 1.2rem">
+      <table class="vrio" id="vrioTable"></table>
+    </div>
+  </section>
+
+  <!-- ───────── KPI BENCHMARKING ───────── -->
+  <section class="wrap">
+    <p class="eyebrow">External &amp; Internal Analysis <span class="vc-tag new">completed</span></p>
+    <h2>KPI Benchmarking — Burberry vs. Louis Vuitton</h2>
+    <p class="lede">The original study proposed benchmarking against Prada in its introduction, then titled this section against Louis Vuitton — reconciled here as LV, the larger scale rival, with Prada, Gucci, Chanel and Hermès named as the wider competitive set in the Five Forces analysis above. Bars are relative positioning, not disclosed financials.</p>
+    <div class="kpi-bench" id="kpiBench"></div>
+  </section>
+
+  <div class="divider" aria-hidden="true"><span class="line"></span><span>Synthesis</span><span class="line"></span></div>
+
+  <!-- ───────── SWOT ───────── -->
+  <section class="wrap" id="swot">
+    <p class="eyebrow">SWOT Analysis <span class="vc-tag new">completed</span></p>
+    <h2>Pulling the analyses together</h2>
+    <div class="swot">
+      <div class="swot-q s glass"><h3>Strengths</h3><ul id="swS"></ul></div>
+      <div class="swot-q w glass"><h3>Weaknesses</h3><ul id="swW"></ul></div>
+      <div class="swot-q o glass"><h3>Opportunities</h3><ul id="swO"></ul></div>
+      <div class="swot-q t glass"><h3>Threats</h3><ul id="swT"></ul></div>
+    </div>
+
+    <p class="eyebrow" style="margin-top:5vh">TOWS Analysis <span class="vc-tag new">completed</span></p>
+    <h2>Turning SWOT into strategic direction</h2>
+    <div class="tows" id="tows"></div>
+  </section>
+
+  <!-- ───────── STRATEGY PROPOSAL ───────── -->
+  <section class="wrap" id="strategy">
+    <p class="eyebrow">Strategy Proposal <span class="vc-tag new">completed</span></p>
+    <h2>Ansoff Matrix</h2>
+    <p class="lede">The original draft named the two intended strategies — Market Penetration and Market Development — without content. Proposed and evaluated here.</p>
+    <div class="ansoff" id="ansoff"></div>
+
+    <p class="eyebrow" style="margin-top:5vh">Evaluation of Proposed Strategies <span class="vc-tag new">completed</span></p>
+    <h2>Suitability, Acceptability, Feasibility</h2>
+    <div class="evals" id="evals"></div>
+  </section>
+
+  <footer class="wrap-wide">
+    <ul class="doorways">
+      <li><a href="https://sowbharnikarn.wixsite.com/portfolio/projects" target="_blank" rel="noopener">More projects</a></li>
+      <li><a href="https://www.linkedin.com/in/sowbharnika-rn-901b42bb/" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+    <small>Sowbharnika RN · Project &amp; Programme Manager · Thank you for visiting my profile</small>
+  </footer>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+(() => {
+  "use strict";
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ── 1 · the sky ── */
+  const sky = document.getElementById("sky"), sc = sky.getContext("2d");
+  const DPR = Math.min(devicePixelRatio || 1, 2);
+  let W, H, stars = [], flies = [];
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  function seed() {
+    sky.width = (W = innerWidth) * DPR; sky.height = (H = innerHeight) * DPR;
+    sc.setTransform(DPR, 0, 0, DPR, 0, 0);
+    stars = Array.from({ length: Math.round(W * H / 5200) }, () => ({
+      x: rnd(0, W), y: rnd(0, H), r: rnd(.4, 1.5), a: rnd(.25, .95), tw: rnd(0, 6.28), sp: rnd(.4, 1.6) }));
+    flies = Array.from({ length: 18 }, () => ({
+      x: rnd(0, W), y: rnd(0, H), r: rnd(1.2, 2.6), s: rnd(0, 6.28), vy: rnd(-.12, -.03), vx: rnd(-.12, .12) }));
+  }
+  function paint(t) {
+    sc.clearRect(0, 0, W, H);
+    for (const s of stars) {
+      const a = s.a * (reduced ? 1 : .55 + .45 * Math.sin(t * .0012 * s.sp + s.tw));
+      sc.beginPath(); sc.fillStyle = `rgba(214,232,255,${a})`; sc.arc(s.x, s.y, s.r, 0, 6.29); sc.fill();
+    }
+    for (const f of flies) {
+      if (!reduced) {
+        f.x += f.vx + Math.sin(t * .0008 + f.s) * .22; f.y += f.vy;
+        if (f.y < -10) { f.y = H + 10; f.x = rnd(0, W); }
+        if (f.x < -10) f.x = W + 10; if (f.x > W + 10) f.x = -10;
+      }
+      const g = sc.createRadialGradient(f.x, f.y, 0, f.x, f.y, f.r * 6);
+      const p = reduced ? .8 : .45 + .55 * Math.sin(t * .0016 + f.s);
+      g.addColorStop(0, `rgba(67,230,176,${.85 * p})`); g.addColorStop(1, "rgba(67,230,176,0)");
+      sc.fillStyle = g; sc.beginPath(); sc.arc(f.x, f.y, f.r * 6, 0, 6.29); sc.fill();
+    }
+    if (!reduced) requestAnimationFrame(paint);
+  }
+  seed(); addEventListener("resize", () => { seed(); ScrollTrigger.refresh(); });
+  reduced ? paint(0) : requestAnimationFrame(paint);
+
+  const bar = document.getElementById("bar");
+  ScrollTrigger.create({ trigger: document.body, start: "top top", end: "bottom bottom",
+    onUpdate: (s) => { bar.style.width = s.progress * 100 + "%"; } });
+
+  /* ── SMART ── */
+  const SMART = [
+    { l: "S", k: "Specific", t: "Burberry's objective, as of the 2017 Annual Report, does particularly specify the new strategy adopted as a result of the managerial change in the organisation." },
+    { l: "M", k: "Measurable", t: "Not yet measurable on a vast scale — the new strategy has only been implemented since 2017, and results so far are not quite convincing, given the company faced a slight fall in sales and revenue per the '17/18 report." },
+    { l: "A", k: "Achievable", t: "Brand repositioning is not easily achievable and isn't welcomed by Burberry's frequent customer line, despite statistical reports showing high target-customer reach among expensive brands with Chinese buyers." },
+    { l: "R", k: "Result-Oriented", t: "Focused and clear-cut result-oriented, having clarified its intentions to be profit-oriented alongside achieving more customer satisfaction, with a win-win strategy — accepting that it may be time-consuming and flawed initially, with priority given to long-term achievement." },
+    { l: "T", k: "Time-Bound", t: "Not time-bound: this is the first time this strategy has been implemented in Burberry's history, and the company does not yet possess enough evidence or resources to support the predicted results." },
+  ];
+  document.getElementById("smart").innerHTML = SMART.map((s) => `
+    <div class="smart-row glass"><span class="smart-letter">${s.l}</span>
+    <div class="smart-body"><b>${s.k}</b><p>${s.t}</p></div></div>`).join("");
+
+  /* ── PEST (signature 1) ── */
+  const PEST = [
+    { k: "Political", c: "#7ce7ff", ang: -90,
+      t: "China is a political economy country and a leading force in the apparel industry; the central government offers extreme support for European brands. Chinese producers and retailers still enjoy high-end value services more, unless foreign businesses understand the hierarchy and political priorities of the current stage — an unfamiliarity that can become a threat, or an opportunity with the right local key dealers. The government welcomes more European brands, widening market margins, and has already approved free-trade zones in Shanghai, Guangdong, Tianjin and Fujian since late 2015. Corporation tax (25%), VAT (17%) and city construction tax (1–7%) apply, and European brands must register under both Chinese and European names and be WFOE-certified to enter (Beatriz Irun, 2018) — meaning only a few restrictions are imposed overall. Despite this, tax and political fluctuations remain a major threat for foreign brands." },
+    { k: "Economic", c: "#43e6b0", ang: 0,
+      t: "China is experiencing astonishing national economic transformation driven by the textile and apparel industry. Per 2016 reports, China has doubled per-capita income every five years, with annual GDP growth above 7% (Beatriz Irun, 2018). The fragile economic period of 2008–2011 caused a textile market decline and rising operating costs, including labour wages — which in turn accelerated digital marketing, making China the top apparel digital market globally, predicted to continue through 2019. The resulting growth split China's 1.3 billion population (2015) into 53M upper-middle-class households and 69M middle-class households, of 652M urban citizens — explaining the rich-millennial e-commerce buying behaviour driving major European apparel growth in China. Euromonitor predicts China will become the global leader in apparel, exceeding the US and reaching $333,312M by 2019, up 25% from $267,246M in 2014." },
+    { k: "Social", c: "#e8c47f", ang: 90,
+      t: "China has prioritised societal development since 2015. Through the \"One Belt One Road\" initiative (Beatriz Irun, 2018), China has improved living standards, infrastructure, environmental protection and healthcare — creating more opportunity for European brands. The upper-middle-class millennial population, now greater in count, is open-minded toward international luxury products over local brands. Better social connectivity and brand awareness among Chinese millennials is well documented, alongside a tendency to follow celebrity-endorsed trends — resulting in higher international competition rather than domestic growth, particularly because of brand value." },
+    { k: "Technological", c: "#ff9e7d", ang: 180,
+      t: "Tech-textile innovation has driven tremendous change in the Chinese apparel market, enabling speedy growth and helping offset rising labour costs from 2015. China's focus on innovation pushed the industry toward digital marketing — WeChat in particular has become the main platform for Chinese millennials to browse and buy European brands, and to publicly show off purchases, further driving international tourism (scmp.com, 2018). The 13th Five-Year Program has advanced technology across the entire apparel supply chain, creating opportunity for those who adopt e-commerce and social media — and a threat for those who lag behind." },
+  ];
+  const pestSvg = document.getElementById("pestSvg");
+  PEST.forEach((p, i) => {
+    const rad = (p.ang * Math.PI) / 180;
+    const x = 150 + Math.cos(rad) * 96, y = 150 + Math.sin(rad) * 96;
+    const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    g.setAttribute("class", "pest-node"); g.dataset.i = i;
+    g.innerHTML = `<circle cx="${x}" cy="${y}" r="9" fill="${p.c}" opacity="0.9"></circle>
+      <text x="${x}" y="${y + (p.ang === -90 ? -18 : p.ang === 90 ? 26 : 5)}" text-anchor="middle">${p.k[0]}</text>`;
+    pestSvg.appendChild(g);
+  });
+  document.getElementById("pestPanels").innerHTML = PEST.map((p, i) => `
+    <div class="pest-panel glass" data-i="${i}" style="--c:${p.c}">
+      <h3>${p.k}</h3><div class="pest-panel-body">${p.t}</div>
+    </div>`).join("");
+  function openPest(i) {
+    document.querySelectorAll(".pest-panel").forEach((el) => el.classList.toggle("open", +el.dataset.i === i));
+    document.querySelectorAll(".pest-node").forEach((el) => el.classList.toggle("active", +el.dataset.i === i));
+  }
+  document.querySelectorAll(".pest-panel").forEach((el) => el.querySelector("h3").addEventListener("click", () => {
+    const open = el.classList.contains("open");
+    openPest(open ? -1 : +el.dataset.i);
+  }));
+  document.querySelectorAll(".pest-node").forEach((el) => el.addEventListener("click", () => openPest(+el.dataset.i)));
+  openPest(0);
+
+  /* ── Porter's Five Forces (signature 2) ── */
+  const PORTER = [
+    { k: "Threat of New Entries", c: "#43e6b0", ang: -90,
+      t: "Even though the digitally enhanced Chinese market surfaces more new competitors in apparel as a result of widened market margins, these newcomers are not recognised or entitled as true competitors and pose only a small threat. Chinese consumers look for recognised brand heritage and image with extreme quality. New entrants, even if they become true competitors, must compete with the brand's intangible assets and occupy high-end retail space — a threat for newcomers, but a moat for Burberry." },
+    { k: "Bargaining Power of Buyers", c: "#7ce7ff", ang: -18,
+      t: "In Chinese apparel, buyer bargaining power is comparatively low, as purchases are majorly focused on intangible asset value. Sites like Gilt, MyHabit and WeChat enhance buyers' ability to choose and bargain — but brand loyalty and buyer power experience an inverse relationship, because of increasingly uniform, feature-matched brand products." },
+    { k: "Bargaining Power of Suppliers", c: "#e8c47f", ang: 54,
+      t: "As a result of thick competition among top-most apparel brands across Southeast Asia, supplier bargaining power is narrowed and limited — a stage commonly called a Red Ocean. Cotton prices and labour costs also compress supplier power, lowering the cost of input materials." },
+    { k: "Threat of Substitute Products", c: "#ff9e7d", ang: 126,
+      t: "Many other brands retain top positions in China's luxury apparel market — Louis Vuitton, Prada and others — a major threat. Brand image is also adversely affected by counterfeit goods, bringing a negative image via cheap imitations, and these substitutes are more likely to cause major loss during any economic downturn in China." },
+    { k: "Competitive Rivalry", c: "#b69cff", ang: 198,
+      t: "The fifth force, left incomplete in the original draft. Rivalry among Louis Vuitton, Gucci, Prada, Chanel and Hermès in China's luxury segment is intense: near-identical positioning around heritage and craftsmanship, aggressive marketing spend, and competing loyalty programmes across the same tier-1 flagship locations and WeChat social-commerce channels. High rivalry compresses margins and forces continual reinvestment in brand experience rather than price — favouring incumbents with deep heritage stories, like Burberry, over newer entrants." },
+  ];
+  const orbit = document.getElementById("porterOrbit");
+  const R = 42;
+  PORTER.forEach((p, i) => {
+    const rad = (p.ang * Math.PI) / 180;
+    const x = 50 + Math.cos(rad) * R, y = 50 + Math.sin(rad) * R;
+    const node = document.createElement("div");
+    node.className = "porter-node"; node.dataset.i = i;
+    node.style.left = x + "%"; node.style.top = y + "%"; node.style.transform = "translate(-50%,-50%)";
+    node.style.setProperty("--c", p.c);
+    node.innerHTML = `<div class="porter-dot"></div><div class="lbl">${p.k}</div>`;
+    orbit.appendChild(node);
+  });
+  document.getElementById("porterCards").innerHTML = PORTER.map((p, i) => `
+    <article class="porter-card glass" data-i="${i}" style="--c:${p.c}"><h3>${p.k}</h3><p>${p.t}</p></article>`).join("");
+  function openPorter(i) {
+    document.querySelectorAll(".porter-node").forEach((el) => el.classList.toggle("active", +el.dataset.i === i));
+    document.querySelectorAll(".porter-card").forEach((el) => el.classList.toggle("show", +el.dataset.i === i));
+  }
+  document.querySelectorAll(".porter-node").forEach((el) => el.addEventListener("click", () => openPorter(+el.dataset.i)));
+  openPorter(0);
+
+  /* ── Value Chain ── */
+  const VC_PRIMARY = [
+    { n: "Inbound Logistics", tag: "orig", items: [
+      "Burberry Beyond manages and purchases resources from ethical traders on three principles: Burberry Impact, Burberry Engage, Burberry Invest.",
+      "Relies on leather and raw-material supply-chain partners providing eco-friendly materials, complying with environmental and social sustainability.",
+      "Key European supply-chain partners piloted the Worker Wellbeing Programme in collaboration with Oxfam.",
+      "Monitors trading partners via the Leather Working Group and other luxury brands in London, Florence, Hong Kong and Tokyo — with UN Global Compact and tripartite ethical trading ties.",
+      "67% of leather accessories are manufactured via tannery partnerships; Cotton and Leather constitute 57% of raw-material CO₂ emissions.",
+      "Environmental Baseline Assessment identifies CO₂ emissions and pollution risk at regional, functional and material levels.",
+    ]},
+    { n: "Outbound Logistics", tag: "orig", items: [
+      "Consistent delivery across all channels, with customised deliveries and a focus on speeding delivery from days to hours.",
+      "Product delivery via Omni-channel service.",
+      "Distribution hub allocated for energy efficiency, cost-cutting and speedy global delivery.",
+      "Consumers can purchase directly from the warehouse via e-payment.",
+      "Farfetch scheme deployed for distribution and delivery.",
+      "CO₂ emissions monitored across vendor sites and distribution channels.",
+    ]},
+    { n: "Operations", tag: "orig", items: [
+      "Majority of operations managed in China.",
+      "New apprentice programmes initiated at the Castleford training school, followed by Woodrow.",
+      "By October 2017, planning, design, supply chain, finance, HR, procurement, customer service and IT were consolidated under 250 staff at Burberry Business Services, Leeds — reducing labour, facility and CO₂ costs.",
+      "Lean Six Sigma culture drives unified teamwork and simplified operations.",
+      "\"This new hub, Burberry Business Services, has turned out to be a successful Operational Excellence Programme, targeting £120m in savings by FY2019/20.\" — Julie Brown, CFOO.",
+    ]},
+    { n: "Sales &amp; Marketing", tag: "new", items: [
+      "Pioneered WeChat as a direct social-commerce channel in China — including a livestreamed runway show and a dedicated WeChat mini-programme for China-exclusive drops.",
+      "Flagship, experience-led stores concentrated in Tier-1 cities (Beijing, Shanghai, Guangzhou), designed for both retail and brand storytelling.",
+      "Local KOL (key opinion leader) and celebrity partnerships tailored to Chinese social platforms (Weibo, WeChat, Douyin) rather than Western channels alone.",
+      "CRM and loyalty programmes that reward repeat engagement across digital and in-store touchpoints.",
+    ]},
+    { n: "Services", tag: "new", items: [
+      "Bespoke personalisation service — monogramming on scarves, bags and trench coats — differentiating Burberry from off-the-shelf luxury competitors.",
+      "In-store VIP clienteling for high-value Chinese customers, including private appointments and cross-border concierge support.",
+      "After-sales repair and care services extending product lifecycle and reinforcing the heritage-craftsmanship narrative.",
+      "Click-and-collect and cross-channel returns, supporting the omni-channel logistics investment above.",
+    ]},
+  ];
+  const VC_SUPPORT = [
+    { n: "Firm Infrastructure", tag: "new", items: [
+      "New capital allocation framework introduced under CEO Marco Gobbetti (2017), prioritising brand-elevation investment over broad discounting.",
+      "Appointment of Riccardo Tisci as Chief Creative Officer (2018) signals infrastructure-level commitment to repositioning, not just a marketing campaign.",
+      "Centralised governance through Burberry Business Services, Leeds, unifying finance, legal and planning functions.",
+    ]},
+    { n: "Human Resource Management", tag: "new", items: [
+      "Apprenticeship pipelines (Castleford, Woodrow) building UK manufacturing talent for the long term.",
+      "Public commitments to narrowing the gender pay gap and enforcing ethical, international labour conventions.",
+      "Local hiring in China for regional retail, digital and customer-service roles, supporting cultural fluency in-market.",
+    ]},
+    { n: "Technology Development", tag: "new", items: [
+      "Investment in RFID chip technology for product authentication — directly addressing the counterfeit threat identified in the Five Forces analysis.",
+      "Digital innovation lab exploring data-led personalisation and China-specific e-commerce integration.",
+      "WeChat Mini Programme infrastructure for social commerce, ahead of most Western luxury peers at the time.",
+    ]},
+    { n: "Procurement", tag: "new", items: [
+      "Centralised procurement through the Leeds hub, lowering cost through scale and standardisation.",
+      "Ethical sourcing enforced via Leather Working Group membership and the Burberry Beyond framework (linked to Inbound Logistics above).",
+      "Local sourcing partnerships in China for store fit-out and regional retail materials, reducing lead time for market-specific launches.",
+    ]},
+  ];
+  function renderVC(id, data) {
+    document.getElementById(id).innerHTML = data.map((g) => `
+      <article class="vc-item glass ${g.tag === "orig" ? "completed" : "written"}">
+        <h3>${g.n}<span class="vc-tag ${g.tag}">${g.tag === "orig" ? "original" : "completed"}</span></h3>
+        <ul>${g.items.map((it) => `<li>${it}</li>`).join("")}</ul>
+      </article>`).join("");
+  }
+  renderVC("vchain-primary", VC_PRIMARY);
+  renderVC("vchain-support", VC_SUPPORT);
+
+  /* ── VRIO table ── */
+  const VRIO = [
+    ["Inbound Logistics", "y","n","y","y","parity","Competitive Parity"],
+    ["Operations (Leeds hub)", "y","y","c","y","temp","Temporary Advantage"],
+    ["Outbound Logistics", "y","n","y","y","parity","Competitive Parity"],
+    ["Sales &amp; Marketing (WeChat)", "y","y","c","y","sustained","Sustained Advantage"],
+    ["Services (Personalisation)", "y","c","c","y","temp","Temporary Advantage"],
+    ["Firm Infrastructure", "y","n","y","y","parity","Competitive Parity"],
+    ["HRM", "y","n","y","y","parity","Competitive Parity"],
+    ["Technology Development", "y","c","c","y","temp","Temporary Advantage"],
+    ["Procurement (Ethical sourcing)", "y","c","c","y","temp","Temporary Advantage"],
+  ];
+  const VB = { y: '<span class="vb y">Y</span>', n: '<span class="vb n">N</span>', c: '<span class="vb c">~</span>' };
+  document.getElementById("vrioTable").innerHTML =
+    `<thead><tr><th>Value-Chain Process</th><th>Valuable</th><th>Rare</th><th>Costly to Imitate</th><th>Organised</th><th>Effect</th></tr></thead>
+     <tbody>${VRIO.map(([n, v, r, i, o, cls, label]) => `
+       <tr><td>${n}</td><td>${VB[v]}</td><td>${VB[r]}</td><td>${VB[i]}</td><td>${VB[o]}</td>
+       <td><span class="imp ${cls}">${label}</span></td></tr>`).join("")}</tbody>`;
+
+  /* ── KPI benchmarking ── */
+  const KPI = [
+    { l: "Brand Heritage Depth", b: 88, lv: 78 },
+    { l: "China Retail Footprint (Tier-1)", b: 62, lv: 95 },
+    { l: "Digital / Social Commerce (WeChat)", b: 84, lv: 65 },
+    { l: "Price Positioning (Ultra-luxury Index)", b: 58, lv: 90 },
+    { l: "Revenue Scale (Global)", b: 40, lv: 92 },
+  ];
+  document.getElementById("kpiBench").innerHTML = KPI.map((k) => `
+    <div class="kb-row">
+      <span class="kb-label">${k.l}</span>
+      <div class="kb-bars">
+        <div class="kb-bar-line"><span class="kb-who">Burberry</span><div class="kb-track"><div class="kb-fill burberry" data-w="${k.b}"></div></div></div>
+        <div class="kb-bar-line"><span class="kb-who">Louis V.</span><div class="kb-track"><div class="kb-fill lv" data-w="${k.lv}"></div></div></div>
+      </div>
+    </div>`).join("");
+  document.querySelectorAll(".kb-fill").forEach((b) => {
+    if (reduced) { b.style.width = b.dataset.w + "%"; return; }
+    gsap.to(b, { width: b.dataset.w + "%", duration: 1.1, ease: "power2.out",
+      scrollTrigger: { trigger: b, start: "top 92%" } });
+  });
+
+  /* ── SWOT ── */
+  const SWOT = {
+    swS: ["160+ years of British heritage and instantly recognisable trench check pattern","Strong shareholder returns — £1.2bn over 5 years","New capital allocation framework under CEO Marco Gobbetti","Ethical, traceable supply chain (Burberry Beyond, Leather Working Group)","Operational efficiency hub in Leeds, targeting £120m savings by FY2019/20","Early mover on WeChat social commerce in China"],
+    swW: ["Revenue decline of 1% in FY2017/18","Wholesale revenue down 16%, only partly offset by retail growth","Brand repositioning not yet proven or fully welcomed by existing customers","Smaller China retail footprint than larger rivals like LV","Ineffective asset utilisation relative to capital deployed"],
+    swO: ["China's growing upper-middle-class and millennial luxury spend","Free-trade zones easing market entry (Shanghai, Guangdong, Tianjin, Fujian)","China projected to become the global leader in apparel by 2019","Booming digital and social commerce via WeChat and Douyin","Rising demand for personalisation and customisation"],
+    swT: ["Intense rivalry from LV, Gucci, Prada, Chanel and Hermès","Counterfeit goods damaging brand image and consumer trust","Political and tax-policy fluctuations in China","Economic volatility risk tied to broader Chinese growth","Reliance on an unproven, first-of-its-kind repositioning strategy"],
+  };
+  Object.entries(SWOT).forEach(([id, items]) => {
+    document.getElementById(id).innerHTML = items.map((i) => `<li>${i}</li>`).join("");
+  });
+
+  /* ── TOWS ── */
+  const TOWS = [
+    { tag: "SO", c: "#43e6b0", t: "Leverage brand heritage and early WeChat social-commerce pioneering to capture the rising Chinese millennial luxury spend — deepening digital engagement before rivals close the gap." },
+    { tag: "WO", c: "#7ce7ff", t: "Use free-trade-zone incentives and China's digital infrastructure to rebuild lost wholesale revenue through direct-to-consumer digital channels, sidestepping the wholesale weakness entirely." },
+    { tag: "ST", c: "#e8c47f", t: "Deploy RFID authentication technology and the brand's heritage story to combat counterfeiting and differentiate from rivals competing primarily on price or availability." },
+    { tag: "WT", c: "#ff9e7d", t: "Address market-share decline and revenue softness by consolidating into fewer, better-invested flagship experiences rather than competing broadly against larger-scale rivals like LV." },
+  ];
+  document.getElementById("tows").innerHTML = TOWS.map((t) => `
+    <article class="tows-row glass"><span class="tows-tag" style="background:${t.c}22;color:${t.c}">${t.tag}</span><p>${t.t}</p></article>`).join("");
+
+  /* ── Ansoff ── */
+  const ANSOFF = [
+    { n: "Market Penetration", c: "#43e6b0",
+      t: "Deepen engagement with Burberry's existing Chinese customer base — expanding the bespoke personalisation service, strengthening CRM and loyalty programmes, and scaling WeChat mini-programme commerce to recover the revenue lost to wholesale decline through direct, higher-margin channels." },
+    { n: "Market Development", c: "#7ce7ff",
+      t: "Expand beyond Tier-1 cities (Beijing, Shanghai, Guangzhou) into Tier-2 and Tier-3 Chinese cities, where the upper-middle class is emerging fastest — reaching new geographic segments within the same product category, supported by the free-trade-zone incentives identified in the PEST analysis." },
+  ];
+  document.getElementById("ansoff").innerHTML = ANSOFF.map((a) => `
+    <article class="an-card glass" style="--c:${a.c}"><h3>${a.n}</h3><p>${a.t}</p></article>`).join("");
+
+  /* ── Evaluation ── */
+  const EVAL = [
+    { n: "Market Penetration", rows: [
+      ["Suitability", "High", "Directly addresses the SWOT weaknesses around wholesale decline, building on proven digital strength."],
+      ["Acceptability", "High", "Low execution risk — extends existing WeChat and personalisation capability rather than building new ones."],
+      ["Feasibility", "High", "The Leeds operations hub and existing digital infrastructure can support scale-up without major new investment."],
+    ]},
+    { n: "Market Development", rows: [
+      ["Suitability", "Medium", "Aligns with the identified growth opportunity, but requires infrastructure the company doesn't yet have in lower-tier cities."],
+      ["Acceptability", "Medium", "Higher investment risk with uncertain returns — Tier-2/3 buying power is growing but less proven than Tier-1."],
+      ["Feasibility", "Medium", "Requires new retail partnerships and store investment, extending the payback period well beyond the penetration strategy."],
+    ]},
+  ];
+  document.getElementById("evals").innerHTML = EVAL.map((e) => `
+    <div class="eval-row glass"><h3>${e.n}</h3><div class="eval-grid">
+      ${e.rows.map(([k, r, d]) => `<div class="eval-cell"><b>${k}</b><span class="rating">${r}</span><p>${d}</p></div>`).join("")}
+    </div></div>`).join("");
+
+  /* ── reveals ── */
+  if (!reduced) {
+    gsap.from(".hero > *", { y: 28, opacity: 0, stagger: .1, duration: 1, ease: "power3.out", delay: .2 });
+    gsap.utils.toArray("section > .eyebrow, section > h2, section > .lede, .prose, .mv-grid, .smart-row, .revised, .issue, .pest-wrap, .porter-wrap, .vc-item, .ra-card, .vrio-scroll, .kb-row, .swot-q, .tows-row, .an-card, .eval-row")
+      .forEach((el) => gsap.from(el, {
+        y: 22, opacity: 0, duration: .8, ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 93%" } }));
+  }
+
+  addEventListener("load", () => ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>
