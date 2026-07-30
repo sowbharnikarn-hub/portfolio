@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Product Insights &amp; Feature Recommendations — Client Product Analysis | Sowbharnika RN</title>
+<meta name="description" content="A PM-led product analysis of a US-based taxation SaaS company's compliance portfolio — feature recommendations, UX gaps and feedback opportunities across four products." />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Product Insights &amp; Feature Recommendations | Sowbharnika RN" />
+<meta property="og:description" content="A PM-led analysis of a compliance SaaS portfolio — feature add-ons, UX loopholes, and missing feedback loops across four products." />
+<meta property="og:url" content="https://sowbharnikarn-hub.github.io/portfolio/projects/product-analysis-taxation-saas/" />
+<meta property="og:image" content="https://sowbharnikarn-hub.github.io/portfolio/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:ital,wght@0,200;0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+/* ═══════════════════════════════════════════════════════════
+   PRODUCT ANALYSIS · [client name blurred]
+   Same world as the journey.
+   ═══════════════════════════════════════════════════════════ */
+:root{
+  --ink:#050914; --deep:#0b1230; --violet:#241a4f;
+  --emerald:#43e6b0; --cyan:#7ce7ff; --gold:#e8c47f;
+  --mist:#eef3ff; --dim:#9aa7c9;
+  --glass:rgba(20,28,60,.42); --glass-edge:rgba(140,190,255,.16);
+  --font-display:'Marcellus',serif; --font-body:'Jost',sans-serif; --font-mono:'JetBrains Mono',monospace;
+  --ease-soft:cubic-bezier(.22,.9,.3,1);
+  --high:#ff9e7d; --med:#e8c47f; --low:#7ce7ff; --critical:#ff6b6b;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--mist);font-family:var(--font-body);font-weight:300;
+  line-height:1.65;letter-spacing:.02em;overflow-x:hidden}
+::selection{background:rgba(124,231,255,.22)}
+img,svg,canvas{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--emerald);outline-offset:3px;border-radius:4px}
+
+#sky{position:fixed;inset:0;z-index:0}
+.aurora{position:fixed;inset:-10% -20%;z-index:1;pointer-events:none;filter:blur(46px);opacity:.5;mix-blend-mode:screen}
+.aurora span{position:absolute;width:70%;height:38%;border-radius:50%}
+.aurora .a1{top:2%;left:6%;background:linear-gradient(100deg,transparent,rgba(67,230,176,.5),transparent);animation:drift 26s ease-in-out infinite alternate}
+.aurora .a2{top:12%;left:30%;background:linear-gradient(80deg,transparent,rgba(124,231,255,.4),transparent);animation:drift 34s ease-in-out infinite alternate-reverse}
+.aurora .a3{top:-4%;left:18%;background:linear-gradient(120deg,transparent,rgba(120,80,220,.45),transparent);animation:drift 42s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate3d(-4%,0,0) rotate(-4deg)}to{transform:translate3d(5%,3%,0) rotate(5deg) scaleX(1.15)}}
+.mist{position:fixed;left:0;right:0;bottom:0;height:32vh;z-index:2;pointer-events:none;
+  background:linear-gradient(to top,rgba(10,16,40,.88),transparent)}
+
+.bar-track{position:fixed;top:0;left:0;right:0;height:2px;z-index:60;background:rgba(255,255,255,.06)}
+#bar{height:100%;width:0;background:linear-gradient(90deg,var(--emerald),var(--cyan),var(--gold));box-shadow:0 0 12px rgba(124,231,255,.7)}
+.back{position:fixed;top:18px;left:20px;z-index:60;display:inline-flex;align-items:center;gap:.6em;
+  padding:.55em 1.15em;text-decoration:none;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--cyan);background:var(--glass);border:1px solid rgba(124,231,255,.3);border-radius:99px;
+  backdrop-filter:blur(10px);transition:.4s var(--ease-soft)}
+.back:hover,.back:focus-visible{color:var(--mist);border-color:var(--emerald);box-shadow:0 0 18px rgba(67,230,176,.35)}
+
+main{position:relative;z-index:10}
+.wrap{max-width:1100px;margin:0 auto;padding-inline:7vw}
+section{padding-block:10vh}
+.eyebrow{font-size:.7rem;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);margin-bottom:1.3rem}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;letter-spacing:.04em}
+h2{font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.25}
+h3{font-size:1.02rem}
+.lede{color:var(--dim);max-width:70ch;margin-top:1.3rem}
+.glass{background:var(--glass);border:1px solid var(--glass-edge);border-radius:18px;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 18px 50px rgba(3,6,18,.5)}
+
+/* ── blurred client name ── */
+.client-blur{display:inline-block;filter:blur(6px);-webkit-filter:blur(6px);user-select:none;opacity:.85}
+.client-sub{display:block;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-top:.5rem}
+
+/* ── hero ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;text-align:center;padding-block:14vh}
+.hero h1{font-size:clamp(1.8rem,5vw,3.4rem);line-height:1.18;margin:.5rem 0;
+  background:linear-gradient(115deg,var(--mist) 20%,var(--cyan) 52%,var(--emerald) 80%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.hero h1{color:var(--mist)}}
+.hero .client{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.14em;color:var(--dim);margin-top:.6rem}
+.hero .lede{margin:1.6rem auto 0}
+.facts{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:2.4rem}
+.facts li{display:flex;flex-direction:column;align-items:center;gap:.1rem;padding:.7em 1.3em;
+  border:1px solid var(--glass-edge);border-radius:14px;background:var(--glass);backdrop-filter:blur(10px)}
+.facts b{font-family:var(--font-display);font-size:1.3rem;color:var(--gold);font-weight:400}
+.facts span{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.hint{margin-top:4vh;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
+
+/* ── tabs ── */
+.tabs{display:flex;gap:.3rem;margin:2vh 0 3.5vh;border-bottom:1px solid var(--glass-edge);flex-wrap:wrap}
+.tab{background:none;border:none;cursor:pointer;font-family:var(--font-body);padding:.8em 1.4em;
+  font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);
+  border-bottom:2px solid transparent;margin-bottom:-1px;transition:.3s var(--ease-soft)}
+.tab:hover{color:var(--mist)}
+.tab[aria-selected="true"]{color:var(--mist);border-bottom-color:var(--emerald)}
+
+/* ── finding cards ── */
+.findings{display:flex;flex-direction:column;gap:1.1rem}
+.finding{padding:1.7rem 1.8rem;border-left:2px solid var(--c)}
+.finding.top{border-left-color:var(--gold)}
+.f-head{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;margin-bottom:.8rem}
+.f-star{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.f-priority{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.1em;padding:.3em .7em;border-radius:99px}
+.f-priority.critical{background:rgba(255,107,107,.16);color:var(--critical)}
+.f-priority.high{background:rgba(255,158,125,.16);color:var(--high)}
+.f-priority.medium{background:rgba(232,196,127,.16);color:var(--med)}
+.f-priority.lower{background:rgba(124,231,255,.14);color:var(--low)}
+.f-tag{font-family:var(--font-mono);font-size:.62rem;color:var(--cyan)}
+.finding h3{font-size:1.05rem;margin-bottom:.7rem}
+.finding p{color:var(--dim);font-size:.88rem;line-height:1.8}
+.f-label{display:block;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);
+  margin-top:1rem;margin-bottom:.3rem}
+.f-impacts{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.1rem}
+.f-impacts li{font-size:.68rem;letter-spacing:.04em;padding:.35em .8em;border-radius:99px;
+  border:1px solid rgba(67,230,176,.28);color:var(--emerald);background:rgba(67,230,176,.06)}
+
+/* ── footer ── */
+footer{padding-block:10vh 12vh;text-align:center}
+.doorways{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:3vh}
+.doorways a{display:inline-block;padding:.65em 1.5em;text-decoration:none;font-size:.7rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--mist);background:rgba(67,230,176,.10);
+  border:1px solid rgba(67,230,176,.35);border-radius:4px 20px 4px 20px;transition:.4s var(--ease-soft)}
+.doorways a:hover,.doorways a:focus-visible{background:rgba(67,230,176,.22);border-color:var(--emerald);
+  box-shadow:0 0 20px rgba(67,230,176,.45);transform:translateY(-4px)}
+footer small{display:block;color:var(--dim);font-size:.75rem;letter-spacing:.12em}
+
+@media (max-width:700px){ .back{top:12px;left:12px;font-size:.62rem} }
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<canvas id="sky" aria-hidden="true"></canvas>
+<div class="aurora" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+<div class="mist" aria-hidden="true"></div>
+
+<div class="bar-track" aria-hidden="true"><div id="bar"></div></div>
+<a class="back" href="https://sowbharnikarn-hub.github.io/portfolio/">← Back to the journey</a>
+
+<main>
+
+  <!-- ───────── HERO ───────── -->
+  <header class="hero wrap">
+    <p class="eyebrow">Client Work · Product Analysis</p>
+    <h1>Product Insights &amp; Feature Recommendations</h1>
+    <p class="client"><span class="client-blur">Silvermine Group LLC</span><span class="client-sub">US-based Taxation SaaS Company</span></p>
+    <p class="lede">A PM-led analysis of the client's compliance SaaS portfolio — identifying opportunities, gaps, and improvements across all four products.</p>
+    <ul class="facts">
+      <li><b>3</b><span>Feature Add-ons Identified</span></li>
+      <li><b>3</b><span>Loopholes &amp; UX Gaps</span></li>
+      <li><b>3</b><span>Feedback Opportunities</span></li>
+    </ul>
+    <p class="hint">Scroll to explore the analysis</p>
+  </header>
+
+  <!-- ───────── ANALYSIS TABS ───────── -->
+  <section class="wrap">
+    <p class="eyebrow">The Analysis</p>
+    <h2>Nine findings, three lenses</h2>
+    <p class="lede">Feature opportunities, product loopholes, and missing feedback loops — each drawn from a hands-on review of the client's four live products.</p>
+
+    <div class="tabs" role="tablist" aria-label="Analysis views">
+      <button class="tab" role="tab" id="tab-feat" aria-controls="panel-feat" aria-selected="true">Feature Add-ons</button>
+      <button class="tab" role="tab" id="tab-gap" aria-controls="panel-gap" aria-selected="false">Loopholes &amp; Gaps</button>
+      <button class="tab" role="tab" id="tab-fb" aria-controls="panel-fb" aria-selected="false">Feedback Gaps</button>
+    </div>
+
+    <div id="panel-feat" role="tabpanel" aria-labelledby="tab-feat"><div class="findings" id="featList"></div></div>
+    <div id="panel-gap" role="tabpanel" aria-labelledby="tab-gap" hidden><div class="findings" id="gapList"></div></div>
+    <div id="panel-fb" role="tabpanel" aria-labelledby="tab-fb" hidden><div class="findings" id="fbList"></div></div>
+  </section>
+
+  <footer class="wrap">
+    <ul class="doorways">
+      <li><a href="https://sowbharnikarn.wixsite.com/portfolio/projects" target="_blank" rel="noopener">More projects</a></li>
+      <li><a href="https://www.linkedin.com/in/sowbharnika-rn-901b42bb/" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+    <small>Sowbharnika RN · Project &amp; Programme Manager · Analysed July 2026</small>
+  </footer>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+(() => {
+  "use strict";
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ── 1 · the sky ── */
+  const sky = document.getElementById("sky"), sc = sky.getContext("2d");
+  const DPR = Math.min(devicePixelRatio || 1, 2);
+  let W, H, stars = [], flies = [];
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  function seed() {
+    sky.width = (W = innerWidth) * DPR; sky.height = (H = innerHeight) * DPR;
+    sc.setTransform(DPR, 0, 0, DPR, 0, 0);
+    stars = Array.from({ length: Math.round(W * H / 5200) }, () => ({
+      x: rnd(0, W), y: rnd(0, H), r: rnd(.4, 1.5), a: rnd(.25, .95), tw: rnd(0, 6.28), sp: rnd(.4, 1.6) }));
+    flies = Array.from({ length: 20 }, () => ({
+      x: rnd(0, W), y: rnd(0, H), r: rnd(1.2, 2.6), s: rnd(0, 6.28), vy: rnd(-.12, -.03), vx: rnd(-.12, .12) }));
+  }
+  function paint(t) {
+    sc.clearRect(0, 0, W, H);
+    for (const s of stars) {
+      const a = s.a * (reduced ? 1 : .55 + .45 * Math.sin(t * .0012 * s.sp + s.tw));
+      sc.beginPath(); sc.fillStyle = `rgba(214,232,255,${a})`; sc.arc(s.x, s.y, s.r, 0, 6.29); sc.fill();
+    }
+    for (const f of flies) {
+      if (!reduced) {
+        f.x += f.vx + Math.sin(t * .0008 + f.s) * .22; f.y += f.vy;
+        if (f.y < -10) { f.y = H + 10; f.x = rnd(0, W); }
+        if (f.x < -10) f.x = W + 10; if (f.x > W + 10) f.x = -10;
+      }
+      const g = sc.createRadialGradient(f.x, f.y, 0, f.x, f.y, f.r * 6);
+      const p = reduced ? .8 : .45 + .55 * Math.sin(t * .0016 + f.s);
+      g.addColorStop(0, `rgba(67,230,176,${.85 * p})`); g.addColorStop(1, "rgba(67,230,176,0)");
+      sc.fillStyle = g; sc.beginPath(); sc.arc(f.x, f.y, f.r * 6, 0, 6.29); sc.fill();
+    }
+    if (!reduced) requestAnimationFrame(paint);
+  }
+  seed(); addEventListener("resize", () => { seed(); ScrollTrigger.refresh(); });
+  reduced ? paint(0) : requestAnimationFrame(paint);
+
+  const bar = document.getElementById("bar");
+  ScrollTrigger.create({ trigger: document.body, start: "top top", end: "bottom bottom",
+    onUpdate: (s) => { bar.style.width = s.progress * 100 + "%"; } });
+
+  /* ── 2 · data ── */
+  const FEATURES = [
+    { top: true, title: "Unified Compliance Calendar &amp; Deadline Alerts", tag: "Cross-product", pri: "high",
+      body: "The core filing product already aggregates multiple form types — but there is no unified compliance calendar showing all upcoming deadlines, filing windows, and renewal dates in a single view. Users currently have to mentally track federal deadlines across multiple products, creating a real risk of missed filings and costly penalties.",
+      prop: "A Compliance Calendar dashboard showing all upcoming filing deadlines, renewal dates, and status (filed / pending / overdue) with SMS and email push reminders at 30, 14, and 7 days before each deadline. For tax professionals managing multiple clients, a fleet-wide calendar view would be especially high-value.",
+      impacts: ["↑ Retention", "↓ Penalty risk for clients", "↑ Cross-product stickiness", "Differentiator vs competitors"] },
+    { title: "Bulk Fleet Filing &amp; Multi-VIN Management Dashboard", tag: "Filing products", pri: "high",
+      body: "Bulk upload is mentioned for tax professionals, but there is no dedicated fleet management view where a fleet owner or tax professional can see all VINs, their filing status, and upcoming renewals in one dashboard. Managing large fleets appears to require repeated individual lookups.",
+      prop: "A Fleet Manager Dashboard — a dedicated view showing all registered VINs, filing status, registration status, next renewal dates, and one-click bulk renewal triggering for the entire fleet. This would significantly improve retention among fleet operators and tax professionals managing 10+ vehicles.",
+      impacts: ["↑ Enterprise/fleet segment", "↑ Tax professional loyalty", "↓ Support ticket volume"] },
+    { title: "AI-Powered Filing Error Prevention &amp; Compliance Check", tag: "All products", pri: "medium",
+      body: "All products offer manual form completion with basic validation, but common errors — wrong EIN, incorrect gross weight category, missed identification number — still slip through. Free corrections are offered on the flagship product, but preventing errors before submission would reduce support load significantly.",
+      prop: "An AI-powered pre-submission compliance checker that cross-references entered data against federal records in real time — flagging likely errors, prompting corrections, and providing plain-English explanations of what went wrong and why. This positions the client as a smart compliance partner, not just a filing portal.",
+      impacts: ["↓ Post-submission corrections", "↓ Support tickets", "↑ Trust &amp; brand positioning"] },
+  ];
+  const GAPS = [
+    { top: true, title: "No Cross-Product Single Login (SSO) Across All Four Products", tag: "All products", pri: "critical",
+      body: "The company operates four distinct products — but each appears to have its own login and account system. A user who files on one product and also wants to register on another would need separate accounts. This fragmentation significantly hurts the cross-sell opportunity and creates unnecessary friction for returning customers.",
+      prop: "Impact: users who need multiple compliance products are forced to manage multiple accounts, remember multiple passwords, and repeat their business details across platforms — a significant retention and conversion risk, especially when one product is positioned as the \u201cone-stop\u201d compliance hub but isn't fully unified underneath.",
+      impacts: ["↑ Cross-sell opportunity lost", "↑ User friction", "↑ Drop-off risk at registration"] },
+    { title: "Sub-Product Links Redirect — Brand Confusion", tag: "Sub-product", pri: "medium",
+      body: "On the company homepage, clicking through to a named sub-product actually redirects to a different product's subdomain rather than a standalone product page. This creates brand inconsistency — the product is marketed under its own name but doesn't resolve to that domain.",
+      prop: "Impact: SEO dilution for the sub-product's brand, user confusion, and potential trust issues when the URL doesn't match the advertised product name. Users searching for the specific product expecting a dedicated experience land on different branding instead.",
+      impacts: ["Brand consistency", "SEO impact", "User trust"] },
+    { title: "No Mobile App — Critical Gap for On-the-Road Users", tag: "All products", pri: "high",
+      body: "The core customer is frequently on the road, not at a desk. Yet all four products appear to be web-only platforms with no dedicated mobile app. Compliance deadlines and urgent filings often come up while users are in transit, making mobile-first access a genuine operational need rather than a nice-to-have.",
+      prop: "Impact: competitors who offer mobile-optimised experiences for the same compliance filings have a meaningful UX advantage. Even a lightweight PWA (Progressive Web App) with offline filing initiation would close this gap significantly for the core user base.",
+      impacts: ["Competitive disadvantage", "Core user segment underserved", "Retention risk"] },
+  ];
+  const FEEDBACK = [
+    { top: true, title: "Post-Filing Satisfaction Survey — Missing Across All Products", tag: "All products", pri: "high",
+      body: "After a successful filing or form submission, there is no post-completion satisfaction prompt across any of the company's four products. This is a significant missed opportunity — the moment immediately after a successful filing is when user sentiment is highest and feedback quality is most actionable.",
+      prop: "A 3-question micro-survey triggered immediately after filing confirmation is displayed — covering ease of use, likelihood to recommend (NPS), and one open-text \u201cwhat could we improve?\u201d field. Results feed into a product feedback dashboard reviewed in sprint retrospectives.",
+      impacts: ["NPS tracking", "Product roadmap input", "Early churn signal detection"] },
+    { title: "Tax Professional / Fleet Manager Segment Feedback Programme", tag: "Filing products", pri: "medium",
+      body: "The company serves two very different user types — individual owner-operators and tax professionals managing large client portfolios. There is no apparent mechanism for the latter, higher-value segment to provide structured product feedback on their specific workflow needs.",
+      prop: "A quarterly structured feedback session (survey + optional 20-minute video call) specifically for tax professionals and fleet managers — focusing on bulk filing workflows, client management features, and what would save them the most time. Findings shared directly with the product team as a named input to the roadmap.",
+      impacts: ["High-value segment retention", "Roadmap prioritisation", "Community building"] },
+    { title: "Support Chat Exit Survey — Capturing Resolution Quality", tag: "All Products · Support", pri: "lower",
+      body: "The company prominently highlights its support team quality across product pages. However, without a systematic post-support feedback mechanism, this claim rests on self-reported satisfaction rather than measured data. There is no visible CSAT or resolution quality survey triggered after a support interaction.",
+      prop: "A 2-click CSAT survey (Satisfied / Not Satisfied + optional comment) triggered at the end of every support chat or email resolution. Results tracked weekly, with dissatisfied tickets automatically escalated for a follow-up call — turning a marketing claim into a measurable, improvable metric.",
+      impacts: ["Support quality measurement", "Churn prevention", "Brand claim validation"] },
+  ];
+
+  function renderFindings(id, items) {
+    document.getElementById(id).innerHTML = items.map((f) => `
+      <article class="finding glass ${f.top ? "top" : ""}" style="--c:${
+        f.pri === "critical" ? "var(--critical)" : f.pri === "high" ? "var(--high)" : f.pri === "medium" ? "var(--med)" : "var(--low)"
+      }">
+        <div class="f-head">
+          ${f.top ? '<span class="f-star">★ Top Finding</span>' : ""}
+          <span class="f-priority ${f.pri}">${f.pri === "lower" ? "Lower Priority" : f.pri[0].toUpperCase() + f.pri.slice(1) + (f.pri === "critical" ? " Gap" : " Priority")}</span>
+          <span class="f-tag">${f.tag}</span>
+        </div>
+        <h3>${f.title}</h3>
+        <p>${f.body}</p>
+        <span class="f-label">${id === "gapList" ? "Impact" : "Proposed"}</span>
+        <p>${f.prop}</p>
+        <ul class="f-impacts">${f.impacts.map((i) => `<li>${i}</li>`).join("")}</ul>
+      </article>`).join("");
+  }
+  renderFindings("featList", FEATURES);
+  renderFindings("gapList", GAPS);
+  renderFindings("fbList", FEEDBACK);
+
+  /* ── 3 · tabs ── */
+  const tabs = [...document.querySelectorAll(".tab")];
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      tabs.forEach((t) => {
+        const on = t === tab;
+        t.setAttribute("aria-selected", String(on));
+        document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+      });
+      ScrollTrigger.refresh();
+    });
+    tab.addEventListener("keydown", (e) => {
+      if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+      const next = tabs[(tabs.indexOf(tab) + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length];
+      next.focus(); next.click();
+    });
+  });
+
+  /* ── 4 · reveals ── */
+  if (!reduced) {
+    gsap.from(".hero > *", { y: 26, opacity: 0, stagger: .1, duration: 1, ease: "power3.out", delay: .2 });
+    gsap.utils.toArray("section > .eyebrow, section > h2, section > .lede, .tabs, .finding")
+      .forEach((el) => gsap.from(el, {
+        y: 20, opacity: 0, duration: .75, ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 94%" } }));
+  }
+
+  addEventListener("load", () => ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>
