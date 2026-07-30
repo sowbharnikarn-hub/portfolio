@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Digital Optimization Report — Client Website Audit | Sowbharnika RN</title>
+<meta name="description" content="A digital performance audit for a US pump &amp; dredge manufacturer — technical fixes, four targeted ad campaigns, and a 90-day go-to-market roadmap." />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Digital Optimization Report | Sowbharnika RN" />
+<meta property="og:description" content="Website audit findings, technical fixes, campaign strategy and a 90-day roadmap for an industrial B2B manufacturer." />
+<meta property="og:url" content="https://sowbharnikarn-hub.github.io/portfolio/projects/digital-audit-pump-manufacturer/" />
+<meta property="og:image" content="https://sowbharnikarn-hub.github.io/portfolio/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:ital,wght@0,200;0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+/* ═══════════════════════════════════════════════════════════
+   DIGITAL OPTIMIZATION REPORT · [client name blurred]
+   Same world as the journey.
+   Signature: score gauges (SVG rings) + campaign accordion.
+   ═══════════════════════════════════════════════════════════ */
+:root{
+  --ink:#050914; --deep:#0b1230; --violet:#241a4f;
+  --emerald:#43e6b0; --cyan:#7ce7ff; --gold:#e8c47f;
+  --mist:#eef3ff; --dim:#9aa7c9;
+  --glass:rgba(20,28,60,.42); --glass-edge:rgba(140,190,255,.16);
+  --font-display:'Marcellus',serif; --font-body:'Jost',sans-serif; --font-mono:'JetBrains Mono',monospace;
+  --ease-soft:cubic-bezier(.22,.9,.3,1);
+  --critical:#ff6b6b; --high:#ff9e7d; --medium:#e8c47f; --strong:#43e6b0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--mist);font-family:var(--font-body);font-weight:300;
+  line-height:1.65;letter-spacing:.02em;overflow-x:hidden}
+::selection{background:rgba(124,231,255,.22)}
+img,svg,canvas{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--emerald);outline-offset:3px;border-radius:4px}
+
+#sky{position:fixed;inset:0;z-index:0}
+.aurora{position:fixed;inset:-10% -20%;z-index:1;pointer-events:none;filter:blur(46px);opacity:.5;mix-blend-mode:screen}
+.aurora span{position:absolute;width:70%;height:38%;border-radius:50%}
+.aurora .a1{top:2%;left:6%;background:linear-gradient(100deg,transparent,rgba(67,230,176,.5),transparent);animation:drift 26s ease-in-out infinite alternate}
+.aurora .a2{top:12%;left:30%;background:linear-gradient(80deg,transparent,rgba(124,231,255,.4),transparent);animation:drift 34s ease-in-out infinite alternate-reverse}
+.aurora .a3{top:-4%;left:18%;background:linear-gradient(120deg,transparent,rgba(120,80,220,.45),transparent);animation:drift 42s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate3d(-4%,0,0) rotate(-4deg)}to{transform:translate3d(5%,3%,0) rotate(5deg) scaleX(1.15)}}
+.mist{position:fixed;left:0;right:0;bottom:0;height:32vh;z-index:2;pointer-events:none;
+  background:linear-gradient(to top,rgba(10,16,40,.88),transparent)}
+
+.bar-track{position:fixed;top:0;left:0;right:0;height:2px;z-index:60;background:rgba(255,255,255,.06)}
+#bar{height:100%;width:0;background:linear-gradient(90deg,var(--emerald),var(--cyan),var(--gold));box-shadow:0 0 12px rgba(124,231,255,.7)}
+.back{position:fixed;top:18px;left:20px;z-index:60;display:inline-flex;align-items:center;gap:.6em;
+  padding:.55em 1.15em;text-decoration:none;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--cyan);background:var(--glass);border:1px solid rgba(124,231,255,.3);border-radius:99px;
+  backdrop-filter:blur(10px);transition:.4s var(--ease-soft)}
+.back:hover,.back:focus-visible{color:var(--mist);border-color:var(--emerald);box-shadow:0 0 18px rgba(67,230,176,.35)}
+
+main{position:relative;z-index:10}
+.wrap{max-width:1100px;margin:0 auto;padding-inline:7vw}
+section{padding-block:10vh}
+.eyebrow{font-size:.7rem;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);margin-bottom:1.3rem}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;letter-spacing:.04em}
+h2{font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.25}
+h3{font-size:1.02rem}
+.lede{color:var(--dim);max-width:70ch;margin-top:1.3rem}
+.glass{background:var(--glass);border:1px solid var(--glass-edge);border-radius:18px;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 18px 50px rgba(3,6,18,.5)}
+
+/* ── blurred client name ── */
+.client-blur{display:inline-block;filter:blur(6px);-webkit-filter:blur(6px);user-select:none;opacity:.85}
+.client-sub{display:block;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-top:.5rem}
+
+/* ── hero ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;text-align:center;padding-block:14vh}
+.hero h1{font-size:clamp(1.7rem,4.8vw,3.2rem);line-height:1.2;margin:.5rem 0;
+  background:linear-gradient(115deg,var(--mist) 20%,var(--cyan) 52%,var(--emerald) 80%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.hero h1{color:var(--mist)}}
+.hero .client{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.14em;color:var(--dim);margin-top:.6rem}
+.hero .lede{margin:1.6rem auto 0}
+.overview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:2.6rem;max-width:820px;margin-inline:auto}
+.ov-card{padding:1.1em 1.2em;border:1px solid var(--glass-edge);border-radius:14px;background:var(--glass);backdrop-filter:blur(10px)}
+.ov-card b{display:block;font-family:var(--font-display);font-size:1.5rem;color:var(--gold)}
+.ov-card .lbl{font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mist);margin-top:.3rem;display:block}
+.ov-card .sub{font-size:.66rem;color:var(--dim);margin-top:.25rem;display:block}
+.hint{margin-top:4vh;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
+
+/* ── tech stack + competitors ── */
+.two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.4rem;margin-top:3.5vh}
+.stack-pills{list-style:none;display:flex;flex-wrap:wrap;gap:.6rem;padding:1.7rem 1.7rem}
+.stack-pills li{font-family:var(--font-mono);font-size:.74rem;padding:.5em 1em;border-radius:8px;
+  background:rgba(124,231,255,.08);border:1px solid rgba(124,231,255,.25);color:var(--cyan)}
+.stack-note{padding:0 1.7rem 1.7rem;font-size:.84rem;color:var(--dim);line-height:1.75}
+.comp-list{list-style:none;padding:1.7rem 1.7rem;display:flex;flex-direction:column;gap:.9rem}
+.comp-row{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-bottom:.9rem;border-bottom:1px solid rgba(140,190,255,.08)}
+.comp-row:last-child{border-bottom:none;padding-bottom:0}
+.comp-name{font-size:.88rem;color:var(--mist)}
+.comp-note{font-size:.72rem;color:var(--dim);display:block;margin-top:.15rem}
+.comp-threat{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.08em;padding:.3em .6em;border-radius:99px;flex-shrink:0}
+.comp-threat.high{background:rgba(255,158,125,.16);color:var(--high)}
+.comp-threat.med{background:rgba(232,196,127,.16);color:var(--medium)}
+
+/* ── SIGNATURE 1 · score gauges ── */
+.gauges{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.3rem;margin-top:4vh}
+.gauge-card{padding:1.6rem 1.6rem;display:flex;gap:1.3rem;align-items:center;border-left:2px solid var(--c)}
+.gring{width:74px;height:74px;flex-shrink:0;position:relative}
+.gring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.gring circle{fill:none;stroke-width:6;stroke-linecap:round}
+.gring .bg{stroke:rgba(140,190,255,.1)}
+.gring .fg{stroke:var(--c)}
+.gring b{position:absolute;inset:0;display:grid;place-content:center;font-family:var(--font-mono);font-size:.8rem;color:var(--mist)}
+.gauge-body{flex:1}
+.gauge-body .sev{font-family:var(--font-mono);font-size:.56rem;letter-spacing:.1em;padding:.25em .6em;border-radius:99px;color:var(--c);background:color-mix(in srgb, var(--c) 16%, transparent)}
+.gauge-body h3{font-size:.92rem;margin:.5rem 0 .4rem}
+.gauge-body p{font-size:.78rem;color:var(--dim);line-height:1.6}
+.gauge-fix{font-size:.74rem;color:var(--cyan);margin-top:.5rem;line-height:1.6}
+.gauge-fix b{color:var(--cyan);font-weight:500}
+
+/* ── SIGNATURE 2 · campaign accordion ── */
+.campaigns{display:flex;flex-direction:column;gap:.8rem;margin-top:4vh}
+.camp{overflow:hidden}
+.camp-btn{width:100%;background:none;border:none;cursor:pointer;text-align:left;font-family:var(--font-body);
+  display:flex;align-items:center;gap:1.1rem;padding:1.2rem 1.5rem;color:var(--mist);flex-wrap:wrap}
+.camp-no{font-family:var(--font-mono);font-size:.72rem;color:var(--gold)}
+.camp-title{flex:1;min-width:180px}
+.camp-title b{display:block;font-family:var(--font-display);font-size:1rem;font-weight:400}
+.camp-title span{font-size:.68rem;color:var(--dim)}
+.camp-budget{font-family:var(--font-mono);font-size:.78rem;color:var(--emerald)}
+.camp-chev{color:var(--dim);font-size:.7rem;transition:transform .3s var(--ease-soft)}
+.camp-btn[aria-expanded="true"] .camp-chev{transform:rotate(180deg)}
+.camp-body{display:none;padding:0 1.5rem 1.5rem}
+.camp-body.open{display:block}
+.ad-preview{padding:1rem 1.2rem;border-radius:10px;background:rgba(5,9,20,.5);border:1px solid var(--glass-edge);margin-bottom:1.2rem}
+.ad-preview .adlbl{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:.5rem;display:block}
+.ad-preview .headline{color:var(--cyan);font-size:.92rem;text-decoration:underline;margin-bottom:.3rem}
+.ad-preview .url{font-size:.72rem;color:var(--dim);margin-bottom:.4rem}
+.ad-preview .body{font-size:.82rem;color:var(--mist);line-height:1.6}
+.ad-preview .cta{color:var(--emerald);font-size:.8rem;margin-top:.5rem}
+.camp-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+.camp-meta div span{display:block;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+.camp-meta div p{font-size:.8rem;color:var(--dim);line-height:1.7}
+.kw-pills{list-style:none;display:flex;flex-wrap:wrap;gap:.4rem}
+.kw-pills li{font-family:var(--font-mono);font-size:.68rem;padding:.3em .65em;border-radius:6px;background:rgba(67,230,176,.08);color:var(--emerald);border:1px solid rgba(67,230,176,.22)}
+.camp-total{margin-top:1rem;padding:1.4rem 1.6rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.6rem}
+.camp-total b{font-family:var(--font-display);font-size:1.5rem;color:var(--gold)}
+.camp-total span{font-size:.72rem;color:var(--dim)}
+
+/* ── quick wins ── */
+.quickwins{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.8rem;margin-top:3.5vh}
+.qw{display:flex;gap:1rem;align-items:flex-start;padding:1.1rem 1.3rem}
+.qw-n{font-family:var(--font-mono);font-size:.7rem;color:var(--gold);flex-shrink:0}
+.qw p{font-size:.85rem;color:var(--mist);line-height:1.6}
+
+/* ── roadmap rail ── */
+.rail{position:relative;padding-left:2.4rem;margin-top:1rem}
+.rail::before{content:"";position:absolute;left:9px;top:.6rem;bottom:.6rem;width:1px;
+  background:linear-gradient(to bottom,var(--emerald),var(--cyan),var(--gold))}
+.stage{position:relative;padding:0 0 2.2rem}
+.stage:last-child{padding-bottom:0}
+.stage::before{content:"";position:absolute;left:-2.4rem;top:.4rem;width:17px;height:17px;border-radius:50%;
+  background:var(--ink);border:2px solid var(--c);box-shadow:0 0 12px var(--c)}
+.stage .ph{font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--c)}
+.stage h3{margin:.25rem 0 .4rem;font-size:.98rem}
+.stage p{color:var(--dim);font-size:.86rem;line-height:1.7}
+
+/* ── footer ── */
+footer{padding-block:10vh 12vh;text-align:center}
+.doorways{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:3vh}
+.doorways a{display:inline-block;padding:.65em 1.5em;text-decoration:none;font-size:.7rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--mist);background:rgba(67,230,176,.10);
+  border:1px solid rgba(67,230,176,.35);border-radius:4px 20px 4px 20px;transition:.4s var(--ease-soft)}
+.doorways a:hover,.doorways a:focus-visible{background:rgba(67,230,176,.22);border-color:var(--emerald);
+  box-shadow:0 0 20px rgba(67,230,176,.45);transform:translateY(-4px)}
+footer small{display:block;color:var(--dim);font-size:.75rem;letter-spacing:.12em}
+
+@media (max-width:700px){
+  .back{top:12px;left:12px;font-size:.62rem}
+  .gauge-card{flex-direction:column;text-align:center}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<canvas id="sky" aria-hidden="true"></canvas>
+<div class="aurora" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+<div class="mist" aria-hidden="true"></div>
+
+<div class="bar-track" aria-hidden="true"><div id="bar"></div></div>
+<a class="back" href="https://sowbharnikarn-hub.github.io/portfolio/">← Back to the journey</a>
+
+<main>
+
+  <!-- ───────── HERO ───────── -->
+  <header class="hero wrap">
+    <p class="eyebrow">Client Work · Digital Performance Audit</p>
+    <h1>Website Optimization &amp; Go-to-Market Strategy</h1>
+    <p class="client"><span class="client-blur">EDDY Pump</span><span class="client-sub">US Pump &amp; Dredge Manufacturer</span></p>
+    <p class="lede">Audit findings for the client's site — a slurry pump and dredge equipment manufacturer serving mining, Navy, oil &amp; gas, and wastewater sectors.</p>
+    <div class="overview-grid">
+      <div class="ov-card"><b>42/100</b><span class="lbl">Overall Site Score</span><span class="sub">Est. PageSpeed</span></div>
+      <div class="ov-card"><b>HIGH</b><span class="lbl">Organic Opportunity</span><span class="sub">Underserved niche keywords</span></div>
+      <div class="ov-card"><b>MEDIUM</b><span class="lbl">Revenue Risk</span><span class="sub">Slow loads = lost B2B leads</span></div>
+      <div class="ov-card"><b>STRONG</b><span class="lbl">Ad Potential</span><span class="sub">High-intent industrial buyers</span></div>
+    </div>
+    <p class="hint">Scroll for the full audit</p>
+  </header>
+
+  <!-- ───────── OVERVIEW ───────── -->
+  <section class="wrap">
+    <p class="eyebrow">📋 Overview</p>
+    <h2>Where the site stands today</h2>
+    <div class="two-col">
+      <div class="glass">
+        <ul class="stack-pills"><li>WordPress.org</li><li>WooCommerce</li><li>PHP</li><li>reCAPTCHA</li></ul>
+        <p class="stack-note">WordPress + WooCommerce is flexible but adds significant performance overhead. For an industrial B2B site, page speed directly impacts quote request conversion rates from procurement teams.</p>
+      </div>
+      <div class="glass">
+        <ul class="comp-list">
+          <li class="comp-row"><span><span class="comp-name">SRS Crisafulli</span><span class="comp-note">Strong dredge presence, heavy content marketing</span></span><span class="comp-threat high">HIGH</span></li>
+          <li class="comp-row"><span><span class="comp-name">Schurco Slurry</span><span class="comp-note">Direct slurry pump competitor, active Google Ads</span></span><span class="comp-threat high">HIGH</span></li>
+          <li class="comp-row"><span><span class="comp-name">IMS / Liquid Waste Tech</span><span class="comp-note">Niche dredge overlap</span></span><span class="comp-threat med">MED</span></li>
+          <li class="comp-row"><span><span class="comp-name">GPM (Global Pump)</span><span class="comp-note">Broader pump range, strong SEO</span></span><span class="comp-threat med">MED</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="lede" style="font-size:.78rem;margin-top:1.5rem">Based on site analysis — WordPress/WooCommerce stack, industrial content volume, and typical patterns for manufacturers in this category. Prioritised by revenue impact.</p>
+  </section>
+
+  <!-- ───────── TECHNICAL FIXES (SIGNATURE: GAUGES) ───────── -->
+  <section class="wrap">
+    <p class="eyebrow">⚙️ Technical Fixes</p>
+    <h2>Six scores, six fixes</h2>
+    <p class="lede">Each gauge shows the estimated current score against 100 — the lower the ring, the more urgent the fix.</p>
+    <div class="gauges" id="gauges"></div>
+  </section>
+
+  <!-- ───────── CAMPAIGNS (SIGNATURE: ACCORDION) ───────── -->
+  <section class="wrap">
+    <p class="eyebrow">🎯 Campaigns</p>
+    <h2>Four targeted campaign strategies</h2>
+    <p class="lede">Aligned to the client's highest-value verticals. Click a campaign to expand the targeting spec, ad copy, and KPIs.</p>
+    <div class="campaigns" id="campaigns"></div>
+    <div class="camp-total glass">
+      <span>Recommended initial monthly ad budget. Scale winning campaigns at 90 days.</span>
+      <b>$13,000 / month</b>
+    </div>
+  </section>
+
+  <!-- ───────── QUICK WINS ───────── -->
+  <section class="wrap">
+    <p class="eyebrow">⚡ Quick Wins</p>
+    <h2>High-impact, no full rebuild required</h2>
+    <p class="lede">Achievable within 30–60 days.</p>
+    <ul class="quickwins" id="quickWins"></ul>
+  </section>
+
+  <!-- ───────── ROADMAP ───────── -->
+  <section class="wrap">
+    <p class="eyebrow">Recommended Roadmap</p>
+    <h2>Days 1 to 90</h2>
+    <div class="rail" id="rail"></div>
+  </section>
+
+  <footer class="wrap">
+    <ul class="doorways">
+      <li><a href="https://sowbharnikarn.wixsite.com/portfolio/projects" target="_blank" rel="noopener">More projects</a></li>
+      <li><a href="https://www.linkedin.com/in/sowbharnika-rn-901b42bb/" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+    <small>Sowbharnika RN · Project &amp; Programme Manager · Audit May 2026</small>
+  </footer>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+(() => {
+  "use strict";
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ── 1 · the sky ── */
+  const sky = document.getElementById("sky"), sc = sky.getContext("2d");
+  const DPR = Math.min(devicePixelRatio || 1, 2);
+  let W, H, stars = [], flies = [];
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  function seed() {
+    sky.width = (W = innerWidth) * DPR; sky.height = (H = innerHeight) * DPR;
+    sc.setTransform(DPR, 0, 0, DPR, 0, 0);
+    stars = Array.from({ length: Math.round(W * H / 5200) }, () => ({
+      x: rnd(0, W), y: rnd(0, H), r: rnd(.4, 1.5), a: rnd(.25, .95), tw: rnd(0, 6.28), sp: rnd(.4, 1.6) }));
+    flies = Array.from({ length: 20 }, () => ({
+      x: rnd(0, W), y: rnd(0, H), r: rnd(1.2, 2.6), s: rnd(0, 6.28), vy: rnd(-.12, -.03), vx: rnd(-.12, .12) }));
+  }
+  function paint(t) {
+    sc.clearRect(0, 0, W, H);
+    for (const s of stars) {
+      const a = s.a * (reduced ? 1 : .55 + .45 * Math.sin(t * .0012 * s.sp + s.tw));
+      sc.beginPath(); sc.fillStyle = `rgba(214,232,255,${a})`; sc.arc(s.x, s.y, s.r, 0, 6.29); sc.fill();
+    }
+    for (const f of flies) {
+      if (!reduced) {
+        f.x += f.vx + Math.sin(t * .0008 + f.s) * .22; f.y += f.vy;
+        if (f.y < -10) { f.y = H + 10; f.x = rnd(0, W); }
+        if (f.x < -10) f.x = W + 10; if (f.x > W + 10) f.x = -10;
+      }
+      const g = sc.createRadialGradient(f.x, f.y, 0, f.x, f.y, f.r * 6);
+      const p = reduced ? .8 : .45 + .55 * Math.sin(t * .0016 + f.s);
+      g.addColorStop(0, `rgba(67,230,176,${.85 * p})`); g.addColorStop(1, "rgba(67,230,176,0)");
+      sc.fillStyle = g; sc.beginPath(); sc.arc(f.x, f.y, f.r * 6, 0, 6.29); sc.fill();
+    }
+    if (!reduced) requestAnimationFrame(paint);
+  }
+  seed(); addEventListener("resize", () => { seed(); ScrollTrigger.refresh(); });
+  reduced ? paint(0) : requestAnimationFrame(paint);
+
+  const bar = document.getElementById("bar");
+  ScrollTrigger.create({ trigger: document.body, start: "top top", end: "bottom bottom",
+    onUpdate: (s) => { bar.style.width = s.progress * 100 + "%"; } });
+
+  /* ── 2 · gauges (signature 1) ── */
+  const GAUGES = [
+    { ic: "⚡", title: "Page Speed", sev: "critical", c: "var(--critical)", score: 38,
+      desc: "WordPress + WooCommerce stack adds significant render-blocking JS/CSS. Industrial buyers often on mobile networks — slow loads = lost leads.",
+      fix: "Implement WP Rocket or NitroPack, lazy-load images, upgrade to a VPS/dedicated host or CDN (Cloudflare)." },
+    { ic: "📊", title: "Core Web Vitals", sev: "critical", c: "var(--critical)", score: 42,
+      desc: "LCP likely &gt;4s, high CLS from unoptimized images. Google's ranking signals directly penalize poor scores.",
+      fix: "Convert all images to WebP, set explicit width/height attributes, defer non-critical JS below the fold." },
+    { ic: "📱", title: "Mobile UX", sev: "high", c: "var(--high)", score: 55,
+      desc: "Heavy industrial site likely not optimized for mobile procurement teams on tablets/phones in the field.",
+      fix: "Mobile-first redesign of product pages. Large tap targets, sticky CTA buttons, simplified nav." },
+    { ic: "🗂️", title: "Schema Markup", sev: "high", c: "var(--high)", score: 20,
+      desc: "No structured data means Google can't generate rich results (star ratings, FAQs, product specs) in SERPs.",
+      fix: "Add Product, Organization, FAQ, and HowTo schema to product pages and key landing pages." },
+    { ic: "📝", title: "SEO Content Depth", sev: "medium", c: "var(--medium)", score: 50,
+      desc: "Product pages likely thin on keyword-rich technical specs. Buyers search very specific terms before purchasing.",
+      fix: "Expand product pages with detailed specs, comparison tables, industry use cases, and FAQ sections." },
+    { ic: "🏆", title: "E-E-A-T Signals", sev: "medium", c: "var(--medium)", score: 45,
+      desc: "Strong client success stories exist but may be buried. Trust signals need to be front and center.",
+      fix: "Prominent case studies, certifications, client logos, and engineer bios on key pages." },
+  ];
+  const R = 30, CIRC = 2 * Math.PI * R;
+  document.getElementById("gauges").innerHTML = GAUGES.map((g) => `
+    <article class="gauge-card glass" style="--c:${g.c}">
+      <div class="gring">
+        <svg viewBox="0 0 74 74"><circle class="bg" cx="37" cy="37" r="${R}"></circle>
+        <circle class="fg" cx="37" cy="37" r="${R}" stroke-dasharray="${CIRC}" stroke-dashoffset="${CIRC}" data-pct="${g.score}"></circle></svg>
+        <b>${g.score}</b>
+      </div>
+      <div class="gauge-body">
+        <span class="sev">${g.ic} ${g.sev.toUpperCase()}</span>
+        <h3>${g.title}</h3>
+        <p>${g.desc}</p>
+        <p class="gauge-fix"><b>Fix →</b> ${g.fix}</p>
+      </div>
+    </article>`).join("");
+  document.querySelectorAll(".gring .fg").forEach((c) => {
+    const target = CIRC * (1 - c.dataset.pct / 100);
+    if (reduced) { c.style.strokeDashoffset = target; return; }
+    gsap.to(c, { strokeDashoffset: target, duration: 1.4, ease: "power2.out",
+      scrollTrigger: { trigger: c.closest(".gauge-card"), start: "top 90%" } });
+  });
+
+  /* ── 3 · campaigns (signature 2) ── */
+  const CAMPAIGNS = [
+    { title: "Mining Industry Conquest", channel: "Google Search + LinkedIn", budget: "$4,500/mo",
+      headline: "Slurry Pumps Built for Mining — Outlast Centrifugal by 3x",
+      body: "Handles 70%+ solids. Patented eddy current design. No impeller wear. See ROI calculator.",
+      cta: "Get Mining Spec Sheet →",
+      keywords: ["slurry pump for mining", "high solids pump mining", "abrasive slurry pump"],
+      audience: "Job titles: Mine Manager, Procurement Engineer, Plant Operator. Company size 500+. Industries: Gold, Copper, Coal mining.",
+      kpi: "Form fills, spec sheet downloads" },
+    { title: "Dredging Project Season", channel: "Google Display + YouTube Pre-roll", budget: "$3,200/mo",
+      headline: "See Dredge Equipment in Action — Real Projects, Real Results",
+      body: "Used on major dam projects. Completes projects 40% faster. Cable-deployed &amp; excavator attachment options.",
+      cta: "Watch Project Video →",
+      keywords: ["dredge pump equipment", "hydraulic dredging system", "sediment removal pump"],
+      audience: "Remarketing to site visitors + Lookalike from existing customers. Marine construction job titles. Port authorities, environmental remediation firms.",
+      kpi: "Video views 50%+, quote requests" },
+    { title: "US Navy / Defense Retargeting", channel: "LinkedIn Sponsored Content", budget: "$2,800/mo",
+      headline: "Saved the US Navy $17M — Here's How",
+      body: "$359K solution vs $18M corrective action cost. OEM manufacturer for MSC &amp; Navy vessels. GSA-approved.",
+      cta: "Read the Navy Case Study →",
+      keywords: ["marine pump systems Navy", "government pump procurement", "OEM dredge manufacturer"],
+      audience: "LinkedIn: Defense &amp; Space industry + Government Administration. Titles: Contracting Officer, Program Manager, Naval Engineer.",
+      kpi: "Case study reads, RFQ submissions" },
+    { title: "Wastewater &amp; Municipal", channel: "Google Search + Programmatic", budget: "$2,500/mo",
+      headline: "Handle the Toughest Sewage &amp; Sludge — No Clogs, No Downtime",
+      body: "Rotor design handles fibrous waste centrifugals can't. Lower maintenance costs, proven in municipal plants.",
+      cta: "Schedule a Demo →",
+      keywords: ["sewage pump industrial", "high viscosity wastewater pump", "sludge pump system"],
+      audience: "Programmatic: IP targeting of municipal water authority facilities + retargeting site visitors. Titles: Plant Operator, Municipal Engineer, Utilities Director.",
+      kpi: "Demo requests, phone calls" },
+  ];
+  document.getElementById("campaigns").innerHTML = CAMPAIGNS.map((c, i) => `
+    <article class="camp glass">
+      <button class="camp-btn" aria-expanded="false" aria-controls="camp${i}">
+        <span class="camp-no">#${String(i + 1).padStart(2, "0")}</span>
+        <span class="camp-title"><b>${c.title}</b><span>${c.channel}</span></span>
+        <span class="camp-budget">${c.budget}</span>
+        <span class="camp-chev">▾</span>
+      </button>
+      <div class="camp-body" id="camp${i}">
+        <div class="ad-preview">
+          <span class="adlbl">Ad Preview</span>
+          <div class="headline">${c.headline}</div>
+          <div class="url">Ad · client website</div>
+          <div class="body">${c.body}</div>
+          <div class="cta">${c.cta}</div>
+        </div>
+        <div class="camp-meta">
+          <div><span>Target Keywords</span><ul class="kw-pills">${c.keywords.map((k) => `<li>${k}</li>`).join("")}</ul></div>
+          <div><span>Audience Targeting</span><p>${c.audience}</p></div>
+          <div><span>KPIs</span><p>${c.kpi}</p></div>
+        </div>
+      </div>
+    </article>`).join("");
+  document.querySelectorAll(".camp-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const open = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!open));
+      document.getElementById(btn.getAttribute("aria-controls")).classList.toggle("open", !open);
+      ScrollTrigger.refresh();
+    });
+  });
+
+  /* ── 4 · quick wins ── */
+  const QUICK = [
+    "Add live chat for B2B quote requests (Intercom or Drift)",
+    "Create an ROI/TCO calculator — \u201cHow much can you save vs centrifugal?\u201d",
+    "Build a \u201cPump Selector\u201d tool by solids %, flow rate, and industry",
+    "Publish the flagship case study as a dedicated SEO landing page",
+    "Add video testimonials from mining/dredge clients to homepage",
+    "Create a YouTube channel with pump performance demos (high search intent)",
+    "Add Spanish-language pages for the Latin American mining market",
+    "Set up Google My Business for HQ with project photos",
+  ];
+  document.getElementById("quickWins").innerHTML = QUICK.map((q, i) => `
+    <li class="qw glass"><span class="qw-n">${String(i + 1).padStart(2, "0")}</span><p>${q}</p></li>`).join("");
+
+  /* ── 5 · roadmap ── */
+  const ROADMAP = [
+    { ph: "Days 1–30", v: "#43e6b0", t: "Fix Core Web Vitals, add schema markup, deploy Cloudflare CDN, set up Google Search Console tracking." },
+    { ph: "Days 31–60", v: "#7ce7ff", t: "Launch Google Search campaigns for Mining + Wastewater, publish the flagship case study landing page, build the ROI calculator." },
+    { ph: "Days 61–90", v: "#e8c47f", t: "Launch LinkedIn campaigns, YouTube channel, Spanish-language pages, A/B test landing page CTAs." },
+  ];
+  document.getElementById("rail").innerHTML = ROADMAP.map((r) => `
+    <div class="stage" style="--c:${r.v}"><span class="ph">${r.ph}</span><p>${r.t}</p></div>`).join("");
+
+  /* ── 6 · reveals ── */
+  if (!reduced) {
+    gsap.from(".hero > *", { y: 26, opacity: 0, stagger: .1, duration: 1, ease: "power3.out", delay: .2 });
+    gsap.utils.toArray("section > .eyebrow, section > h2, section > .lede, .two-col > div, .gauge-card, .camp, .qw, .stage, .camp-total")
+      .forEach((el) => gsap.from(el, {
+        y: 20, opacity: 0, duration: .75, ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 94%" } }));
+  }
+
+  addEventListener("load", () => ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>
